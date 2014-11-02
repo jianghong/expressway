@@ -12,3 +12,8 @@ md-card {
   color: #ffa726;
   fill: #ffa726;
 }
+
+.search-icon {
+  background-color: gray;
+  padding: 0 20px;
+}
