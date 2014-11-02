@@ -11,26 +11,25 @@
   </head>
   <body>
     <div ng-controller="MainController">
-      <md-toolbar md-theme="blue">
+      <md-toolbar md-theme="blue" ng-class="{ 'md-white-theme':isSearchContext }" class="md-whiteframe-z1">
         <div class="md-toolbar-tools">
-          <div class="left-controls" layout="horizontal" layout-align="center center">
-            <md-button class="round-button">
+          <div class="left-controls" layout="horizontal" flex="15" layout-align="start center">
+            <md-button class="round-button" ng-click="mainContext()">
               <div class="icon-container" style="height: 30px;" layout="vertical" layout-align="center center">
-                <img style="height: 24px; width: 24px;" src="static/img/hamburger-icon.png">
+                <img style="height: 24px; width: 24px;" ng-src="{{ leftControlIconSrc}}">
               </div>
             </md-button>
-            <span>ExpressWay</span>
+            <a href="#"><span ng-click="mainContext()">{{leftControlTitle}}</span></a>
           </div>
 
           <div class="search-container" flex layout="horizontal">
             <div class="icon search-icon">
-              <div class="icon-opaque-overlay"></div>
               <div class="icon-container" style="height: 30px; padding: 0 20px;" layout="vertical" layout-align="center center">
-                <img style="height: 24px; width: 24px;" src="static/img/search-icon.png">
+                <img style="height: 24px; width: 24px;" ng-src="{{ searchIconSrc }}">
               </div>
             </div>
             <div class="search-input" flex>
-              <input type="text" style="width: 100%" placeholder="Ask Watson">
+              <input type="text" style="width: 100%" placeholder="Ask Watson..." ng-focus="searchContext()">
             </div>
           </div>
 
@@ -40,7 +39,7 @@
         </div>
       </md-toolbar>
 
-      <md-content class="md-padding">
+      <md-content class="md-padding" ng-click="mainContext()">
         <div class="container" layout="vertical" layout-align="center center">
           <md-card>
             <h1>Welcome!</h1>

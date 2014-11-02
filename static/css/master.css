@@ -22,14 +22,15 @@ md-card {
   border-bottom-left-radius: 3px;
 }
 
-.icon-opaque-overlay {
-  background-color: #fff;
-  position: absolute;
-  width: 64px;
+.icon-container {
+  background-color: #7f98fc;
+  border-color: #7f98fc;
   height: 30px;
-  opacity: 0.25;
+}
+
+.icon-container, .search-icon {
   border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;    
 }
 
 .input-opaque-overlay {
@@ -42,7 +43,7 @@ md-card {
 }
 
 
-.search-input input{
+.search-input input {
   background-color: #7f98fc;
   border-color: #7f98fc;
   border: none;
@@ -60,6 +61,28 @@ md-card {
    opacity: 0.8;
 }
 
-.round-button {
+.round-button, .round-button .icon-container {
   border-radius: 50px !important;
+  background-color: #5677fc !important;
+}
+
+
+.md-white-theme {
+  background-color: #f6f6f6 !important;
+  color: #000 !important;
+}
+
+.md-white-theme .round-button .icon-container, .md-white-theme .round-button {
+  background-color: #f6f6f6 !important;
+}
+
+.md-white-theme .search-input ::-webkit-input-placeholder {
+  color: #000;
+  opacity: 0.5
+}
+
+.md-white-theme .search-input input, .md-white-theme .icon-container {
+  background-color: #fff;
+  border-color: #fff;
+  color: #000;
 }
