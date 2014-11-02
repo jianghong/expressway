@@ -1,6 +1,11 @@
+body, md-content {
+  background-color: #ececec !important;
+}
+
 md-card {
   width: 768px;
   padding: 10px 25px;
+  background-color: #fff;
 }
 
 md-toolbar, .round-button, .search-input input, .icon-container {

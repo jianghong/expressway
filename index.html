@@ -14,12 +14,12 @@
       <md-toolbar md-theme="blue" ng-class="{ 'md-white-theme':isSearchContext }" class="md-whiteframe-z1">
         <div class="md-toolbar-tools">
           <div class="left-controls" layout="horizontal" flex="15" layout-align="start center">
-            <md-button class="round-button" ng-click="mainContext()">
+            <md-button class="round-button" ng-click="introContext()">
               <div class="icon-container" style="height: 30px;" layout="vertical" layout-align="center center">
                 <img style="height: 24px; width: 24px;" ng-src="{{ leftControlIconSrc}}">
               </div>
             </md-button>
-            <a href="#"><span ng-click="mainContext()">{{leftControlTitle}}</span></a>
+            <span style="cursor: pointer;" ng-click="introContext()">{{leftControlTitle}}</span>
           </div>
 
           <div class="search-container" flex layout="horizontal">
@@ -39,25 +39,8 @@
         </div>
       </md-toolbar>
 
-      <md-content class="md-padding" ng-click="mainContext()">
-        <div class="container" layout="vertical" layout-align="center center">
-          <md-card>
-            <h1>Welcome!</h1>
-            <p>With just a few answers, we will be able to tell you what programs you can apply under.</p>
-
-            <p>We can then continue from there and help you gather all the information we need to fill in the forms for you. You will be able to verify the forms and if you're satisfied with them, we will let you download them for a small fee.</p>
-
-            <p>Now, when you're ready, let's figure out what program you should apply for!</p>
-            <div class="card-triggers" layout="horizontal" layout-align="space-between">
-              <md-button class="md-yellow-btn">
-                Privacy
-              </md-button>
-              <md-button class="md-blue-btn">
-                Get Started
-              </md-button>
-            </div>
-          </md-card>
-        </div>
+      <md-content class="md-padding" ng-click="introContext()">
+        <div class="container" layout="vertical" layout-align="center center" ng-view></div>
       </md-content>
     </div>
     <script src="bower_components/angular/angular.js"></script>
@@ -65,6 +48,7 @@
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/hammerjs/hammer.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="static/js/app.js"></script>
   </body>
 </html>
