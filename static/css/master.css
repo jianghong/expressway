@@ -1,0 +1,14 @@
+md-card {
+  width: 768px;
+  padding: 10px 25px;
+}
+
+.md-blue-btn {
+  color: #29b6f6;
+  fill: #29b6f6;
+}
+
+.md-yellow-btn {
+  color: #ffa726;
+  fill: #ffa726;
+}
