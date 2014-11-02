@@ -59,3 +59,7 @@ md-card {
    color: #fff;
    opacity: 0.8;
 }
+
+.round-button {
+  border-radius: 50px !important;
+}
