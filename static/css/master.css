@@ -1,0 +1,65 @@
+md-card {
+  width: 768px;
+  padding: 10px 25px;
+}
+
+.md-blue-btn {
+  color: #29b6f6;
+  fill: #29b6f6;
+}
+
+.md-yellow-btn {
+  color: #ffa726;
+  fill: #ffa726;
+}
+
+.search-icon {
+  background-color: #5677fc;
+}
+
+.search-container {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.icon-opaque-overlay {
+  background-color: #fff;
+  position: absolute;
+  width: 64px;
+  height: 30px;
+  opacity: 0.25;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.input-opaque-overlay {
+  background-color: #fff;
+  position: absolute;
+  width: 767px;
+  height: 30px;
+  opacity: 0.25;
+  border: none;
+}
+
+
+.search-input input{
+  background-color: #7f98fc;
+  border-color: #7f98fc;
+  border: none;
+  height: 30px;
+  color: #fff;
+  font-size: 0.75em;
+  font-family: 'RobotoDraft', 'Helvetica Neue', Helvetica, Arial;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+
+}
+
+.search-input ::-webkit-input-placeholder {
+   color: #fff;
+   opacity: 0.8;
+}
+
+.round-button {
+  border-radius: 50px !important;
+}

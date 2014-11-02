@@ -5,61 +5,61 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="bower_components/angular-material/themes/indigo-theme.css">
+    <link rel="stylesheet" href="bower_components/angular-material/themes/yellow-theme.css">
+    <link rel="stylesheet" href="bower_components/angular-material/themes/blue-theme.css">
     <link rel="stylesheet" href="static/css/master.css">
   </head>
   <body>
-    <div ng-controller="MainController" layout="vertical" style="padding-bottom: 15px;">
-      <md-toolbar md-theme="indigo">
+    <div ng-controller="MainController">
+      <md-toolbar md-theme="blue">
         <div class="md-toolbar-tools">
-          <span class="md-flex">ExpressWay</span>
+          <div class="left-controls" layout="horizontal" layout-align="center center">
+            <md-button class="round-button">
+              <div class="icon-container" style="height: 30px;" layout="vertical" layout-align="center center">
+                <img style="height: 24px; width: 24px;" src="static/img/hamburger-icon.png">
+              </div>
+            </md-button>
+            <span>ExpressWay</span>
+          </div>
+
+          <div class="search-container" flex layout="horizontal">
+            <div class="icon search-icon">
+              <div class="icon-opaque-overlay"></div>
+              <div class="icon-container" style="height: 30px; padding: 0 20px;" layout="vertical" layout-align="center center">
+                <img style="height: 24px; width: 24px;" src="static/img/search-icon.png">
+              </div>
+            </div>
+            <div class="search-input" flex>
+              <input type="text" style="width: 100%" placeholder="Ask Watson">
+            </div>
+          </div>
+
+          <div class="right-controls" flex="15" layout="horizontal" layout-align="end">
+          <md-button>Settings</md-button>
+          </div>
         </div>
       </md-toolbar>
 
       <md-content class="md-padding">
-        Lorem ipsum dolor sit amet, ne quod novum mei. Sea omnium invenire mediocrem at, in lobortis conclusionemque nam. Ne deleniti appetere reprimique pro, inani labitur disputationi te sed. At vix sale omnesque, id pro labitur reformidans accommodare, cum labores honestatis eu. Nec quem lucilius in, eam praesent reformidans no. Sed laudem aliquam ne.
+        <div class="container" layout="vertical" layout-align="center center">
+          <md-card>
+            <h1>Welcome!</h1>
+            <p>With just a few answers, we will be able to tell you what programs you can apply under.</p>
 
-        <p>
-    Facete delenit argumentum cum at. Pro rebum nostrum contentiones ad. Mel exerci tritani maiorum at, mea te audire phaedrum, mel et nibh aliquam. Malis causae equidem vel eu. Noster melius vis ea, duis alterum oporteat ea sea. Per cu vide munere fierent.
-        </p>
+            <p>We can then continue from there and help you gather all the information we need to fill in the forms for you. You will be able to verify the forms and if you're satisfied with them, we will let you download them for a small fee.</p>
 
-        <p>
-    Ad sea dolor accusata consequuntur. Sit facete convenire reprehendunt et. Usu cu nonumy dissentiet, mei choro omnes fuisset ad. Te qui docendi accusam efficiantur, doming noster prodesset eam ei. In vel posse movet, ut convenire referrentur eum, ceteros singulis intellegam eu sit.
-        </p>
-
-        <p>
-    Sit saepe quaestio reprimique id, duo no congue nominati, cum id nobis facilisi. No est laoreet dissentias, idque consectetuer eam id. Clita possim assueverit cu his, solum virtute recteque et cum. Vel cu luptatum signiferumque, mel eu brute nostro senserit. Blandit euripidis consequat ex mei, atqui torquatos id cum, meliore luptatum ut usu. Cu zril perpetua gubergren pri. Accusamus rationibus instructior ei pro, eu nullam principes qui, reque justo omnes et quo.
-        </p>
-
-        <p>
-    Sint unum eam id. At sit fastidii theophrastus, mutat senserit repudiare et has. Atqui appareat repudiare ad nam, et ius alii incorrupte. Alii nullam libris his ei, meis aeterno at eum. Ne aeque tincidunt duo. In audire malorum mel, tamquam efficiantur has te.
-        </p>
-
-        <p>
-    Qui utamur tacimates quaestio ad, quod graece omnium ius ut. Pri ut vero debitis interpretaris, qui cu mentitum adipiscing disputationi. Voluptatum mediocritatem quo ut. Fabulas dolorem ei has, quem molestie persequeris et sit.
-        </p>
-
-        <p>
-    Est in vivendum comprehensam conclusionemque, alia cetero iriure no usu, te cibo deterruisset pro. Ludus epicurei quo id, ex cum iudicabit intellegebat. Ex modo deseruisse quo, mel noster menandri sententiae ea, duo et tritani malorum recteque. Nullam suscipit partiendo nec id, indoctum vulputate per ex. Et has enim habemus tibique. Cu latine electram cum, ridens propriae intellegat eu mea.
-        </p>
-
-        <p>
-    Duo at aliquid mnesarchum, nec ne impetus hendrerit. Ius id aeterno debitis atomorum, et sed feugait voluptua, brute tibique no vix. Eos modo esse ex, ei omittam imperdiet pro. Vel assum albucius incorrupte no. Vim viris prompta repudiare ne, vel ut viderer scripserit, dicant appetere argumentum mel ea. Eripuit feugait tincidunt pri ne, cu facilisi molestiae usu.
-        </p>
-
-        <p>
-    Qui utamur tacimates quaestio ad, quod graece omnium ius ut. Pri ut vero debitis interpretaris, qui cu mentitum adipiscing disputationi. Voluptatum mediocritatem quo ut. Fabulas dolorem ei has, quem molestie persequeris et sit.
-        </p>
-
-        <p>
-    Est in vivendum comprehensam conclusionemque, alia cetero iriure no usu, te cibo deterruisset pro. Ludus epicurei quo id, ex cum iudicabit intellegebat. Ex modo deseruisse quo, mel noster menandri sententiae ea, duo et tritani malorum recteque. Nullam suscipit partiendo nec id, indoctum vulputate per ex. Et has enim habemus tibique. Cu latine electram cum, ridens propriae intellegat eu mea.
-        </p>
-
-        <p>
-    Duo at aliquid mnesarchum, nec ne impetus hendrerit. Ius id aeterno debitis atomorum, et sed feugait voluptua, brute tibique no vix. Eos modo esse ex, ei omittam imperdiet pro. Vel assum albucius incorrupte no. Vim viris prompta repudiare ne, vel ut viderer scripserit, dicant appetere argumentum mel ea. Eripuit feugait tincidunt pri ne, cu facilisi molestiae usu.
-        </p>
-
+            <p>Now, when you're ready, let's figure out what program you should apply for!</p>
+            <div class="card-triggers" layout="horizontal" layout-align="space-between">
+              <md-button class="md-yellow-btn">
+                Privacy
+              </md-button>
+              <md-button class="md-blue-btn">
+                Get Started
+              </md-button>
+            </div>
+          </md-card>
+        </div>
       </md-content>
-
     </div>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
