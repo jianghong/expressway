@@ -51,7 +51,6 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   border: none;
 }
 
-
 .search-input input {
   background-color: #7f98fc;
   border-color: #7f98fc;
@@ -95,3 +94,8 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   border-color: #fff;
   color: #000;
 }
+
+md-item-content:hover {
+  background-color: #f7f7f7;
+  cursor: pointer;
+};

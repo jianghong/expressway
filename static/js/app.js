@@ -1,4 +1,4 @@
-var app = angular.module('ExpressWay', ['ngRoute', 'ngMaterial']);
+var app = angular.module('ExpressWay', ['ngRoute', 'ngMaterial', 'ngFx']);
 
 app.config(['$routeProvider',
   function($routeProvider){
@@ -62,6 +62,18 @@ app.controller('IntroController', function($scope) {
 
 app.controller('SearchController', function($scope) {
 });
+
+app.controller('SuggestionsController', function($scope) {
+  $scope.suggestedQuestions = [
+    {
+      question: 'What is life?'
+    },
+    {
+      question: 'What is your mom\'s number?'
+    }
+  ];
+});
+
 
 app.run( function($rootScope, $location) {
    $rootScope.$watch(function() { 
