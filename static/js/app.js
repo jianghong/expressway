@@ -31,9 +31,9 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   $scope.leftControlIconSrc = hamburgerIconSrc;
   $scope.leftControlTitle = 'ExpressWay';
   $scope.searchIconSrc = searchIconWSrc;
+  $rootScope.isLoading = false;
 
   $scope.searchContext = function() {
-
     $location.path('/search');
   }
 
@@ -42,11 +42,14 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   } 
 
   $scope.resultsContext = function() {
+    $rootScope.isLoading = true;
     answersModel.askWatson($scope.question).then(function(data) {
       answersModel.setData(data);
       $location.path('/search/' + $scope.question);
     }, function(error) {
       console.log('error');
+    }).finally(function() {
+      $rootScope.isLoading = false;
     });
   }
 
@@ -97,6 +100,7 @@ app.controller('ResultsController', function($scope, $routeParams, answersModel)
     }, function(error) {
       console.log('error');
     });
+
   } else {
     $scope.answers = answersModel.answers.question.answers;
   }

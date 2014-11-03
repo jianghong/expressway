@@ -25,7 +25,8 @@
           <div class="search-container" flex layout="horizontal">
             <div class="icon search-icon">
               <div class="icon-container" style="height: 30px; padding: 0 20px;" layout="vertical" layout-align="center center">
-                <img style="height: 24px; width: 24px;" ng-src="{{ searchIconSrc }}">
+                <img ng-hide="isLoading" style="height: 24px; width: 24px;" ng-src="{{ searchIconSrc }}">
+                <md-progress-circular ng-show="isLoading" style="margin-bottom: 10px; height:24px; width:24px;" diameter="18" mode="indeterminate"></md-progress-circular>
               </div>
             </div>
             <div class="search-input" flex>
