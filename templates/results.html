@@ -1,0 +1,24 @@
+<div ng-controller="ResultsController">
+  <md-list>
+    <md-item ng-repeat="answer in answers">
+      <md-item-content>
+        <div class="md-tile-content">
+          <md-card>
+            <div class="card-meta" layout="horizontal" layout-align="space-between">
+              <h2>CIC</h2>
+              <h2>{{answer.confidence}}</h2>
+            </div>
+            <div class="card-content">
+              {{answer.text}}
+            </div>
+          <!--   <div class="card-triggers" layout="horizontal" layout-align="end">
+              <md-button class="md-blue-btn">
+                More Details
+              </md-button>
+            </div>        -->     
+          </md-card>
+        </div>
+      </md-item-content>
+    </md-item>
+  </md-list>
+</div>

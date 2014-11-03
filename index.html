@@ -11,7 +11,7 @@
   </head>
   <body>
     <div ng-controller="MainController">
-      <md-toolbar md-theme="blue" ng-class="{ 'md-white-theme':isSearchContext }" class="md-whiteframe-z1">
+      <md-toolbar scroll-shrink md-theme="blue" ng-class="{ 'md-white-theme':isSearchContext }" class="md-whiteframe-z1">
         <div class="md-toolbar-tools">
           <div class="left-controls" layout="horizontal" flex="15" layout-align="start center">
             <md-button class="round-button" ng-click="introContext()">
@@ -41,7 +41,7 @@
         </div>
       </md-toolbar>
 
-      <md-content class="md-padding">
+      <md-content style="height: 100vh;" class="md-padding">
         <div class="container" layout="vertical" layout-align="center center" ng-view></div>
       </md-content>
     </div>

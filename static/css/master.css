@@ -95,7 +95,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   color: #000;
 }
 
-md-item-content:hover {
+.suggested:hover {
   background-color: #f7f7f7;
   cursor: pointer;
 };

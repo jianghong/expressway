@@ -90,6 +90,16 @@ app.controller('SuggestionsController', function($scope) {
 
 app.controller('ResultsController', function($scope, $routeParams, answersModel) {
   console.log(answersModel.answers);
+  if (!answersModel.answers) {
+    answersModel.askWatson($routeParams.question).then(function(data) {
+      answersModel.setData(data);
+      $scope.answers = answersModel.answers.question.answers;
+    }, function(error) {
+      console.log('error');
+    });
+  } else {
+    $scope.answers = answersModel.answers.question.answers;
+  }
 });
 
 app.run( function($rootScope, $location) {
