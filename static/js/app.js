@@ -11,12 +11,16 @@ app.config(['$routeProvider',
         templateUrl: 'templates/search.html',
         controller: 'SearchController'
       }).
+      when('/search/:question', {
+        templateUrl: 'templates/results.html',
+        controller: 'ResultsController'
+      }).
       otherwise({
         redirectTo: '/intro'
       });
   }])
 
-app.controller('MainController', function($scope, $location, $rootScope) {
+app.controller('MainController', function($scope, $location, $rootScope, answersModel) {
   var MAIN_THEME_CLASS = 'md-blue-theme';
   var hamburgerIconSrc = 'static/img/hamburger-icon.png';
   var backIconSrc = 'static/img/back-icon.png';
@@ -37,9 +41,18 @@ app.controller('MainController', function($scope, $location, $rootScope) {
     $location.path('/intro');
   } 
 
+  $scope.resultsContext = function() {
+    answersModel.askWatson($scope.question).then(function(data) {
+      answersModel.setData(data);
+      $location.path('/search/' + $scope.question);
+    }, function(error) {
+      console.log('error');
+    });
+  }
+
   function switchContext(context) {
     console.log(context);
-    if (context === '/search') {
+    if (context.indexOf('/search') >= 0) {
       $scope.leftControlTitle = 'Back';
       $scope.isSearchContext = true;
       $scope.leftControlIconSrc = backIconSrc;      
@@ -53,8 +66,9 @@ app.controller('MainController', function($scope, $location, $rootScope) {
     }
   }
 
+
   $rootScope.switchContext = switchContext;
-})
+ });
 
 app.controller('IntroController', function($scope) {
 
@@ -74,6 +88,9 @@ app.controller('SuggestionsController', function($scope) {
   ];
 });
 
+app.controller('ResultsController', function($scope, $routeParams, answersModel) {
+  console.log(answersModel.answers);
+});
 
 app.run( function($rootScope, $location) {
    $rootScope.$watch(function() { 
@@ -82,4 +99,24 @@ app.run( function($rootScope, $location) {
     function(a){  
       $rootScope.switchContext(a);
     });
+});
+
+app.service('answersModel', function($http, $q) {
+  var watsonRoute = 'http://127.0.0.1:8000/ask';
+
+  this.askWatson = function(question) {
+    return $q(function(resolve, reject) {
+      $http.get(watsonRoute, {params: {q: question}}).
+      success(function(data, status, headers, config) {
+        resolve(data);
+      }).
+      error(function(error, status, headers, config) {
+        reject(error);
+      });
+    });
+  }
+
+  this.setData = function(data) {
+    this.answers = data;
+  }
 });

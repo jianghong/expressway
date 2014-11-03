@@ -29,7 +29,9 @@
               </div>
             </div>
             <div class="search-input" flex>
-              <input type="text" style="width: 100%" placeholder="Ask Watson..." ng-focus="searchContext()">
+              <form ng-submit="resultsContext()">
+                <input type="text" style="width: 100%" placeholder="Ask Watson..." ng-model="question" ng-focus="searchContext()">
+              </form>
             </div>
           </div>
 
