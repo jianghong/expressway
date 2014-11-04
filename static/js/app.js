@@ -40,10 +40,24 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
 
   $scope.results = answersModel.answers ? answersModel.answers.question.answers : [];
 
+  $scope.suggestedQuestions = [
+    {
+      question: 'What is life?'
+    },
+    {
+      question: 'What is your mom\'s number?'
+    }
+  ];
+
   $scope.searchContext = function() {
     // $location.path('/search');
     $scope.switchContext('/search');
     $scope.isSearchContext = true;
+    $scope.inputIsFocused = true;
+  }
+
+  $scope.inputBlur = function() {
+    $scope.inputIsFocused = false;
   }
 
   $scope.introContext = function() {
@@ -186,7 +200,6 @@ app.directive('toolbarAnimate', function($rootScope){
                 $element.animate({
                   height: '64px'
                 }, 300, function() {
-                  $rootScope.toolbarAnimateDone = true;
                 });
               }
             });
@@ -200,9 +213,9 @@ app.directive('infoAnimate', function(){
             attributes.$observe('isSearching', function(value){
               console.log(value);
               if (value === 'true') {
-                element.slideUp(300);
+                element.slideUp(500);
               } else {
-                element.slideDown(100);
+                element.slideDown(300);
               }
             });
         }

@@ -24,7 +24,7 @@
   </head>
   <body>
     <div ng-controller="MainController">
-      <md-toolbar toolbar-animate is-searching="{{isSearchContext}}" layout="vertical" layout-align="center center" scroll-shrink md-theme="blue" ng-class="{'md-tall': !isSearchContext}">
+      <md-toolbar toolbar-animate is-searching="{{isSearchContext}}" layout="vertical" layout-align="center center" scroll-shrink md-theme="blue" ng-class="{'md-tall': !isSearchContext}" class="md-whiteframe-z1">
         <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
           <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
           <md-button>Login</md-button>
@@ -36,7 +36,6 @@
           </div>
         </div>
         <div class="md-toolbar-tools md-toolbar-tools-bottom" flex="60" layout="horizontal" layout-align="space-between">
-          <span class="ex-hidden">ExpressWay</span>
           <div class="search-container" layout="horizontal" flex ng-class="{ 'md-white-theme':isSearchContext }">
             <div class="icon search-icon">
               <div class="icon-container" style="height: 30px; padding: 0 20px;" layout="vertical" layout-align="center center">
@@ -46,14 +45,27 @@
             </div>
             <div class="search-input" flex>
               <form ng-submit="resultsContext()">
-                <input type="text" placeholder="Ask Watson..." ng-model="question" ng-focus="searchContext()">
+                <input type="text" placeholder="Ask Watson..." ng-model="question" ng-blur="inputBlur()" ng-focus="searchContext()">
               </form>
             </div>
           </div>          
-          <md-button class="ex-hidden">Login</md-button>
         </div>
       </md-toolbar>
-
+      <div layout="horizontal" ng-show="inputIsFocused" layout-align="center" class="autocomplete-container">
+        <md-card flex="60" class="autocomplete-card">
+          <md-divider></md-divider>
+          <md-subheader class="md-primary">Suggested Questions:</md-subheader>
+          <md-list>
+            <md-item ng-repeat="question in suggestedQuestions">
+              <md-item-content>
+                <div class="md-tile-content">
+                  {{ question.question }}
+                </div>
+              </md-item-content>
+            </md-item>
+          </md-list>    
+        </md-card>
+      </div>
       <section class="watson-results" layout="vertical" layout-align="center center" ng-show="isSearchContext">
         <md-list>
           <md-item ng-repeat="result in results">

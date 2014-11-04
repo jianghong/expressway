@@ -129,3 +129,8 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 .md-toolbar-tools-bottom {
   z-index: 2;
 }
+
+
+.autocomplete-container {
+  margin-top: -10px;
+}
