@@ -24,7 +24,7 @@
   </head>
   <body>
     <div ng-controller="MainController">
-      <md-toolbar toolbar-animate is-searching="{{isSearchContext}}" layout="vertical" scroll-shrink md-theme="blue" ng-class="{'md-tall': !isSearchContext}">
+      <md-toolbar toolbar-animate is-searching="{{isSearchContext}}" layout="vertical" layout-align="center center" scroll-shrink md-theme="blue" ng-class="{'md-tall': !isSearchContext}">
         <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
           <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
           <md-button>Login</md-button>
@@ -35,9 +35,9 @@
           <h4 style="margin-top: 5px; margin-bottom: 50px;">To answer your immigration questions.</h4>          
           </div>
         </div>
-        <div class="md-toolbar-tools md-toolbar-tools-bottom" layout="horizontal" layout-align="space-between">
+        <div class="md-toolbar-tools md-toolbar-tools-bottom" flex="60" layout="horizontal" layout-align="space-between">
           <span class="ex-hidden">ExpressWay</span>
-          <div class="search-container" layout="horizontal" flex="60" ng-class="{ 'md-white-theme':isSearchContext }">
+          <div class="search-container" layout="horizontal" flex ng-class="{ 'md-white-theme':isSearchContext }">
             <div class="icon search-icon">
               <div class="icon-container" style="height: 30px; padding: 0 20px;" layout="vertical" layout-align="center center">
                 <img ng-hide="isLoading" style="height: 24px; width: 24px;" ng-src="{{ searchIconSrc }}">
@@ -79,7 +79,7 @@
         </md-list>  
       </section>
       <md-content style="height: 100vh;">
-        <md-backdrop class="md-opaque" ng-show="isSearchContext"></md-backdrop>
+        <!-- <md-backdrop class="md-opaque" ng-show="isSearchContext"></md-backdrop> -->
         <div class="container" layout="vertical" layout-align="center center" ng-view></div>
       </md-content>
     </div>

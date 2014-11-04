@@ -36,6 +36,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   $scope.leftControlTitle = 'ExpressWay';
   $scope.searchIconSrc = searchIconWSrc;
   $rootScope.isLoading = false;
+  $rootScope.inputIsFocused = false;
 
   $scope.results = answersModel.answers ? answersModel.answers.question.answers : [];
 
@@ -177,15 +178,15 @@ app.service('answersModel', function($http, $q) {
   }
 });
 
-app.directive('toolbarAnimate', function(){
+app.directive('toolbarAnimate', function($rootScope){
     return {
-        link: function(scope, element, attributes){
-            attributes.$observe('isSearching', function(value){
+        link: function($scope, $element, $attributes){
+            $attributes.$observe('isSearching', function(value){
               if (value === 'true') {
-                element.animate({
+                $element.animate({
                   height: '64px'
                 }, 300, function() {
-                  // Animation complete.
+                  $rootScope.toolbarAnimateDone = true;
                 });
               }
             });
