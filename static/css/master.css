@@ -9,6 +9,10 @@ md-card {
 
 md-toolbar, .round-button, .search-input input, .icon-container {
   transition: background-color 0.2s ease;
+  -webkit-transition: height 300ms ease-in-out;
+  -moz-transition: height 300ms ease-in-out;
+  -o-transition: height 300ms ease-in-out;
+  transition: height 300ms ease-in-out;    
 }
 
 .md-blue-btn {
@@ -110,6 +114,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 
 .md-tall {
   height: 210px !important;
+
 }
 
 .ex-hidden {

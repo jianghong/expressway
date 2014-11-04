@@ -56,21 +56,21 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
 
   $scope.resultsContext = function() {
     $rootScope.isLoading = true;
-    console.log($scope.question);
+    // console.log($scope.question);
     answersModel.askWatson($scope.question).then(function(data) {
-      console.log(data);
+      // console.log(data);
       answersModel.setData(data);
       // $location.path('/search/' + $scope.question);
       $scope.results = answersModel.answers.question.answers;
     }, function(error) {
-      console.log('error');
+      // console.log('error');
     }).finally(function() {
       $rootScope.isLoading = false;
     });
   }
 
   function switchContext(context) {
-    console.log(context);
+    // console.log(context);
     if (context.indexOf('/search') >= 0) {
       $scope.leftControlTitle = 'Back';
       $scope.isSearchContext = true;
@@ -134,13 +134,13 @@ app.controller('SuggestionsController', function($scope) {
 });
 
 app.controller('ResultsController', function($scope, $routeParams, answersModel) {
-  console.log(answersModel.answers);
+  // console.log(answersModel.answers);
   if (!answersModel.answers) {
     answersModel.askWatson($routeParams.question).then(function(data) {
       answersModel.setData(data);
       $scope.answers = answersModel.answers.question.answers;
     }, function(error) {
-      console.log('error');
+      // console.log('error');
     });
 
   } else {
@@ -176,3 +176,21 @@ app.service('answersModel', function($http, $q) {
     this.answers = data;
   }
 });
+
+app.directive('toolbarAnimate', function(){
+    return {
+        link: function(scope, element, attributes){
+            attributes.$observe('isSearching', function(value){
+              if (value) {
+                console.log(value);
+                element.animate({
+                  height: '64px'
+                }, 100, function() {
+                  // Animation complete.
+                });
+              }
+            });
+        }
+    };
+});
+

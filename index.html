@@ -24,12 +24,12 @@
   </head>
   <body>
     <div ng-controller="MainController">
-      <md-toolbar layout="vertical" scroll-shrink md-theme="blue" ng-class="{'md-tall': !isSearchContext}">
+      <md-toolbar toolbar-animate is-searching="{{isSearchContext}}" layout="vertical" scroll-shrink md-theme="blue" ng-class="{'md-tall': !isSearchContext}">
         <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
           <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
           <md-button>Login</md-button>
         </div>
-        <div ng-hide="isSearchContext" layout="vertical" layout-align="center center">
+        <div layout="vertical" layout-align="center center">
           <h1 style="margin-bottom: 5px;">Our vision is simple.</h1>
           <h4 style="margin-top: 5px; margin-bottom: 50px;">To answer your immigration questions.</h4>          
         </div>
@@ -81,6 +81,7 @@
         <div class="container" layout="vertical" layout-align="center center" ng-view></div>
       </md-content>
     </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
