@@ -8,21 +8,27 @@
     <link rel="stylesheet" href="bower_components/angular-material/themes/yellow-theme.css">
     <link rel="stylesheet" href="bower_components/angular-material/themes/blue-theme.css">
     <link rel="stylesheet" href="static/css/master.css">
+    <style>
+      .watson-results {
+        height: 200px !important;
+        overflow-x: auto;
+      }
+    </style>
   </head>
   <body>
     <div ng-controller="MainController">
-      <md-toolbar scroll-shrink md-theme="blue" ng-class="{ 'md-white-theme':isSearchContext }" class="md-whiteframe-z1">
+      <md-toolbar scroll-shrink md-theme="blue"  class="md-whiteframe-z1">
         <div class="md-toolbar-tools">
           <div class="left-controls" layout="horizontal" flex="15" layout-align="start center">
-            <md-button class="round-button" ng-click="introContext()">
+            <md-button class="round-button" ng-click="mainContext()">
               <div class="icon-container" style="height: 30px;" layout="vertical" layout-align="center center">
                 <img style="height: 24px; width: 24px;" ng-src="{{ leftControlIconSrc}}">
               </div>
             </md-button>
-            <span style="cursor: pointer;" ng-click="introContext()">{{leftControlTitle}}</span>
+            <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
           </div>
 
-          <div class="search-container" flex layout="horizontal">
+          <div class="search-container" flex layout="horizontal" ng-class="{ 'md-white-theme':isSearchContext }">
             <div class="icon search-icon">
               <div class="icon-container" style="height: 30px; padding: 0 20px;" layout="vertical" layout-align="center center">
                 <img ng-hide="isLoading" style="height: 24px; width: 24px;" ng-src="{{ searchIconSrc }}">
@@ -43,6 +49,30 @@
       </md-toolbar>
 
       <md-content style="height: 100vh;" class="md-padding">
+        <section class="watson-results" layout="horizontal" ng-show="isSearchContext">
+          <md-list>
+            <md-item ng-repeat="result in results">
+              <md-item-content>
+                <div class="md-tile-content">
+                  <md-card>
+                    <div class="card-meta" layout="horizontal" layout-align="space-between">
+                      <h2>CIC</h2>
+                      <h2>{{result.confidence}}</h2>
+                    </div>
+                    <div class="card-content">
+                      {{result.text}}
+                    </div>
+                  <!--   <div class="card-triggers" layout="horizontal" layout-align="end">
+                      <md-button class="md-blue-btn">
+                        More Details
+                      </md-button>
+                    </div>        -->     
+                  </md-card>
+                </div>
+              </md-item-content>
+            </md-item>
+          </md-list>  
+        </section>
         <div class="container" layout="vertical" layout-align="center center" ng-view></div>
       </md-content>
     </div>

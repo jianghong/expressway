@@ -1,0 +1,23 @@
+<section>
+  <md-card>
+    <div layout="vertical" layout-align="center center">
+      <h1>{{ mainCard.whatWeAre }}</h1>
+      <md-button class="md-primary md-raised">{{ mainCard.actionText }}</md-button>
+      <h2>{{ mainCard.tagline }}</h2>
+  </md-card>
+</section>
+
+<section layout="horizontal" layout-align="space-between">
+  <md-card ng-repeat="testimonial in testimonials">
+    <div layout="vertical" layout-align="center">
+      <blockquote>
+        {{ testimonial.quote }}
+      </blockquote>
+      <div layout="horizontal" layout-align="end">
+        {{ testimonial.name}}
+      </div>
+    </div>
+  </md-card>
+</section>
+
+

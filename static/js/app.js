@@ -3,6 +3,10 @@ var app = angular.module('ExpressWay', ['ngRoute', 'ngMaterial', 'ngFx']);
 app.config(['$routeProvider',
   function($routeProvider){
     $routeProvider.
+      when('/', {
+        templateUrl: 'templates/marketing.html',
+        controller: 'MarketingController'
+      }).
       when('/intro', {
         templateUrl: 'templates/intro.html',
         controller: 'IntroController'
@@ -16,7 +20,7 @@ app.config(['$routeProvider',
         controller: 'ResultsController'
       }).
       otherwise({
-        redirectTo: '/intro'
+        redirectTo: '/'
       });
   }])
 
@@ -33,19 +37,31 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   $scope.searchIconSrc = searchIconWSrc;
   $rootScope.isLoading = false;
 
+  $scope.results = answersModel.answers ? answersModel.answers.question.answers : [];
+
   $scope.searchContext = function() {
-    $location.path('/search');
+    // $location.path('/search');
+    $scope.switchContext('/search');
+    $scope.isSearchContext = true;
   }
 
   $scope.introContext = function() {
     $location.path('/intro');
+  }
+
+  $scope.mainContext = function() {
+    $scope.isSearchContext = false;
+    $scope.switchContext('/');
   } 
 
   $scope.resultsContext = function() {
     $rootScope.isLoading = true;
+    console.log($scope.question);
     answersModel.askWatson($scope.question).then(function(data) {
+      console.log(data);
       answersModel.setData(data);
-      $location.path('/search/' + $scope.question);
+      // $location.path('/search/' + $scope.question);
+      $scope.results = answersModel.answers.question.answers;
     }, function(error) {
       console.log('error');
     }).finally(function() {
@@ -72,6 +88,31 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
 
   $rootScope.switchContext = switchContext;
  });
+
+app.controller('MarketingController', function($scope, answersModel) {
+  $scope.mainCard = {
+    actionText: 'Start Asking',
+    tagline: 'Immigrate with ease.',
+    whatWeAre: 'We are an immigration research tool that assist immigrants around the world using by providing answers to their immigration questions powered by Watson.'
+  };
+
+  
+
+  $scope.testimonials = [
+    {
+      name: 'Don Handerson',
+      quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt tristique sem at ornare. Morbi vel augue eu eros euismod vulputate. Praesent tortor ante, imperdiet quis tellus sed, fermentum viverra elit.'
+    },
+    {
+      name: 'Nancy Policks',
+      quote: 'Donec sed porttitor ex, a tincidunt elit. Maecenas tincidunt tincidunt urna, aliquam imperdiet felis tincidunt in. Nunc et arcu eros.'
+    },
+    {
+      name: 'Helen Mario',
+      quote: 'Maecenas et orci quis dui eleifend efficitur. Vestibulum augue odio, luctus at consectetur a, luctus in odio. Suspendisse suscipit lacus ut lobortis imperdiet. Nullam elementum elementum mi nec faucibus.'
+    }
+  ];
+});
 
 app.controller('IntroController', function($scope) {
 

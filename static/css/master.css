@@ -3,7 +3,6 @@ body, md-content {
 }
 
 md-card {
-  width: 768px;
   padding: 10px 25px;
   background-color: #fff;
 }
@@ -99,3 +98,4 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   background-color: #f7f7f7;
   cursor: pointer;
 };
+
