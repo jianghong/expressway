@@ -110,6 +110,12 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 
 .watson-results {
   overflow-y: auto;
+  position: fixed;
+  top: 275px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;  
 }
 
 .md-tall {
@@ -139,4 +145,13 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 
 .media img {
   max-width: 100%;
+}
+
+.md-opaque {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

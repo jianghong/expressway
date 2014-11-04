@@ -7,20 +7,8 @@
     <link rel="stylesheet" href="bower_components/angular-material/themes/indigo-theme.css">
     <link rel="stylesheet" href="bower_components/angular-material/themes/yellow-theme.css">
     <link rel="stylesheet" href="bower_components/angular-material/themes/blue-theme.css">
+    <link rel="stylesheet" href="bower_components/animate-css/animate.min.css">
     <link rel="stylesheet" href="static/css/master.css">
-    <style>
-      .watson-results {
-        position: fixed;
-        top: 64px;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 10;
-      }
-      .md-opaque {
-        background-color: rgba(0, 0, 0, 0.7) !important;
-      }
-    </style>
   </head>
   <body>
     <div ng-controller="MainController">
@@ -70,13 +58,12 @@
       </md-toolbar>
 
       <section class="watson-results" layout="vertical" layout-align="start center" ng-show="isSearchContext">
-
         <div layout="vertical" layout-align="center center">
           <md-list>
             <md-item ng-repeat="result in results">
               <md-item-content>
                 <div class="md-tile-content">
-                  <md-card style="width: 640px">
+                  <md-card class="animated fadeInUp" style="width: 640px">
                     <div class="card-meta" layout="horizontal" layout-align="space-between">
                       <h2>CIC</h2>
                       <h2>{{result.confidence}}</h2>
@@ -97,9 +84,10 @@
         </div>
       </section>
       <md-content style="height: 100vh; background-color: #C5CAE9 !important;">
-        <md-backdrop class="md-opaque" ng-show="isSearchContext"></md-backdrop>
-        <div class="container" layout="vertical" layout-align="center center" ng-view></div>
+      <!-- <md-backdrop class="md-opaque" ng-show="isSearchContext"></md-backdrop> -->
+      <div class="container" layout="vertical" layout-align="center center" ng-view></div>
       </md-content>
+      <div class="backdrop md-opaque" ng-show="isSearchContext"></div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
