@@ -181,13 +181,27 @@ app.directive('toolbarAnimate', function(){
     return {
         link: function(scope, element, attributes){
             attributes.$observe('isSearching', function(value){
-              if (value) {
-                console.log(value);
+              if (value === 'true') {
                 element.animate({
                   height: '64px'
-                }, 100, function() {
+                }, 300, function() {
                   // Animation complete.
                 });
+              }
+            });
+        }
+    };
+});
+
+app.directive('infoAnimate', function(){
+    return {
+        link: function(scope, element, attributes){
+            attributes.$observe('isSearching', function(value){
+              console.log(value);
+              if (value === 'true') {
+                element.slideUp(300);
+              } else {
+                element.slideDown(100);
               }
             });
         }
