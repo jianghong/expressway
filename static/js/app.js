@@ -1,4 +1,4 @@
-var app = angular.module('ExpressWay', ['ngRoute', 'ngMaterial', 'ngFx']);
+var app = angular.module('ExpressWay', ['ngRoute', 'ngMaterial']);
 
 app.config(['$routeProvider',
   function($routeProvider){
