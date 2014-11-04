@@ -93,7 +93,8 @@ app.controller('MarketingController', function($scope, answersModel) {
   $scope.mainCard = {
     actionText: 'Start Asking',
     tagline: 'Immigrate with ease.',
-    whatWeAre: 'We are an immigration research tool that assist immigrants around the world using by providing answers to their immigration questions powered by Watson.'
+    firstP: 'We are an immigration research tool that assist immigrants around the world.',
+    secondP: 'With the power of Watson we answer natural language questions.'
   };
 
   

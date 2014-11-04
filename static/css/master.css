@@ -99,3 +99,6 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   cursor: pointer;
 };
 
+.md-opaque {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}

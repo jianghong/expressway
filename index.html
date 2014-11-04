@@ -10,8 +10,15 @@
     <link rel="stylesheet" href="static/css/master.css">
     <style>
       .watson-results {
-        height: 200px !important;
-        overflow-x: auto;
+        position: fixed;
+        top: 64px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+      }
+      .md-opaque {
+        background-color: rgba(0, 0, 0, 0.7) !important;
       }
     </style>
   </head>
@@ -48,31 +55,32 @@
         </div>
       </md-toolbar>
 
+      <section class="watson-results" layout="vertical" layout-align="center center" ng-show="isSearchContext">
+        <md-list style="overflow-y: auto;">
+          <md-item ng-repeat="result in results">
+            <md-item-content>
+              <div class="md-tile-content">
+                <md-card style="width: 640px">
+                  <div class="card-meta" layout="horizontal" layout-align="space-between">
+                    <h2>CIC</h2>
+                    <h2>{{result.confidence}}</h2>
+                  </div>
+                  <div class="card-content">
+                    {{result.text}}
+                  </div>
+                <!--   <div class="card-triggers" layout="horizontal" layout-align="end">
+                    <md-button class="md-blue-btn">
+                      More Details
+                    </md-button>
+                  </div>        -->     
+                </md-card>
+              </div>
+            </md-item-content>
+          </md-item>
+        </md-list>  
+      </section>
       <md-content style="height: 100vh;" class="md-padding">
-        <section class="watson-results" layout="horizontal" ng-show="isSearchContext">
-          <md-list>
-            <md-item ng-repeat="result in results">
-              <md-item-content>
-                <div class="md-tile-content">
-                  <md-card>
-                    <div class="card-meta" layout="horizontal" layout-align="space-between">
-                      <h2>CIC</h2>
-                      <h2>{{result.confidence}}</h2>
-                    </div>
-                    <div class="card-content">
-                      {{result.text}}
-                    </div>
-                  <!--   <div class="card-triggers" layout="horizontal" layout-align="end">
-                      <md-button class="md-blue-btn">
-                        More Details
-                      </md-button>
-                    </div>        -->     
-                  </md-card>
-                </div>
-              </md-item-content>
-            </md-item>
-          </md-list>  
-        </section>
+        <md-backdrop class="md-opaque" ng-show="isSearchContext"></md-backdrop>
         <div class="container" layout="vertical" layout-align="center center" ng-view></div>
       </md-content>
     </div>
