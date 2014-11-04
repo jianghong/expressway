@@ -24,7 +24,7 @@
   </head>
   <body>
     <div ng-controller="MainController">
-      <md-toolbar scroll-shrink md-theme="blue"  class="md-whiteframe-z1">
+      <md-toolbar scroll-shrink md-theme="blue">
         <div class="md-toolbar-tools">
           <div class="left-controls" layout="horizontal" flex="15" layout-align="start center">
             <md-button class="round-button" ng-click="mainContext()">
@@ -79,7 +79,7 @@
           </md-item>
         </md-list>  
       </section>
-      <md-content style="height: 100vh;" class="md-padding">
+      <md-content style="height: 100vh; background-color: #5677fc !important;">
         <md-backdrop class="md-opaque" ng-show="isSearchContext"></md-backdrop>
         <div class="container" layout="vertical" layout-align="center center" ng-view></div>
       </md-content>

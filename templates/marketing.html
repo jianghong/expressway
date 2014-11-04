@@ -1,12 +1,10 @@
-<section>
-  <div layout="vertical" layout-align="center center">
-    <h3>{{ mainCard.firstP }}</h3>
-    <h3>{{ mainCard.secondP }}</h3>
-    <md-button class="md-primary md-raised" ng-click="searchContext()">{{ mainCard.actionText }}</md-button>
-  </div>
+<section layout="vertical" layout-align="center center" style="height: 300px; color: white;">
+  <h1 style="margin-bottom: 5px;">Our vision is simple.</h1>
+  <h4>To give you great search.</h4>
+  <md-button class="md-primary md-raised md-call-to-action" ng-click="searchContext()">{{ mainCard.actionText }}</md-button>
 </section>
 
-<!-- <section layout="horizontal" layout-align="space-between">
+<section layout="horizontal" layout-align="space-between">
   <md-card ng-repeat="testimonial in testimonials">
     <div layout="vertical" layout-align="center">
       <blockquote>
@@ -18,5 +16,5 @@
     </div>
   </md-card>
 </section>
- -->
+
 

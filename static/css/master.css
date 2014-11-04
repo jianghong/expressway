@@ -85,7 +85,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 
 .md-white-theme .search-input ::-webkit-input-placeholder {
   color: #000;
-  opacity: 0.5
+  opacity: 0.5;
 }
 
 .md-white-theme .search-input input, .md-white-theme .icon-container {
@@ -97,8 +97,10 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 .suggested:hover {
   background-color: #f7f7f7;
   cursor: pointer;
-};
+}
 
-.md-opaque {
-  background-color: rgba(0, 0, 0, 0.7) !important;
+.md-call-to-action {
+  color: #fff !important;
+  fill: #00BCD4 !important;
+  background-color: #00BCD4 !important;
 }
