@@ -109,9 +109,13 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .md-tall {
-  height: 250px !important;
+  height: 210px !important;
 }
 
 .ex-hidden {
   visibility: hidden;
+}
+
+.md-toolbar-top {
+  position: absolute;
 }
