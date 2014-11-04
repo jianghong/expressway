@@ -26,8 +26,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .search-container {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-radius: 3px
 }
 
 .icon-container {
@@ -60,7 +59,6 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   font-family: 'RobotoDraft', 'Helvetica Neue', Helvetica, Arial;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
-
 }
 
 .search-input ::-webkit-input-placeholder {
@@ -103,4 +101,8 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   color: #fff !important;
   fill: #00BCD4 !important;
   background-color: #00BCD4 !important;
+}
+
+.watson-results {
+  overflow-y: auto;
 }
