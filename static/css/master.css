@@ -132,6 +132,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 
 
 .autocomplete-container {
+  width: 100%;
   margin-top: -10px;
 }
 
