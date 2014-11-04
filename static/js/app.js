@@ -199,7 +199,7 @@ app.directive('toolbarAnimate', function($rootScope){
               if (value === 'true') {
                 $element.animate({
                   height: '64px'
-                }, 300, function() {
+                }, 50, function() {
                 });
               }
             });
@@ -213,7 +213,7 @@ app.directive('infoAnimate', function(){
             attributes.$observe('isSearching', function(value){
               console.log(value);
               if (value === 'true') {
-                element.slideUp(500);
+                element.slideUp(300);
               } else {
                 element.slideDown(300);
               }

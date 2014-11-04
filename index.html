@@ -24,7 +24,7 @@
   </head>
   <body>
     <div ng-controller="MainController">
-      <md-toolbar toolbar-animate is-searching="{{isSearchContext}}" layout="vertical" layout-align="center center" scroll-shrink md-theme="blue" ng-class="{'md-tall': !isSearchContext}" class="md-whiteframe-z5">
+      <md-toolbar toolbar-animate is-searching="{{isSearchContext}}" layout="vertical" layout-align="center center" scroll-shrink md-theme="blue" ng-class="{'md-tall': !isSearchContext}" class="md-whiteframe-z1">
         <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
           <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
           <md-button>Login</md-button>
@@ -36,38 +36,41 @@
           </div>
         </div>
         <div class="md-toolbar-tools md-toolbar-tools-bottom" flex="60" layout="horizontal" layout-align="space-between">
-          <div class="search-container" layout="horizontal" flex ng-class="{ 'md-white-theme':isSearchContext }">
-            <div class="icon search-icon">
-              <div class="icon-container" style="height: 30px; padding: 0 20px;" layout="vertical" layout-align="center center">
-                <img ng-hide="isLoading" style="height: 24px; width: 24px;" ng-src="{{ searchIconSrc }}">
-                <md-progress-circular ng-show="isLoading" style="margin-bottom: 10px; height:24px; width:24px;" diameter="18" mode="indeterminate"></md-progress-circular>
+          <div class="search-container" layout="vertical" flex ng-class="{ 'md-white-theme':isSearchContext }">
+            <div class="search-icon-and-input" layout="horizontal">
+              <div class="icon search-icon">
+                <div class="icon-container" style="height: 30px; padding: 0 20px;" layout="vertical" layout-align="center center">
+                  <img ng-hide="isLoading" style="height: 24px; width: 24px;" ng-src="{{ searchIconSrc }}">
+                  <md-progress-circular ng-show="isLoading" style="margin-bottom: 10px; height:24px; width:24px;" diameter="18" mode="indeterminate"></md-progress-circular>
+                </div>
+              </div>
+              <div class="search-input" flex>
+                <form ng-submit="resultsContext()">
+                  <input type="text" placeholder="Ask Watson..." ng-model="question" ng-blur="inputBlur()" ng-focus="searchContext()">
+                </form>
               </div>
             </div>
-            <div class="search-input" flex>
-              <form ng-submit="resultsContext()">
-                <input type="text" placeholder="Ask Watson..." ng-model="question" ng-blur="inputBlur()" ng-focus="searchContext()">
-              </form>
-            </div>
-          </div>          
+            <div ng-show="inputIsFocused" class="autocomplete-container">
+              <md-card flex class="autocomplete-card">
+                <md-divider></md-divider>
+                <md-subheader class="md-primary">Suggested Questions:</md-subheader>
+                <md-list>
+                  <md-item ng-repeat="question in suggestedQuestions">
+                    <md-item-content>
+                      <div class="md-tile-content">
+                        {{ question.question }}
+                      </div>
+                    </md-item-content>
+                  </md-item>
+                </md-list>    
+              </md-card>
+            </div>            
+          </div>
         </div>
       </md-toolbar>
 
       <section class="watson-results" layout="vertical" layout-align="start center" ng-show="isSearchContext">
-        <div ng-show="inputIsFocused" flex="60" class="autocomplete-container">
-          <md-card flex class="autocomplete-card">
-            <md-divider></md-divider>
-            <md-subheader class="md-primary">Suggested Questions:</md-subheader>
-            <md-list>
-              <md-item ng-repeat="question in suggestedQuestions">
-                <md-item-content>
-                  <div class="md-tile-content">
-                    {{ question.question }}
-                  </div>
-                </md-item-content>
-              </md-item>
-            </md-list>    
-          </md-card>
-        </div>
+
         <div layout="vertical" layout-align="center center">
           <md-list>
             <md-item ng-repeat="result in results">

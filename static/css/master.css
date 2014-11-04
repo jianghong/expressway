@@ -132,8 +132,9 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 
 
 .autocomplete-container {
-  width: 100%;
-  margin-top: -10px;
+  position: absolute;
+  width: 732px;
+  z-index: 50;
 }
 
 .media img {
