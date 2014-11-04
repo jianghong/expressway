@@ -59,6 +59,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   font-family: 'RobotoDraft', 'Helvetica Neue', Helvetica, Arial;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
+  width: 100%;
 }
 
 .search-input ::-webkit-input-placeholder {
@@ -105,4 +106,12 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 
 .watson-results {
   overflow-y: auto;
+}
+
+.md-tall {
+  height: 250px !important;
+}
+
+.ex-hidden {
+  visibility: hidden;
 }

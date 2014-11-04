@@ -24,18 +24,18 @@
   </head>
   <body>
     <div ng-controller="MainController">
-      <md-toolbar scroll-shrink md-theme="blue">
-        <div class="md-toolbar-tools">
-          <div class="left-controls" layout="horizontal" flex="15" layout-align="start center">
-            <md-button class="round-button" ng-click="mainContext()">
-              <div class="icon-container" style="height: 30px;" layout="vertical" layout-align="center center">
-                <img style="height: 24px; width: 24px;" ng-src="{{ leftControlIconSrc}}">
-              </div>
-            </md-button>
-            <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
-          </div>
-
-          <div class="search-container" flex layout="horizontal" ng-class="{ 'md-white-theme':isSearchContext }">
+      <md-toolbar layout="vertical" scroll-shrink md-theme="blue" class="md-tall">
+        <div class="md-toolbar-tools" layout="horizontal" layout-align="space-between">
+          <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
+          <md-button>Login</md-button>
+        </div>
+        <div layout="vertical" layout-align="center center">
+          <h1 style="margin-bottom: 5px;">Our vision is simple.</h1>
+          <h4 style="margin-top: 5px; margin-bottom: 50px;">To answer your immigration questions.</h4>          
+        </div>
+        <div class="md-toolbar-tools md-toolbar-tools-bottom" layout="horizontal" layout-align="space-between">
+          <span class="ex-hidden">ExpressWay</span>
+          <div class="search-container" layout="horizontal" flex="60" ng-class="{ 'md-white-theme':isSearchContext }">
             <div class="icon search-icon">
               <div class="icon-container" style="height: 30px; padding: 0 20px;" layout="vertical" layout-align="center center">
                 <img ng-hide="isLoading" style="height: 24px; width: 24px;" ng-src="{{ searchIconSrc }}">
@@ -44,14 +44,11 @@
             </div>
             <div class="search-input" flex>
               <form ng-submit="resultsContext()">
-                <input type="text" style="width: 100%" placeholder="Ask Watson..." ng-model="question" ng-focus="searchContext()">
+                <input type="text" placeholder="Ask Watson..." ng-model="question" ng-focus="searchContext()">
               </form>
             </div>
-          </div>
-
-          <div class="right-controls" flex="15" layout="horizontal" layout-align="end">
-          <md-button>Settings</md-button>
-          </div>
+          </div>          
+          <md-button class="ex-hidden">Login</md-button>
         </div>
       </md-toolbar>
 
@@ -79,7 +76,7 @@
           </md-item>
         </md-list>  
       </section>
-      <md-content style="height: 100vh; background-color: #5677fc !important;">
+      <md-content style="height: 100vh;">
         <md-backdrop class="md-opaque" ng-show="isSearchContext"></md-backdrop>
         <div class="container" layout="vertical" layout-align="center center" ng-view></div>
       </md-content>
