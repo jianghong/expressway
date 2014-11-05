@@ -4,40 +4,39 @@
   <md-button class="md-primary md-raised md-call-to-action" ng-click="searchContext()">{{ mainCard.actionText }}</md-button>
 </section>
  -->
-<section layout="horizontal" layout-align="space-between">
-  <figure>
-    <div class="media">
-      <img src="static/img/1.png" alt="">
+<section layout="horizontal" layout-fill>
+  <div class="marketing-img"  flex>
+    <div layout="horizontal" layout-align="center">
     </div>
-    <figcaption>
+  </div>
+</section>
+<section class="steps-section" layout-fill flex layout="vertical">
+  <div class="steps-row" layout="horizontal" layout-align="space-around">
+    <md-card flex="30">
+      <h2>Step 1</h2>
+      <md-divider></md-divider>
       <p>
-        A material metaphor is the unifying theory of a rationalized space and a system of motion. The material is grounded in tactile reality, inspired by the study of paper and ink, yet technologically advanced and open to imagination and magic.
+        Here are the three major airports in the Bay Area with international airline service. SFO is about 13 miles south of downtown; OAK is 5 miles south of downtown; and SJC is in the city of San Jose about 45 miles southwest of downtown San Francisco.
       </p>
-    </figcaption>
-  </figure>
-  <figure>
-    <div class="media">
-      <img src="static/img/2.png" alt="">
-    </div>
-    <figcaption>
+    </md-card>
+    <md-card flex="30">
+      <h2>Step 2</h2>
+      <md-divider></md-divider>
       <p>
-        A material metaphor is the unifying theory of a rationalized space and a system of motion. The material is grounded in tactile reality, inspired by the study of paper and ink, yet technologically advanced and open to imagination and magic.
+        Public transportation to the Moscone Center is accessible via:
       </p>
-      <div layout="horizontal" layout-align="center center">
-        <md-button class="md-raised">Start Application</md-button>
-      </div>
-    </figcaption>
-  </figure>
-   <figure>
-    <div class="media">
-      <img src="static/img/3.png" alt="">
-    </div>
-    <figcaption>
+    </md-card>
+    <md-card flex="30">
+      <h2>Step 3</h2>
+      <md-divider></md-divider>
       <p>
-        A material metaphor is the unifying theory of a rationalized space and a system of motion. The material is grounded in tactile reality, inspired by the study of paper and ink, yet technologically advanced and open to imagination and magic.
+        Super Shuttle International is offering a discount to all Google I/O attendees. Reservations must be booked in advance 
       </p>
-    </figcaption>
-  </figure>   
+    </md-card>
+  </div>
+  <div class="steps-action" style="margin-top: 50px;" layout="horizontal" layout-align="center">
+    <md-button class="md-raised">Start Application</md-button>
+  </div>
 </section>
 
 

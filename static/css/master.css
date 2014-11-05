@@ -1,10 +1,17 @@
+* {
+  font-weight: 400;
+}
+
 body, md-content {
-  background-color: #ececec !important;
+  font-family: 'RobotoDraft', sans-serif;
 }
 
 md-card {
   padding: 10px 25px;
   background-color: #fff;
+}
+img {
+  max-width: 100%;
 }
 
 md-toolbar, .round-button, .search-input input, .icon-container {
@@ -13,6 +20,10 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   -moz-transition: height 300ms ease-in-out;
   -o-transition: height 300ms ease-in-out;
   transition: height 300ms ease-in-out;    
+}
+
+md-toolbar {
+  background-color: #084d8c !important;
 }
 
 .md-blue-btn {
@@ -34,8 +45,8 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .icon-container {
-  background-color: #7f98fc;
-  border-color: #7f98fc;
+  background-color: #fff;
+  border-color: #fff;
   height: 30px;
 }
 
@@ -54,8 +65,8 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .search-input input {
-  background-color: #7f98fc;
-  border-color: #7f98fc;
+  background-color: #fff;
+  border-color: #fff;
   border: none;
   height: 30px;
   color: #fff;
@@ -67,8 +78,8 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .search-input ::-webkit-input-placeholder {
-   color: #fff;
-   opacity: 0.8;
+   color: #000;
+   opacity: 0.5;
 }
 
 .round-button, .round-button .icon-container {
@@ -143,10 +154,6 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   z-index: 50;
 }
 
-.media img {
-  max-width: 100%;
-}
-
 .md-opaque {
   background-color: rgba(0, 0, 0, 0.7) !important;
   position: fixed;
@@ -154,4 +161,33 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.marketing-img {
+  background: url('../img/to-bg.jpg') no-repeat center center;
+  height: 566px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #fff;
+  padding: 20px;
+}
+
+.marketing-img h1 {
+  font-size: 5em;
+}
+
+.steps-section {
+  position: relative;  
+  top: -170px;
+}
+
+.steps-section h2 {
+  margin: 13px 0;
+}
+
+.steps-action md-button {
+  background-color: #53A93F !important;
+  color: white;
 }
