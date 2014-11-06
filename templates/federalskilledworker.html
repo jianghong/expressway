@@ -1,5 +1,6 @@
 <md-tabs selected="tabIndex">
   <md-tab label="Federal Skilled Worker">
+    <div layout="horizonal" layout-align="center">
     <md-card class="animated" ng-class="nexting ? 'fadeIn': 'fadeInRight'">
       <h1>Federal Skilled Worker Application</h1>
 
@@ -15,8 +16,10 @@
         </md-button>
       </div>
     </md-card>
+    </div>
   </md-tab>
   <md-tab label="Personal Info">
+    <div layout="horizonal" layout-align="center">
     <md-card class="animated" ng-class="nexting ? 'fadeInLeft': 'fadeInRight'">
       <h2>We will start by collecting information about you! Since you’re a super star.</h2>
 
@@ -50,7 +53,7 @@
         <md-text-float label="City" ng-model="personalResponses.city"></md-text-float>
         <md-text-float label="Street" ng-model="personalResponses.street"></md-text-float>
       </div>
-      <br>      
+      <br>
 
       <div class="card-triggers" layout="horizontal" layout-align="space-between">
         <md-button ng-click="previousPage()" class="md-blue-btn">
@@ -61,8 +64,10 @@
         </md-button>
       </div>
     </md-card>
+    </div>
   </md-tab>
   <md-tab label="Spouse Info">
+    <div layout="horizonal" layout-align="center">
     <md-card class="animated" ng-class="nexting ? 'fadeInLeft': 'fadeInRight'">
       <h2>You said you have a spouse(Way to go!). We need to get information regarding your sprouse in this section.</h2>
 
@@ -110,7 +115,7 @@
       <div layout="horizontal">
         <md-text-float label="Email" ng-model="personalResponses.email"></md-text-float>
       </div>
-      <br>        
+      <br>
 
       <div class="card-triggers" layout="horizontal" layout-align="space-between">
         <md-button ng-click="previousPage()" class="md-blue-btn">
@@ -119,10 +124,12 @@
         <md-button ng-click="nextPage()" class="md-blue-btn">
           Next
         </md-button>
-      </div>      
+      </div>
     </md-card>
+    </div>
   </md-tab>
   <md-tab label="Children Info">
+    <div layout="horizonal" layout-align="center">
     <md-card class="animated" ng-class="nexting ? 'fadeInLeft': 'fadeInRight'">
       <h2>Children eh? Good thing this is the last page before we are done!</h2>
 
@@ -179,11 +186,14 @@
         </md-button>
       </div>
     </md-card>
+    </div>
   </md-tab>
   <md-tab label="Completed form">
+    <div layout="horizonal" layout-align="center">
     <md-card>
       <h2>Great job, you may download your completed form below.</h2>
       <md-button class="md-raised">Download</md-button>
     </md-card>
+    </div>
   </md-tab>
 </md-tabs>
