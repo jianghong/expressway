@@ -1,16 +1,119 @@
-<md-card>
-  <h1>Welcome!</h1>
-  <p>With just a few answers, we will be able to tell you what programs you can apply under.</p>
+<!-- <md-tabs selected="1"> -->
+<md-tabs selected="tabIndex">
+  <md-tab label="Introduction">
+    <md-card class="animated" ng-class="nexting ? 'fadeIn': 'fadeInRight'">
+      <h1>Welcome!</h1>
+      <p>With just a few answers, we will be able to tell you what programs you can apply under.</p>
 
-  <p>We can then continue from there and help you gather all the information we need to fill in the forms for you. You will be able to verify the forms and if you're satisfied with them, we will let you download them for a small fee.</p>
+      <p>We can then continue from there and help you gather all the information we need to fill in the forms for you. You will be able to verify the forms and if you're satisfied with them, we will let you download them for a small fee.</p>
 
-  <p>Now, when you're ready, let's figure out what program you should apply for!</p>
-  <div class="card-triggers" layout="horizontal" layout-align="space-between">
-    <md-button class="md-yellow-btn">
-      Privacy
-    </md-button>
-    <md-button class="md-blue-btn">
-      Get Started
-    </md-button>
-  </div>
-</md-card>
+      <p>Now, when you're ready, let's figure out what program you should apply for!</p>
+      <div class="card-triggers" layout="horizontal" layout-align="space-between">
+        <md-button class="md-yellow-btn">
+          Privacy
+        </md-button>
+        <md-button ng-click="nextPage()" class="md-blue-btn">
+          Get Started
+        </md-button>
+      </div>
+    </md-card>
+  </md-tab>
+  <md-tab label="Basic Info">
+    <md-card class="animated" ng-class="nexting ? 'fadeInLeft': 'fadeInRight'">
+      <h2>Please answer the following:</h2>
+      <md-text-float type="number" label="How old are you?" ng-model="personalResponses.age"></md-text-float>
+
+      <md-text-float type="number" label="What is your current occupation" ng-model="personalResponses.occupation"></md-text-float>
+
+      <div class="card-triggers" layout="horizontal" layout-align="space-between">
+        <md-button ng-click="previousPage()" class="md-blue-btn">
+          Back
+        </md-button>
+        <md-button ng-click="nextPage()" class="md-blue-btn">
+          Next
+        </md-button>
+      </div>
+    </md-card>
+  </md-tab>
+  <md-tab label="More Info">
+    <md-card class="animated" ng-class="nexting ? 'fadeInLeft': 'fadeInRight'">
+      <h2>Please answer the following:</h2>
+
+      <label for="">Do you have spouse or family in Canada?</label>
+      <md-radio-group ng-model="personalResponses.hasFamilyInCanada">
+        <md-radio-button value="yes">Yes</md-radio-button>
+        <md-radio-button value="no">No</md-radio-button>
+      </md-radio-group>
+
+      <label for="">Have you completed a degree in an accredited Canadian University?</label>
+      <md-radio-group ng-model="personalResponses.hasAccreditedCanadianDegree">
+        <md-radio-button value="yes">Yes</md-radio-button>
+        <md-radio-button value="no">No</md-radio-button>
+      </md-radio-group>
+
+      <label for="">What is your current status in Canada?</label>
+      <md-radio-group ng-model="personalResponses.currentStatus">
+        <md-radio-button value="PR">Permanent Resident</md-radio-button>
+        <md-radio-button value="international">International</md-radio-button>
+        <md-radio-button value="refugee">Refugee</md-radio-button>
+        <md-radio-button value="other">Other</md-radio-button>
+      </md-radio-group>
+
+      <label for="">Are you in Canada?</label>
+      <md-radio-group ng-model="personalResponses.inCanada">
+        <md-radio-button value="yes">Yes</md-radio-button>
+        <md-radio-button value="no">No</md-radio-button>
+      </md-radio-group>
+
+      <label for="">What would you like to do in Canada?</label>
+      <md-radio-group ng-model="personalResponses.reason">
+        <md-radio-button value="study">Study</md-radio-button>
+        <md-radio-button value="work">Work</md-radio-button>
+        <md-radio-button value="settle">Settle</md-radio-button>
+      </md-radio-group>
+
+      <label for="">Are you fluent in English or French?</label>
+      <md-radio-group ng-model="personalResponses.fluent">
+        <md-radio-button value="english">English</md-radio-button>
+        <md-radio-button value="french">French</md-radio-button>
+        <md-radio-button value="settle">Neither</md-radio-button>
+        <md-radio-button value="both">Both, I am awesome</md-radio-button>
+      </md-radio-group>    
+
+      <label for="">Have you served for the Canadian Armed Forces before?</label>
+      <md-radio-group ng-model="personalResponses.armedForces">
+        <md-radio-button value="yes">Yes</md-radio-button>
+        <md-radio-button value="no">No</md-radio-button>
+      </md-radio-group>      
+
+      <div class="card-triggers" layout="horizontal" layout-align="space-between">
+        <md-button ng-click="previousPage()" class="md-blue-btn">
+          Back
+        </md-button>
+        <md-button ng-click="nextPage()" class="md-blue-btn">
+          Next
+        </md-button>
+      </div>      
+    </md-card>
+  </md-tab>
+  <md-tab label="Pick a program">
+    <md-card class="animated" ng-class="nexting ? 'fadeInLeft': 'fadeInRight'">
+      <h2>Alright, we have determined that you are eligible for these programs: </h2>
+
+      <label for="">Pick one and we can start the process!</label>
+      <md-radio-group ng-model="personalResponses.program">
+        <md-radio-button value="rec1">Canadian Experience Class</md-radio-button>
+        <md-radio-button value="rec2">Federal Skilled Worker</md-radio-button>
+      </md-radio-group>        
+
+      <div class="card-triggers" layout="horizontal" layout-align="space-between">
+        <md-button ng-click="previousPage()" class="md-blue-btn">
+          Back
+        </md-button>
+        <md-button ng-click="fswContext()" class="md-blue-btn">
+          Get Started
+        </md-button>
+      </div>
+    </md-card>
+  </md-tab>  
+</md-tabs>

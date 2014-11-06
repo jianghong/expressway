@@ -19,6 +19,10 @@ app.config(['$routeProvider',
         templateUrl: 'templates/results.html',
         controller: 'ResultsController'
       }).
+      when('/apply/federalskilledworker', {
+        templateUrl: 'templates/federalskilledworker.html',
+        controller: 'FSWController'
+      }).
       otherwise({
         redirectTo: '/'
       });
@@ -38,7 +42,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   $rootScope.isLoading = false;
   $rootScope.inputIsFocused = false;
   $rootScope.toolbarIsShrunk = $location.path() === '/' ? false : true;
-  $scope.isApply = $location.path() === '/apply' ? true : false;
+  $scope.isApply = $location.path() !== '/' ? true : false;
 
   $scope.results = answersModel.answers ? answersModel.answers.question.answers : [];
 
@@ -95,6 +99,11 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     });
   }
 
+  $scope.fswContext = function() {
+    $location.path('/apply/federalskilledworker');
+    $scope.isApply = true;
+  }
+
   function switchContext(context) {
     // console.log(context);
     if (context.indexOf('/search') >= 0) {
@@ -147,10 +156,64 @@ app.controller('MarketingController', function($scope, answersModel) {
 });
 
 app.controller('ApplyController', function($scope) {
+  $scope.nexting = true;
+  $scope.tabIndex = 0;
+  $scope.personalQResponses = {
+    age: '',
+    hasFamilyInCanada: false,
+    hasAccreditedCanadianDegree: false,
+    currentStatus: '',
+    inCanada: false,
+    yearsInCanada: '',
+    occupation: '',
+    reason: '',
+    fluent: '',
+    armedForces: ''
 
+
+  }
+
+  $scope.nextPage = function() {
+    $scope.tabIndex += 1;
+    $scope.nexting = true;
+  }
+
+  $scope.previousPage = function() {
+    $scope.tabIndex -= 1;
+    $scope.nexting = false;
+  }
 });
 
 app.controller('SearchController', function($scope) {
+});
+
+app.controller('FSWController', function($scope) {
+  $scope.nexting = true;
+  $scope.tabIndex = 0;
+  $scope.personalQResponses = {
+    age: '',
+    hasFamilyInCanada: false,
+    hasAccreditedCanadianDegree: false,
+    currentStatus: '',
+    inCanada: false,
+    yearsInCanada: '',
+    occupation: '',
+    reason: '',
+    fluent: '',
+    armedForces: ''
+
+
+  }
+
+  $scope.nextPage = function() {
+    $scope.tabIndex += 1;
+    $scope.nexting = true;
+  }
+
+  $scope.previousPage = function() {
+    $scope.tabIndex -= 1;
+    $scope.nexting = false;
+  }  
 });
 
 app.controller('SuggestionsController', function($scope) {
