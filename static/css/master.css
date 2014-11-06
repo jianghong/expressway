@@ -127,6 +127,10 @@ md-toolbar {
   background-color: #00BCD4 !important;
 }
 
+.watson-results md-divider {
+  margin: 10px 0;
+}
+
 .watson-results {
   overflow-y: auto;
   position: fixed;
@@ -200,3 +204,12 @@ md-toolbar {
   color: white;
 }
 
+md-tab {
+  background-color: #084D8C;
+  color: #fff;
+}
+
+md-tabs-ink-bar {
+  height: 3px !important;
+  background: #ffa726 !important;
+}
