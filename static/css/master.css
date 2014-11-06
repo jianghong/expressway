@@ -19,7 +19,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   -webkit-transition: height 300ms ease-in-out;
   -moz-transition: height 300ms ease-in-out;
   -o-transition: height 300ms ease-in-out;
-  transition: height 300ms ease-in-out;    
+  transition: height 300ms ease-in-out;
 }
 
 md-toolbar {
@@ -52,7 +52,7 @@ md-toolbar {
 
 .icon-container, .search-icon {
   border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;    
+  border-bottom-left-radius: 3px;
 }
 
 .input-opaque-overlay {
@@ -126,11 +126,11 @@ md-toolbar {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 10;  
+  z-index: 10;
 }
 
 .md-tall {
-  height: 210px !important;
+  height: 250px !important;
 
 }
 
@@ -179,8 +179,8 @@ md-toolbar {
 }
 
 .steps-section {
-  position: relative;  
-  top: -170px;
+  position: relative;
+  top: -38px;
 }
 
 .steps-section h2 {
