@@ -60,7 +60,11 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     },
     {
       question: 'What work programs can I apply for?'
+    },
+    {
+      question: 'What is the Federal Skilled Worker Program?'
     }
+
   ];
 
   $scope.searchContext = function() {
