@@ -7,9 +7,9 @@ app.config(['$routeProvider',
         templateUrl: 'templates/marketing.html',
         controller: 'MarketingController'
       }).
-      when('/intro', {
-        templateUrl: 'templates/intro.html',
-        controller: 'IntroController'
+      when('/apply', {
+        templateUrl: 'templates/apply.html',
+        controller: 'ApplyController'
       }).
       when('/search', {
         templateUrl: 'templates/search.html',
@@ -24,7 +24,7 @@ app.config(['$routeProvider',
       });
   }])
 
-app.controller('MainController', function($scope, $location, $rootScope, answersModel) {
+app.controller('MainController', function($scope, $location, $rootScope, answersModel, $window) {
   var MAIN_THEME_CLASS = 'md-blue-theme';
   var hamburgerIconSrc = 'static/img/hamburger-icon.png';
   var backIconSrc = 'static/img/back-icon.png';
@@ -37,7 +37,8 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   $scope.searchIconSrc = searchIconWSrc;
   $rootScope.isLoading = false;
   $rootScope.inputIsFocused = false;
-  $rootScope.toolbarIsShrunk = false;
+  $rootScope.toolbarIsShrunk = $location.path() === '/' ? false : true;
+  $scope.isApply = $location.path() === '/apply' ? true : false;
 
   $scope.results = answersModel.answers ? answersModel.answers.question.answers : [];
 
@@ -60,13 +61,22 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     $scope.inputIsFocused = false;
   }
 
-  $scope.introContext = function() {
-    $location.path('/intro');
+  $scope.applyContext = function() {
+    $location.path('/apply');
+    $rootScope.toolbarIsShrunk = true;
+    $scope.isApply = true;
+    $window.scrollTo(0, 0)
   }
 
   $scope.mainContext = function() {
-    $scope.isSearchContext = false;
-    $rootScope.toolbarIsShrunk = false;
+    if (!$scope.isApply) {
+      $rootScope.toolbarIsShrunk = false;
+    }
+    if (!$scope.isSearchContext) {
+      $scope.isApply = false;
+      $rootScope.toolbarIsShrunk = false;
+      $location.path('/');
+    }    
     $scope.switchContext('/');
   } 
 
@@ -101,6 +111,8 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
       $scope.isSearchContext = false;
       $scope.leftControlIconSrc = hamburgerIconSrc
       $scope.searchIconSrc = searchIconWSrc;
+      $scope.isSearchContext = false;
+
     }
   }
 
@@ -134,7 +146,7 @@ app.controller('MarketingController', function($scope, answersModel) {
   ];
 });
 
-app.controller('IntroController', function($scope) {
+app.controller('ApplyController', function($scope) {
 
 });
 
@@ -203,7 +215,7 @@ app.directive('toolbarAnimate', function($window){
               if (value === 'true') {
                 $element.animate({
                   height: '64px'
-                }, 300, function() {
+                }, 100, function() {
                 });
               }
             });
@@ -217,7 +229,7 @@ app.directive('infoAnimate', function(){
             attributes.$observe('isSearching', function(value){
               console.log(value);
               if (value === 'true') {
-                element.slideUp(300);
+                element.slideUp(50);
               } else {
                 element.slideDown(300);
               }

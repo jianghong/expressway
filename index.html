@@ -57,10 +57,6 @@
         </div>
       </md-toolbar>
 
-      <md-content style="height: 100vh; overflow: visible;">
-        <div class="container" layout="vertical" layout-align="center center" ng-view></div>
-      </md-content>
-
       <section class="watson-results" layout="vertical" layout-align="start center" ng-show="isSearchContext">
         <div layout="vertical" layout-align="center center">
           <md-list>
@@ -86,7 +82,12 @@
             </md-item>
           </md-list>
         </div>
-      </section>      
+      </section> 
+
+      <md-content style="height: 100vh; overflow: visible;">
+        <div class="container" layout="vertical" layout-align="center center" ng-view></div>
+      </md-content>
+     
       <div class="backdrop md-opaque" ng-show="isSearchContext"></div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
