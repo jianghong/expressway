@@ -71,13 +71,19 @@
               <md-item-content>
                 <div class="md-tile-content">
                   <md-card class="animated fadeInUp" style="width: 640px">
-                    <div class="card-meta" layout="horizontal" layout-align="space-between">
-                      <h2>CIC</h2>
-                      <h2>{{result.confidence}}</h2>
-                    </div>
+                    <h2>Answer Card</h2>
                     <div class="card-content">
                       {{result.text}}
                     </div>
+                    <md-divider></md-divider>
+                    <div class="card-triggers" layout="horizontal" layout-align="space-between">
+                      <md-button class="md-yellow-btn">
+                        <a href="{{result.source}}">Evidence</a>
+                      </md-button>
+                      <md-button>
+                        {{result.confidence}}
+                      </md-button>
+                    </div>                    
                   </md-card>
                 </div>
               </md-item-content>
