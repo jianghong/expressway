@@ -43,10 +43,13 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
 
   $scope.suggestedQuestions = [
     {
-      question: 'What is life?'
+      question: 'What is ...?'
     },
     {
-      question: 'What is your mom\'s number?'
+      question: 'Who is ...'
+    },
+    {
+      question: 'When can I ...'
     }
   ];
 
@@ -68,7 +71,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     $scope.isSearchContext = false;
     $rootScope.toolbarIsShrunk = false;
     $scope.switchContext('/');
-  } 
+  }
 
   $scope.resultsContext = function() {
     $rootScope.isLoading = true;
@@ -90,11 +93,11 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     if (context.indexOf('/search') >= 0) {
       $scope.leftControlTitle = 'Back';
       $scope.isSearchContext = true;
-      $scope.leftControlIconSrc = backIconSrc;      
+      $scope.leftControlIconSrc = backIconSrc;
       $scope.searchIconSrc = searchIconBSrc;
       $scope.isSearchContext = true;
       $scope.inputIsFocused = true;
-      $rootScope.toolbarIsShrunk = true;      
+      $rootScope.toolbarIsShrunk = true;
 
     } else {
       $scope.leftControlTitle = 'ExpressWay';
@@ -116,7 +119,7 @@ app.controller('MarketingController', function($scope, answersModel) {
     secondP: 'With the power of Watson we answer natural language questions.'
   };
 
-  
+
 
   $scope.testimonials = [
     {
@@ -141,13 +144,15 @@ app.controller('IntroController', function($scope) {
 app.controller('SearchController', function($scope) {
 });
 
+
+// TODO: What questions should we hardcode to suggest?
 app.controller('SuggestionsController', function($scope) {
   $scope.suggestedQuestions = [
     {
-      question: 'What is life?'
+      question: 'What is ...?'
     },
     {
-      question: 'What is your mom\'s number?'
+      question: 'What is your ...?'
     }
   ];
 });
@@ -168,10 +173,10 @@ app.controller('ResultsController', function($scope, $routeParams, answersModel)
 });
 
 app.run( function($rootScope, $location) {
-   $rootScope.$watch(function() { 
-      return $location.path(); 
+   $rootScope.$watch(function() {
+      return $location.path();
     },
-    function(a){  
+    function(a){
       $rootScope.switchContext(a);
     });
 });
@@ -225,4 +230,3 @@ app.directive('infoAnimate', function(){
         }
     };
 });
-
