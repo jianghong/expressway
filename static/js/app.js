@@ -260,7 +260,7 @@ app.run( function($rootScope, $location) {
 });
 
 app.service('answersModel', function($http, $q) {
-  var watsonRoute = 'http://127.0.0.1:8000/ask';
+  var watsonRoute = 'http://54.69.43.163/ask';
 
   this.askWatson = function(question) {
     return $q(function(resolve, reject) {

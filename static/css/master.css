@@ -2,6 +2,10 @@
   font-weight: 400;
 }
 
+::-webkit-scrollbar { 
+  display: none; 
+}
+
 body, md-content {
   font-family: 'RobotoDraft', sans-serif;
 }
@@ -122,11 +126,11 @@ md-toolbar {
 .watson-results {
   overflow-y: auto;
   position: fixed;
-  top: 275px;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 5;
+  top: 275px;
 }
 
 .md-tall {
