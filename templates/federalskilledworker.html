@@ -1,7 +1,7 @@
 <md-tabs selected="tabIndex">
   <md-tab label="Federal Skilled Worker">
     <div layout="horizonal" layout-align="center">
-    <md-card class="animated" ng-class="nexting ? 'fadeIn': 'fadeInRight'">
+    <md-card class="animated" style="width: 660px;" ng-class="nexting ? 'fadeIn': 'fadeInRight'">
       <h1>Federal Skilled Worker Application</h1>
 
       <p>Awesome, let’s start on the Federal Skilled Worker application. There are 8 forms to be filled out in this program. Don’t panic, we will do it for you once you have gave out the information we need. </p>
@@ -20,7 +20,7 @@
   </md-tab>
   <md-tab label="Personal Info">
     <div layout="horizonal" layout-align="center">
-    <md-card class="animated" ng-class="nexting ? 'fadeInLeft': 'fadeInRight'">
+    <md-card class="animated" style="width: 660px;" ng-class="nexting ? 'fadeInLeft': 'fadeInRight'">
       <h2>We will start by collecting information about you! Since you’re a super star.</h2>
 
       <label for="">Name:</label>
@@ -68,8 +68,8 @@
   </md-tab>
   <md-tab label="Spouse Info">
     <div layout="horizonal" layout-align="center">
-    <md-card class="animated" ng-class="nexting ? 'fadeInLeft': 'fadeInRight'">
-      <h2>You said you have a spouse(Way to go!). We need to get information regarding your sprouse in this section.</h2>
+    <md-card style="width: 660px;" class="animated" ng-class="nexting ? 'fadeInLeft': 'fadeInRight'">
+      <h2>You said you have a spouse(Way to go!). We need to get information regarding your spouse in this section.</h2>
 
       <label for="">Name of spouse:</label>
       <div layout="horizontal">
@@ -189,10 +189,15 @@
     </div>
   </md-tab>
   <md-tab label="Completed form">
-    <div layout="horizonal" layout-align="center">
+    <div layout="horizonal" layout-align="center center">
     <md-card>
       <h2>Great job, you may download your completed form below.</h2>
-      <md-button class="md-raised"><a href="http://s3-us-west-2.amazonaws.com/filledforms/filled_form.pdf">Download</a></md-button>
+      <div layout="horizontal" layout-align="center">
+          <iframe id="iframepdf" src="http://s3-us-west-2.amazonaws.com/contrajd/Filled_form.pdf" style="height: 600px; width: 640px"></iframe>
+      </div>
+      <div layout="horizontal" layout-align="center" style="margin-top: 10px;">
+          <md-button class="md-raised"><a href="http://s3-us-west-2.amazonaws.com/contrajd/Filled_form.pdf">Download</a></md-button>
+      </div>
     </md-card>
     </div>
   </md-tab>
