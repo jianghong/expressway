@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="bower_components/animate-css/animate.min.css">
     <link rel="stylesheet" href="static/css/master.css">
   </head>
-  <body layout="vertical" layout-align="space-between">
-    <div ng-controller="MainController">
+  <body ng-controller="MainController" layout="vertical" layout-align="space-between" ng-class="{ 'no-scroll': inputIsFocused }">
+    <div>
       <md-toolbar toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk}">
         <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
           <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>

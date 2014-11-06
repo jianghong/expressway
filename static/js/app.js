@@ -28,6 +28,10 @@ app.config(['$routeProvider',
       });
   }])
 
+app.controller('BodyController', function($scope) {
+  
+});
+
 app.controller('MainController', function($scope, $location, $rootScope, answersModel, $window) {
   var MAIN_THEME_CLASS = 'md-blue-theme';
   var hamburgerIconSrc = 'static/img/hamburger-icon.png';
