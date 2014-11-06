@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="bower_components/animate-css/animate.min.css">
     <link rel="stylesheet" href="static/css/master.css">
   </head>
-  <body>
+  <body layout="vertical" layout-align="space-between">
     <div ng-controller="MainController">
-      <md-toolbar toolbar-animate is-searching="{{isSearchContext}}" layout="vertical" layout-align="center center" scroll-shrink md-theme="blue" ng-class="{'md-tall': !isSearchContext}" class="md-whiteframe-z1">
+      <md-toolbar toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk}">
         <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
           <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
           <md-button>Login</md-button>
         </div>
-        <div info-animate is-searching="{{isSearchContext}}" layout="vertical" layout-align="center center">
-          <div>
+        <div info-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center">
+          <div class="bundle-for-animation">
           <h1 style="margin-bottom: 5px;">Our vision is simple.</h1>
           <h4 style="margin-top: 5px; margin-bottom: 50px;">To answer your immigration questions.</h4>          
           </div>
@@ -28,7 +28,7 @@
             <div class="search-icon-and-input" layout="horizontal">
               <div class="icon search-icon">
                 <div class="icon-container" style="height: 30px; padding: 0 20px;" layout="vertical" layout-align="center center">
-                  <img ng-hide="isLoading" style="height: 24px; width: 24px;" ng-src="{{ searchIconSrc }}">
+                  <img ng-hide="isLoading" style="height: 24px; width: 24px;" src="static/img/search-icon-b.png">
                   <md-progress-circular ng-show="isLoading" style="margin-bottom: 10px; height:24px; width:24px;" diameter="18" mode="indeterminate"></md-progress-circular>
                 </div>
               </div>
@@ -57,6 +57,10 @@
         </div>
       </md-toolbar>
 
+      <md-content style="height: 100vh; overflow: visible;">
+        <div class="container" layout="vertical" layout-align="center center" ng-view></div>
+      </md-content>
+
       <section class="watson-results" layout="vertical" layout-align="start center" ng-show="isSearchContext">
         <div layout="vertical" layout-align="center center">
           <md-list>
@@ -82,11 +86,7 @@
             </md-item>
           </md-list>
         </div>
-      </section>
-      <md-content style="height: 100vh; background-color: #C5CAE9 !important;">
-      <!-- <md-backdrop class="md-opaque" ng-show="isSearchContext"></md-backdrop> -->
-      <div class="container" layout="vertical" layout-align="center center" ng-view></div>
-      </md-content>
+      </section>      
       <div class="backdrop md-opaque" ng-show="isSearchContext"></div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
