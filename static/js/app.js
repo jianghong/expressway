@@ -41,15 +41,17 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
 
   $scope.results = answersModel.answers ? answersModel.answers.question.answers : [];
 
+  $scope.searchPlaceholder = "Where do I get my immigration forms?";
+
   $scope.suggestedQuestions = [
     {
-      question: 'What is ...?'
+      question: 'What is a common law partner?'
     },
     {
-      question: 'Who is ...'
+      question: 'What is a conjugal relationship?'
     },
     {
-      question: 'When can I ...'
+      question: 'How do I apply for a work permit?'
     }
   ];
 
@@ -93,6 +95,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     if (context.indexOf('/search') >= 0) {
       $scope.leftControlTitle = 'Back';
       $scope.isSearchContext = true;
+      $scope.searchPlaceholder = "Ask Watson...";
       $scope.leftControlIconSrc = backIconSrc;
       $scope.searchIconSrc = searchIconBSrc;
       $scope.isSearchContext = true;
@@ -102,6 +105,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     } else {
       $scope.leftControlTitle = 'ExpressWay';
       $scope.isSearchContext = false;
+      $scope.searchPlaceholder = "Where do I get my immigration forms?";
       $scope.leftControlIconSrc = hamburgerIconSrc
       $scope.searchIconSrc = searchIconWSrc;
     }

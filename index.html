@@ -15,13 +15,18 @@
       <md-toolbar toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk}">
         <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
           <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
-          <md-button>Login</md-button>
+          <div layout="horizontal" layout-align="space-between">
+              <md-button>Pricing</md-button>
+              <md-button>Login</md-button>
+              <md-button>About Us</md-button>
+          </div>
         </div>
 
         <div info-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center">
           <div class="bundle-for-animation">
             <h1 style="margin-bottom: 10px; text-align: center;">Our vision is simple.</h1>
             <h4 style="margin-top: 0px; margin-bottom: 10px; text-align: center;">We will answer your immigration related questions.</h4>
+            <h4 style="margin-top: 0px; margin-bottom: 10px; text-align: center;">We will also help you immigrate to Canada.</h4>
             <!-- <h4 style="margin-top: 0px; margin-bottom: 10px; text-align: center;">We will also help you come to Canada.</h4> -->
           </div>
         </div>
@@ -37,7 +42,7 @@
               </div>
               <div class="search-input" flex>
                 <form ng-submit="resultsContext()">
-                  <input type="text" placeholder="Ask Watson..." ng-model="question" ng-blur="inputBlur()" ng-focus="searchContext()">
+                  <input type="text" placeholder="{{ searchPlaceholder }}" ng-model="question" ng-blur="inputBlur()" ng-focus="searchContext()">
                 </form>
               </div>
             </div>
