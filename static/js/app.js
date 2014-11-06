@@ -37,6 +37,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   $scope.searchIconSrc = searchIconWSrc;
   $rootScope.isLoading = false;
   $rootScope.inputIsFocused = false;
+  $rootScope.toolbarIsShrunk = false;
 
   $scope.results = answersModel.answers ? answersModel.answers.question.answers : [];
 
@@ -52,8 +53,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   $scope.searchContext = function() {
     // $location.path('/search');
     $scope.switchContext('/search');
-    $scope.isSearchContext = true;
-    $scope.inputIsFocused = true;
+
   }
 
   $scope.inputBlur = function() {
@@ -66,6 +66,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
 
   $scope.mainContext = function() {
     $scope.isSearchContext = false;
+    $rootScope.toolbarIsShrunk = false;
     $scope.switchContext('/');
   } 
 
@@ -91,6 +92,9 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
       $scope.isSearchContext = true;
       $scope.leftControlIconSrc = backIconSrc;      
       $scope.searchIconSrc = searchIconBSrc;
+      $scope.isSearchContext = true;
+      $scope.inputIsFocused = true;
+      $rootScope.toolbarIsShrunk = true;      
 
     } else {
       $scope.leftControlTitle = 'ExpressWay';
@@ -192,14 +196,14 @@ app.service('answersModel', function($http, $q) {
   }
 });
 
-app.directive('toolbarAnimate', function($rootScope){
+app.directive('toolbarAnimate', function($window){
     return {
         link: function($scope, $element, $attributes){
             $attributes.$observe('isSearching', function(value){
               if (value === 'true') {
                 $element.animate({
                   height: '64px'
-                }, 50, function() {
+                }, 300, function() {
                 });
               }
             });
