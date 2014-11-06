@@ -50,14 +50,21 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
 
   $scope.suggestedQuestions = [
     {
-      question: 'What is a common law partner?'
+      question: 'How do I immigrate to Canada?'
     },
     {
-      question: 'What is a conjugal relationship?'
+      question: 'How do I get a work permit?'
     },
     {
-      question: 'How do I apply for a work permit?'
+      question: 'What is the processing time of a work permit?'
+    },
+    {
+      question: 'What work programs can I apply for?'
+    },
+    {
+      question: 'What is the Federal Skilled Worker Program?'
     }
+
   ];
 
   $scope.searchContext = function() {
