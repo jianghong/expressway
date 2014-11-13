@@ -10,19 +10,27 @@
     <link rel="stylesheet" href="bower_components/animate-css/animate.min.css">
     <link rel="stylesheet" href="static/css/master.css">
   </head>
-  <body layout="vertical" layout-align="space-between">
-    <div ng-controller="MainController">
+  <body ng-controller="MainController" layout="vertical" layout-align="space-between" ng-class="{ 'no-scroll': inputIsFocused }">
+    <div>
       <md-toolbar toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk}">
         <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
           <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
-          <md-button>Login</md-button>
-        </div>
-        <div info-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center">
-          <div class="bundle-for-animation">
-          <h1 style="margin-bottom: 5px;">Our vision is simple.</h1>
-          <h4 style="margin-top: 5px; margin-bottom: 50px;">To answer your immigration questions.</h4>          
+          <div layout="horizontal" layout-align="space-between">
+              <md-button>Pricing</md-button>
+              <md-button>Login</md-button>
+              <md-button>About Us</md-button>
           </div>
         </div>
+
+        <div info-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center">
+          <div class="bundle-for-animation">
+            <h1 style="margin-bottom: 10px; text-align: center;">Our vision is simple.</h1>
+            <h4 style="margin-top: 0px; margin-bottom: 10px; text-align: center;">We will answer your immigration related questions.</h4>
+            <h4 style="margin-top: 0px; margin-bottom: 10px; text-align: center;">We will also help you immigrate to Canada.</h4>
+            <!-- <h4 style="margin-top: 0px; margin-bottom: 10px; text-align: center;">We will also help you come to Canada.</h4> -->
+          </div>
+        </div>
+
         <div class="md-toolbar-tools md-toolbar-tools-bottom" flex="60" layout="horizontal" layout-align="space-between">
           <div class="search-container" layout="vertical" flex ng-class="{ 'md-white-theme':isSearchContext }">
             <div class="search-icon-and-input" layout="horizontal">
@@ -34,32 +42,27 @@
               </div>
               <div class="search-input" flex>
                 <form ng-submit="resultsContext()">
-                  <input type="text" placeholder="Ask Watson..." ng-model="question" ng-blur="inputBlur()" ng-focus="searchContext()">
+                  <input type="text" placeholder="{{ searchPlaceholder }}" ng-model="question" ng-blur="inputBlur()" ng-focus="searchContext()">
                 </form>
               </div>
             </div>
             <div ng-show="inputIsFocused" class="autocomplete-container">
               <md-card flex class="autocomplete-card">
-                <md-divider></md-divider>
                 <md-subheader class="md-primary">Suggested Questions:</md-subheader>
                 <md-list>
                   <md-item ng-repeat="question in suggestedQuestions">
                     <md-item-content>
-                      <div class="md-tile-content">
+                      <div style="padding: 10px;" class="md-tile-content">
                         {{ question.question }}
                       </div>
                     </md-item-content>
                   </md-item>
-                </md-list>    
+                </md-list>
               </md-card>
-            </div>            
+            </div>
           </div>
         </div>
       </md-toolbar>
-
-      <md-content style="height: 100vh; overflow: visible;">
-        <div class="container" layout="vertical" layout-align="center center" ng-view></div>
-      </md-content>
 
       <section class="watson-results" layout="vertical" layout-align="start center" ng-show="isSearchContext">
         <div layout="vertical" layout-align="center center">
@@ -68,25 +71,31 @@
               <md-item-content>
                 <div class="md-tile-content">
                   <md-card class="animated fadeInUp" style="width: 640px">
-                    <div class="card-meta" layout="horizontal" layout-align="space-between">
-                      <h2>CIC</h2>
-                      <h2>{{result.confidence}}</h2>
-                    </div>
+                    <h2>Answer Card</h2>
                     <div class="card-content">
                       {{result.text}}
                     </div>
-                  <!--   <div class="card-triggers" layout="horizontal" layout-align="end">
-                      <md-button class="md-blue-btn">
-                        More Details
+                    <md-divider></md-divider>
+                    <div class="card-triggers" layout="horizontal" layout-align="space-between">
+                      <md-button class="md-yellow-btn">
+                        <a target="_blank" href="{{result.source}}">Evidence</a>
                       </md-button>
-                    </div>        -->     
+                      <md-button>
+                        {{result.confidence}}
+                      </md-button>
+                    </div>                    
                   </md-card>
                 </div>
               </md-item-content>
             </md-item>
           </md-list>
         </div>
-      </section>      
+      </section>
+
+      <md-content style="height: 100vh; overflow: visible;">
+        <div class="container" layout="vertical" layout-align="center center" ng-view></div>
+      </md-content>
+      
       <div class="backdrop md-opaque" ng-show="isSearchContext"></div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

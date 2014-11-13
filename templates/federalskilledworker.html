@@ -1,0 +1,204 @@
+<md-tabs selected="tabIndex">
+  <md-tab label="Federal Skilled Worker">
+    <div layout="horizonal" layout-align="center">
+    <md-card class="animated" style="width: 660px;" ng-class="nexting ? 'fadeIn': 'fadeInRight'">
+      <h1>Federal Skilled Worker Application</h1>
+
+      <p>Awesome, let’s start on the Federal Skilled Worker application. There are 8 forms to be filled out in this program. Don’t panic, we will do it for you once you have given us your information. </p>
+
+      <p>Press next to get started.</p>
+      <div class="card-triggers" layout="horizontal" layout-align="space-between">
+        <md-button class="md-yellow-btn">
+          Privacy
+        </md-button>
+        <md-button ng-click="nextPage()" class="md-blue-btn">
+          Get Started
+        </md-button>
+      </div>
+    </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="Personal Info">
+    <div layout="horizonal" layout-align="center">
+    <md-card class="animated" style="width: 660px;" ng-class="nexting ? 'fadeInLeft': 'fadeInRight'">
+      <h2>We will start by collecting information about you! Since you’re a super star.</h2>
+
+      <label for="">Name:</label>
+      <div layout="horizontal">
+        <md-text-float label="First Name" ng-model="personalResponses.firstName"></md-text-float>
+        <md-text-float label="Last Name" ng-model="personalResponses.lastName"></md-text-float>
+      </div>
+      <br>
+
+      <label for="">Date of Birth:</label>
+      <div layout="horizontal">
+        <md-text-float label="Year" ng-model="personalResponses.birthYear"></md-text-float>
+        <md-text-float label="Month" ng-model="personalResponses.birthMonth"></md-text-float>
+        <md-text-float label="Day" ng-model="personalResponses.birthDay"></md-text-float>
+      </div>
+      <br>
+
+      <label for="">Marital Status:</label>
+      <md-radio-group ng-model="personalResponses.maritalStatus" layout="horizontal">
+        <md-radio-button value="married">Married</md-radio-button>
+        <md-radio-button value="single">Single</md-radio-button>
+        <md-radio-button value="divorced">Divorced</md-radio-button>
+        <md-radio-button value="widowed">Widowed</md-radio-button>
+      </md-radio-group>
+      <br>
+
+      <label for="">Location: </label>
+      <div layout="horizontal">
+        <md-text-float label="Country" ng-model="personalResponses.country"></md-text-float>
+        <md-text-float label="City" ng-model="personalResponses.city"></md-text-float>
+        <md-text-float label="Street" ng-model="personalResponses.street"></md-text-float>
+      </div>
+      <br>
+
+      <div class="card-triggers" layout="horizontal" layout-align="space-between">
+        <md-button ng-click="previousPage()" class="md-blue-btn">
+          Back
+        </md-button>
+        <md-button ng-click="nextPage()" class="md-blue-btn">
+          Next
+        </md-button>
+      </div>
+    </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="Spouse Info">
+    <div layout="horizonal" layout-align="center">
+    <md-card style="width: 660px;" class="animated" ng-class="nexting ? 'fadeInLeft': 'fadeInRight'">
+      <h2>You said you have a spouse(Way to go!). We need to get information regarding your spouse in this section.</h2>
+
+      <label for="">Name of spouse:</label>
+      <div layout="horizontal">
+        <md-text-float label="First Name" ng-model="personalResponses.firstName"></md-text-float>
+        <md-text-float label="Last Name" ng-model="personalResponses.lastName"></md-text-float>
+      </div>
+      <br>
+
+      <label for="">Date of Birth of spouse:</label>
+      <div layout="horizontal">
+        <md-text-float label="Year" ng-model="personalResponses.birthYear"></md-text-float>
+        <md-text-float label="Month" ng-model="personalResponses.birthMonth"></md-text-float>
+        <md-text-float label="Day" ng-model="personalResponses.birthDay"></md-text-float>
+      </div>
+      <br>
+
+      <label for="">Marital Status of spouse:</label>
+      <md-radio-group ng-model="personalResponses.maritalStatus" layout="horizontal">
+        <md-radio-button value="married">Married</md-radio-button>
+        <md-radio-button value="single">Single</md-radio-button>
+        <md-radio-button value="divorced">Divorced</md-radio-button>
+        <md-radio-button value="widowed">Widowed</md-radio-button>
+      </md-radio-group>
+      <br>
+
+      <label for="">Place of birth of spouse: </label>
+      <div layout="horizontal">
+        <md-text-float label="Country" ng-model="personalResponses.country"></md-text-float>
+        <md-text-float label="City" ng-model="personalResponses.city"></md-text-float>
+        <md-text-float label="Street" ng-model="personalResponses.street"></md-text-float>
+      </div>
+      <br>
+
+      <label for="">Address of spouse:</label>
+      <div layout="horizontal">
+        <md-text-float label="Country" ng-model="personalResponses.country"></md-text-float>
+        <md-text-float label="City" ng-model="personalResponses.city"></md-text-float>
+        <md-text-float label="Street" ng-model="personalResponses.street"></md-text-float>
+      </div>
+      <br>
+
+      <label for="">Email:</label>
+      <div layout="horizontal">
+        <md-text-float label="Email" ng-model="personalResponses.email"></md-text-float>
+      </div>
+      <br>
+
+      <div class="card-triggers" layout="horizontal" layout-align="space-between">
+        <md-button ng-click="previousPage()" class="md-blue-btn">
+          Back
+        </md-button>
+        <md-button ng-click="nextPage()" class="md-blue-btn">
+          Next
+        </md-button>
+      </div>
+    </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="Children Info">
+    <div layout="horizonal" layout-align="center">
+    <md-card class="animated" ng-class="nexting ? 'fadeInLeft': 'fadeInRight'">
+      <h2>Children eh? Good thing this is the last page before we are done!</h2>
+
+      <label for="">Name of child:</label>
+      <div layout="horizontal">
+        <md-text-float label="First Name" ng-model="personalResponses.firstName"></md-text-float>
+        <md-text-float label="Last Name" ng-model="personalResponses.lastName"></md-text-float>
+      </div>
+      <br>
+
+      <label for="">Date of Birth of child:</label>
+      <div layout="horizontal">
+        <md-text-float label="Year" ng-model="personalResponses.birthYear"></md-text-float>
+        <md-text-float label="Month" ng-model="personalResponses.birthMonth"></md-text-float>
+        <md-text-float label="Day" ng-model="personalResponses.birthDay"></md-text-float>
+      </div>
+      <br>
+
+      <label for="">Gender of child: </label>
+      <md-radio-group ng-model="personalResponses.maritalStatus" layout="horizontal">
+        <md-radio-button value="male">Male</md-radio-button>
+        <md-radio-button value="female">Female</md-radio-button>
+      </md-radio-group>
+      <br>
+
+      <label for="">Place of birth of child: </label>
+      <div layout="horizontal">
+        <md-text-float label="Country" ng-model="personalResponses.country"></md-text-float>
+        <md-text-float label="City" ng-model="personalResponses.city"></md-text-float>
+        <md-text-float label="Street" ng-model="personalResponses.street"></md-text-float>
+      </div>
+      <br>
+
+      <label for="">Address of child:</label>
+      <div layout="horizontal">
+        <md-text-float label="Country" ng-model="personalResponses.country"></md-text-float>
+        <md-text-float label="City" ng-model="personalResponses.city"></md-text-float>
+        <md-text-float label="Street" ng-model="personalResponses.street"></md-text-float>
+      </div>
+      <br>
+
+      <label for="">Email:</label>
+      <div layout="horizontal">
+        <md-text-float label="Email" ng-model="personalResponses.email"></md-text-float>
+      </div>
+      <br>
+
+      <div class="card-triggers" layout="horizontal" layout-align="space-between">
+        <md-button ng-click="previousPage()" class="md-blue-btn">
+          Back
+        </md-button>
+        <md-button ng-click="nextPage()" class="md-blue-btn">
+          Next
+        </md-button>
+      </div>
+    </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="Completed form">
+    <div layout="horizonal" layout-align="center center">
+    <md-card>
+      <h2>Great job, you may download your completed form below.</h2>
+      <div layout="horizontal" layout-align="center">
+          <iframe id="iframepdf" src="http://s3-us-west-2.amazonaws.com/contrajd/Filled_form.pdf" style="height: 600px; width: 640px"></iframe>
+      </div>
+      <div layout="horizontal" layout-align="center" style="margin-top: 10px;">
+          <md-button class="md-raised"><a target="_blank" href="http://s3-us-west-2.amazonaws.com/contrajd/Filled_form.pdf">Download</a></md-button>
+      </div>
+    </md-card>
+    </div>
+  </md-tab>
+</md-tabs>

@@ -2,6 +2,14 @@
   font-weight: 400;
 }
 
+::-webkit-scrollbar { 
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
 body, md-content {
   font-family: 'RobotoDraft', sans-serif;
 }
@@ -19,7 +27,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   -webkit-transition: height 300ms ease-in-out;
   -moz-transition: height 300ms ease-in-out;
   -o-transition: height 300ms ease-in-out;
-  transition: height 300ms ease-in-out;    
+  transition: height 300ms ease-in-out;
 }
 
 md-toolbar {
@@ -52,7 +60,7 @@ md-toolbar {
 
 .icon-container, .search-icon {
   border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;    
+  border-bottom-left-radius: 3px;
 }
 
 .input-opaque-overlay {
@@ -69,7 +77,7 @@ md-toolbar {
   border-color: #fff;
   border: none;
   height: 30px;
-  color: #fff;
+  color: #000;
   font-size: 0.75em;
   font-family: 'RobotoDraft', 'Helvetica Neue', Helvetica, Arial;
   border-top-right-radius: 3px;
@@ -119,18 +127,22 @@ md-toolbar {
   background-color: #00BCD4 !important;
 }
 
+.watson-results md-divider {
+  margin: 10px 0;
+}
+
 .watson-results {
   overflow-y: auto;
   position: fixed;
-  top: 275px;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 10;  
+  z-index: 5;
+  top: 315px;
 }
 
 .md-tall {
-  height: 210px !important;
+  height: 250px !important;
 
 }
 
@@ -179,8 +191,8 @@ md-toolbar {
 }
 
 .steps-section {
-  position: relative;  
-  top: -170px;
+  position: relative;
+  top: -38px;
 }
 
 .steps-section h2 {
@@ -190,4 +202,14 @@ md-toolbar {
 .steps-action md-button {
   background-color: #53A93F !important;
   color: white;
+}
+
+md-tab {
+  background-color: #084D8C;
+  color: #fff;
+}
+
+md-tabs-ink-bar {
+  height: 3px !important;
+  background: #ffa726 !important;
 }
