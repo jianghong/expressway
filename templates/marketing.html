@@ -5,31 +5,35 @@
 </section>
  -->
 <section layout="horizontal" layout-fill>
-  <div class="marketing-img"  flex>
-
-  </div>
-</section>
-<section class="steps-section" layout-fill flex layout="vertical">
-  <div class="steps-row" layout="horizontal" layout-align="space-around">
-    <md-card flex="30">
-      <h2>1. Research</h2>
-      <md-divider></md-divider>
-      <p>We are powered by <a href="#">IBM Watson</a>, the most powerful research tool available at your fingertips for immigration research.</p>
-      <p>Watson is an expert at answering immigration related questions like: "How do I immigrate to Canada" to "What do immigration officers look for in a potential immigrant".</p>
-  </md-card>
-    <md-card flex="30">
-      <h2>2. Apply</h2>
-      <md-divider></md-divider>
-      <p>We will ask a few simple questions to put you on the ExpressWay. With all your immigration questions asked and your forms filled, let us take care of the heavy lifting for you, while you enjoy a pain-free process. You may start your application when you are ready.</p>
-      <p>Don't worry, we <a href="#">do not retain any of your information</a>.</p>
-    </md-card>
-    <md-card flex="30">
-      <h2>3. Immigrate</h2>
-      <md-divider></md-divider>
-      <p>Once you submit your application you will always be able to access your forms in case of any changes in your condition. </p>
-    </md-card>
-  </div>
-  <div class="steps-action" style="margin-top: 50px;" layout="horizontal" layout-align="center">
-    <md-button class="md-raised" ng-click="applyContext()">Start Application</md-button>
-  </div>
+  <div class="marketing-img" flex layout="vertical" layout-align="space-between">
+      <div layout="horizontal" layout-align="center">
+        <h1>The fastest way to immigrate.</h1>
+      </div>
+      <div class="steps-row" layout="horizontal" layout-align="space-around">
+        <md-card flex="30">
+          <div class="card-img research-card" layout="vertical" layout-align="end">
+            <h2>1. Research</h2>
+          </div>
+          <md-divider></md-divider>
+          <p>We are powered by <a href="#">IBM Watson</a>, the most powerful research tool available at your fingertips for immigration research.</p>
+      </md-card>
+        <md-card flex="30">
+          <div class="card-img apply-card" layout="vertical" layout-align="end">
+            <h2>2. Apply</h2>
+          </div>
+          <md-divider></md-divider>
+          <p>Don't worry, we <a href="#">do not retain any of your information</a>.</p>
+        </md-card>
+        <md-card flex="30">
+          <div class="card-img immigrate-card" layout="vertical" layout-align="end">
+            <h2>3. Immigrate</h2>
+          </div>
+          <md-divider></md-divider>
+          <p>Once you submit your application you will always be able to access your forms in case of any changes in your condition. </p>
+        </md-card>
+      </div>
+<!--       <div class="steps-action" style="margin-top: 50px;" layout="horizontal" layout-align="center">
+        <md-button class="md-raised" ng-click="applyContext()">Start Application</md-button>
+      </div>
+ -->  </div>
 </section>

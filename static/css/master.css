@@ -1,3 +1,9 @@
+/*
+Color 1: #3F51B5
+color 2: #53A93F
+color 3: #FF5722
+*/
+
 * {
   font-weight: 400;
 }
@@ -31,7 +37,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 md-toolbar {
-  background-color: #084d8c !important;
+  background-color: #3F51B5 !important;
 }
 
 .md-blue-btn {
@@ -142,8 +148,7 @@ md-toolbar {
 }
 
 .md-tall {
-  height: 250px !important;
-
+  height: 280px !important;
 }
 
 .ex-hidden {
@@ -176,18 +181,21 @@ md-toolbar {
 }
 
 .marketing-img {
-  background: url('../img/to-bg.jpg') no-repeat center center;
-  height: 566px;
+  background-color: #f0f0f0;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: #fff;
+  color: #000;
   padding: 20px;
 }
 
 .marketing-img h1 {
-  font-size: 5em;
+  font-size: 2.5em;
+}
+
+.marketing-img p, .marketing-img h2 {
+  color: #000;
 }
 
 .steps-section {
@@ -199,7 +207,7 @@ md-toolbar {
   margin: 13px 0;
 }
 
-.steps-action md-button {
+.steps-action md-button, .apply-button {
   background-color: #53A93F !important;
   color: white;
 }
@@ -212,4 +220,36 @@ md-tab {
 md-tabs-ink-bar {
   height: 3px !important;
   background: #ffa726 !important;
+}
+
+.bundle-for-animation h1 {
+  font-size: 2.7em;
+}
+
+.steps-row md-card {
+  margin: 0;
+  padding: 0;
+}
+
+.steps-row md-card h2 {
+  margin-top: 0;
+}
+
+.card-img {
+  height: 150px;
+}
+
+.research-card {
+  background: url('https://www.power.org/wp-content/uploads/2012/09/Screen-Shot-2012-09-23-at-11.03.08-PM.png') no-repeat center center;
+  color: #fff;
+}
+
+.apply-card {
+  background: url('http://guide2immigration.com/wp-content/themes/images/immigration.png') no-repeat center center;
+  color: #fff;
+}
+
+.immigrate-card {
+  background: url('https://d13yacurqjgara.cloudfront.net/users/329647/screenshots/1281249/mapleleaf.jpg') no-repeat center center;
+  color: #fff;
 }
