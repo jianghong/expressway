@@ -1,3 +1,9 @@
+/*
+Color 1: #3F51B5
+color 2: #53A93F
+color 3: #FF5722
+*/
+
 * {
   font-weight: 400;
 }
@@ -31,7 +37,8 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 md-toolbar {
-  background-color: #084d8c !important;
+  background: none !important;
+  position: absolute;
 }
 
 .md-blue-btn {
@@ -42,6 +49,11 @@ md-toolbar {
 .md-yellow-btn {
   color: #ffa726;
   fill: #ffa726;
+}
+
+.md-green-btn {
+  fill: #53A93F;
+  background-color: #53A93F !important;
 }
 
 .search-icon {
@@ -142,7 +154,7 @@ md-toolbar {
 }
 
 .md-tall {
-  height: 250px !important;
+  height: 180px !important;
 
 }
 
@@ -177,13 +189,12 @@ md-toolbar {
 
 .marketing-img {
   background: url('../img/to-bg.jpg') no-repeat center center;
-  height: 566px;
+  height: 100vh;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   color: #fff;
-  padding: 20px;
 }
 
 .marketing-img h1 {
@@ -212,4 +223,17 @@ md-tab {
 md-tabs-ink-bar {
   height: 3px !important;
   background: #ffa726 !important;
+}
+
+.homepage-steps {
+  background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.55)),to(rgba(0,0,0,.55)));
+  background-image: -moz-linear-gradient(rgba(0,0,0,.55) 0%,rgba(0,0,0,.55) 100%);
+  background-image: -ms-linear-gradient(rgba(0,0,0,.55) 0%,rgba(0,0,0,.55) 100%);
+  background-image: -o-linear-gradient(rgba(0,0,0,.55) 0%,rgba(0,0,0,.55) 100%);
+  background-image: linear-gradient(rgba(0,0,0,.55) 0%,rgba(0,0,0,.55)100%);
+  padding: 20px;
+}
+
+.homepage-steps h3, .homepage-steps h4 {
+  margin: 5px 0;
 }
