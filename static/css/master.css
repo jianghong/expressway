@@ -189,7 +189,7 @@ md-toolbar {
 
 .marketing-img {
   background: url('../img/to-bg.jpg') no-repeat center center;
-  height: 100vh;
+  height: calc(100vh - 35px);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -236,4 +236,19 @@ md-tabs-ink-bar {
 
 .homepage-steps h3, .homepage-steps h4 {
   margin: 5px 0;
+}
+
+footer {
+  height: 35px;
+  background-color: #333333;
+  color: #666;
+}
+
+footer a, footer a:active, footer a:hover, footer a:visited {
+  color: #666;
+  text-decoration: none;
+}
+
+.pipe {
+  margin: 0 10px;
 }
