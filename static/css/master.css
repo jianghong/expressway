@@ -255,3 +255,52 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 .pipe {
   margin: 0 10px;
 }
+
+.path-row md-button {
+  margin-right: 20px;
+}
+
+.path-row {
+  height: 50vh;
+}
+
+.path-row img {
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.path-row md-button:nth-child(1) {
+  fill: #1565C0;
+  background-color: #1565C0 !important;  
+  color: #fff;
+}
+
+.path-row md-button:nth-child(4) {
+  fill: #2196F3;
+  background-color: #2196F3 !important;   
+  color: #fff;
+}
+
+.path-row md-button:nth-child(3) {
+  fill: #1E88E5;
+  background-color: #1E88E5 !important;
+  color: #fff;
+}
+
+.path-row md-button:nth-child(2) {
+  fill: #1976D2;
+  background-color: #1976D2 !important;
+  color: #fff;
+}
+
+.apply-section {
+  background-color: #f0f0f0;
+}
+
+.apply-section h1 {
+  font-size: 5vh;
+}
+
+.apply-section h3 {
+  font-size: 3vh;
+}
