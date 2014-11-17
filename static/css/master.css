@@ -2,6 +2,7 @@
 Color 1: #3F51B5
 color 2: #53A93F
 color 3: #FF5722
+blue: #084D8C;
 */
 
 * {
@@ -36,10 +37,13 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   transition: height 300ms ease-in-out;
 }
 
-md-toolbar {
-  background: none !important;
+.md-toolbar-blue {
+  background-color: #084D8C !important;
 }
 
+.md-toolbar-none {
+  background: none !important;
+}
 .md-blue-btn {
   color: #29b6f6;
   fill: #29b6f6;

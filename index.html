@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="bower_components/animate-css/animate.min.css">
     <link rel="stylesheet" href="static/css/master.css">
   </head>
-  <body class="marketing-img" ng-controller="MainController" layout="vertical" layout-align="space-between" ng-class="{ 'no-scroll': inputIsFocused }">
-    <md-toolbar toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk}">
+  <body ng-controller="MainController" layout="vertical" ng-class="{ 'no-scroll': inputIsFocused, 'marketing-img': !isApply }">
+    <md-toolbar toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk, 'md-toolbar-none': !isApply, 'md-toolbar-blue': isApply}">
       <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
         <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
         <div layout="horizontal" layout-align="space-between">
@@ -88,8 +88,8 @@
       </div>
     </section>
 
-    <md-content style="overflow: visible; background: none;">
-      <div class="container" layout="vertical" layout-align="center center" ng-view></div>
+    <md-content style="overflow: visible; background: none;" flex layout="vertical" layout-align="space-between">
+      <div class="container" layout="vertical" flex layout-align="center center" ng-view></div>
       <footer layout="horizontal" layout-align="center center">
           <a>&#169; 2014 ExpressWay</a>
           <div class="pipe">|</div>
