@@ -38,7 +38,6 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 
 md-toolbar {
   background: none !important;
-  position: absolute;
 }
 
 .md-blue-btn {
@@ -189,12 +188,11 @@ md-toolbar {
 
 .marketing-img {
   background: url('../img/to-bg.jpg') no-repeat center center;
-  height: calc(100vh - 35px);
+  height: 100vh;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: #fff;
 }
 
 .marketing-img h1 {
@@ -232,6 +230,7 @@ md-tabs-ink-bar {
   background-image: -o-linear-gradient(rgba(0,0,0,.55) 0%,rgba(0,0,0,.55) 100%);
   background-image: linear-gradient(rgba(0,0,0,.55) 0%,rgba(0,0,0,.55)100%);
   padding: 20px;
+  color: #fff;
 }
 
 .homepage-steps h3, .homepage-steps h4 {
