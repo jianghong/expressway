@@ -344,3 +344,7 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 .apply-section h3 {
   font-size: 3vh;
 }
+
+.md-header-items {
+  background: #fff;
+}
