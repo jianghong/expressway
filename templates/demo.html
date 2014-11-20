@@ -3,7 +3,7 @@
   <md-card style="width: 60vw; padding: 0;">
     <md-tabs selected="tabIndex">
       <md-tab label="Welcome">
-        <h1>Welcome</h1>
+        <h3>Welcome</h3>
         <p>For this demo, we will guide you through a sample form.</p>
         <p>At the end, you will see that your answers have been filled out in a form for you.</p>      
         <p>Let's begin.</p>
@@ -104,13 +104,22 @@
         </div>
       </md-tab>
       <md-tab label="Completed form">
-        <div layout="vertical" layout-align="center center">
-          <h2>Great job, you may download your completed form below.</h2>
+        <div layout="vertical" layout-align="center">
+          <h3>You're done.</h3>
+          <p>You may now preview or download your completed form.</p>
           <div layout="horizontal" layout-align="center">
-              <iframe id="iframepdf" src="http://s3-us-west-2.amazonaws.com/contrajd/Filled_form.pdf" style="height: 600px; width: 640px"></iframe>
-          </div>
-          <div layout="horizontal" layout-align="center" style="margin-top: 10px;">
-              <md-button class="md-raised"><a target="_blank" href="http://s3-us-west-2.amazonaws.com/contrajd/Filled_form.pdf">Download</a></md-button>
+<!--               <iframe id="iframepdf" src="http://s3-us-west-2.amazonaws.com/contrajd/Filled_form.pdf" style="height: 600px; width: 640px"></iframe>
+ -->          </div>
+          <div layout="horizontal" layout-align="space-between" style="margin-top: 10px;">
+            <md-button ng-click="previousPage()" class="md-blue-btn">
+              Back
+            </md-button>
+            <div layout="horizontal" layout-align="end">
+            <md-button ng-click="showPreview($event)" class="md-blue-btn">
+              Preview Form
+            </md-button>
+              <md-button><a target="_blank" href="http://s3-us-west-2.amazonaws.com/contrajd/Filled_form.pdf">Download</a></md-button>
+            </div>
           </div>
         </div>
       </md-tab>

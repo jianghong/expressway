@@ -258,7 +258,7 @@ app.controller('ResultsController', function($scope, $routeParams, answersModel)
   }
 });
 
-app.controller('DemoController', function($scope) {
+app.controller('DemoController', function($scope, $mdDialog) {
   $scope.nexting = true;
   $scope.tabIndex = 0;
   $scope.personalQResponses = {
@@ -272,8 +272,12 @@ app.controller('DemoController', function($scope) {
     reason: '',
     fluent: '',
     armedForces: ''
-
-
+  }
+  
+  $scope.showPreview = function(ev) {$mdDialog.show({controller: DialogController,
+      templateUrl: 'templates/previewdialog.html',
+      targetEvent: ev,
+    });
   }
 
   $scope.nextPage = function() {
@@ -286,6 +290,20 @@ app.controller('DemoController', function($scope) {
     $scope.nexting = false;
   }  
 });
+
+function DialogController($scope, $mdDialog) {
+  $scope.hide = function() {
+    $mdDialog.hide();
+  };
+
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+
+  $scope.answer = function(answer) {
+    $mdDialog.hide(answer);
+  };
+}
 
 app.run( function($rootScope, $location) {
    $rootScope.$watch(function() {
