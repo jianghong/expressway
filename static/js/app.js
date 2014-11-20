@@ -25,6 +25,10 @@ app.config(['$routeProvider',
         templateUrl: 'templates/federalskilledworker.html',
         controller: 'FSWController'
       }).
+      when('/apply/demo', {
+        templateUrl: 'templates/demo.html',
+        controller: 'DemoController'
+      }).
       otherwise({
         redirectTo: '/'
       });
@@ -114,8 +118,12 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     $scope.isApply = true;
   }
 
+  $scope.demoContext = function() {
+    $location.path('/apply/demo');
+    $scope.isApply = true;
+  }
+
   function switchContext(context) {
-    // console.log(context);
     if (context.indexOf('/search') >= 0) {
       $scope.leftControlTitle = 'Back';
       $scope.isSearchContext = true;
@@ -137,7 +145,6 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     }
   }
 
-
   $rootScope.switchContext = switchContext;
  });
 
@@ -148,8 +155,6 @@ app.controller('MarketingController', function($scope, answersModel) {
     firstP: 'We are an immigration research tool that assist immigrants around the world.',
     secondP: 'With the power of Watson we answer natural language questions.'
   };
-
-
 
   $scope.testimonials = [
     {
@@ -181,8 +186,6 @@ app.controller('ApplyController', function($scope) {
     reason: '',
     fluent: '',
     armedForces: ''
-
-
   }
 
   $scope.nextPage = function() {
@@ -253,6 +256,35 @@ app.controller('ResultsController', function($scope, $routeParams, answersModel)
   } else {
     $scope.answers = answersModel.answers.question.answers;
   }
+});
+
+app.controller('DemoController', function($scope) {
+  $scope.nexting = true;
+  $scope.tabIndex = 0;
+  $scope.personalQResponses = {
+    age: '',
+    hasFamilyInCanada: false,
+    hasAccreditedCanadianDegree: false,
+    currentStatus: '',
+    inCanada: false,
+    yearsInCanada: '',
+    occupation: '',
+    reason: '',
+    fluent: '',
+    armedForces: ''
+
+
+  }
+
+  $scope.nextPage = function() {
+    $scope.tabIndex += 1;
+    $scope.nexting = true;
+  }
+
+  $scope.previousPage = function() {
+    $scope.tabIndex -= 1;
+    $scope.nexting = false;
+  }  
 });
 
 app.run( function($rootScope, $location) {

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="bower_components/angular-material/themes/yellow-theme.css">
     <link rel="stylesheet" href="bower_components/angular-material/themes/blue-theme.css">
     <link rel="stylesheet" href="bower_components/animate-css/animate.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="static/css/master.css">
   </head>
   <body ng-controller="MainController" layout="vertical" ng-class="{ 'no-scroll': inputIsFocused, 'marketing-img': !isApply }">
@@ -15,7 +16,7 @@
       <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
         <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
         <div layout="horizontal" layout-align="space-between">
-            <md-button class="md-raised md-green-btn" ng-click="applyContext()">Start Application</md-button>
+            <md-button ng-hide="isApply" class="md-raised md-green-btn" ng-click="applyContext()">Start Application</md-button>
         </div>
       </div>
 
