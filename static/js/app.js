@@ -107,7 +107,8 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     $rootScope.isLoading = true;
     answersModel.askWatson($scope.question).then(function(data) {
       answersModel.setData(data);
-      $scope.results = Array(answersModel.answers.question.answers[0]);
+      $scope.results = answersModel.answers.question.evidencelist;
+      console.log($scope.results);
     }, function(error) {
       // console.log('error');
     }).finally(function() {
@@ -254,7 +255,7 @@ app.controller('ResultsController', function($scope, $routeParams, answersModel)
   if (!answersModel.answers) {
     answersModel.askWatson($routeParams.question).then(function(data) {
       answersModel.setData(data);
-      $scope.answers = Array(answersModel.answers.question.answers[0]);
+      $scope.answers = answersModel.answers.question.evidencelist;
     }, function(error) {
       // console.log('error');
     });
@@ -350,7 +351,6 @@ app.service('answersModel', function($http, $q) {
         //     source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
         //   });
         // }
-        console.log(data);
         resolve(data);
       }).
       error(function(error, status, headers, config) {
@@ -361,9 +361,9 @@ app.service('answersModel', function($http, $q) {
 
   this.setData = function(data) {
     this.answers = data;
-    angular.forEach(data.question.answers, function(obj, i) {
-      obj.confidence = obj.confidence * 100;
-      obj.confidence = obj.confidence + '%';
+    angular.forEach(data.question.evidencelist, function(obj, i) {
+      obj.value = obj.value * 100;
+      obj.value = obj.value + '%';
     });
   }
 });
@@ -387,7 +387,6 @@ app.directive('infoAnimate', function(){
     return {
         link: function(scope, element, attributes){
             attributes.$observe('isSearching', function(value){
-              console.log(value);
               if (value === 'true') {
                 element.slideUp(50);
               } else {
