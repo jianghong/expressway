@@ -348,3 +348,11 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 .md-header-items {
   background: #fff;
 }
+
+.autocomplete-card md-item-content {
+  cursor: pointer;
+}
+
+.autocomplete-card md-item-content:hover {
+  background-color: #f0f0f0;
+}

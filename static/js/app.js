@@ -1,5 +1,7 @@
-var SAMPLE_Q1 = 'what is the national occupational classification?'
-var SAMPLE_Q2 = 'what does it mean to be fluent in english or french?'
+var SAMPLE_Q1 = 'what is cec?'
+var SAMPLE_Q2 = 'what work experience can i use for cec?'
+var SAMPLE_Q3 = 'what are the language requirements for cec?'
+
 var app = angular.module('ExpressWay', ['ngRoute', 'ngMaterial']);
 
 app.config(['$routeProvider',
@@ -60,13 +62,13 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
 
   $scope.suggestedQuestions = [
     {
-      question: 'How do I immigrate to Canada?'
+      question: 'What is CEC?'
     },
     {
-      question: 'How do I get a work permit?'
+      question: 'What work experience can I use for CEC?'
     },
     {
-      question: 'What is the processing time of a work permit?'
+      question: 'What are the language requirements for CEC?'
     },
     {
       question: 'What work programs can I apply for?'
@@ -105,7 +107,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     $rootScope.isLoading = true;
     answersModel.askWatson($scope.question).then(function(data) {
       answersModel.setData(data);
-      $scope.results = answersModel.answers.question.answers;
+      $scope.results = Array(answersModel.answers.question.answers[0]);
     }, function(error) {
       // console.log('error');
     }).finally(function() {
@@ -113,6 +115,10 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     });
   }
 
+  $scope.askOnClick = function(ev) {
+    $scope.question = ev.currentTarget.innerText;
+    $scope.resultsContext();
+  }
   $scope.fswContext = function() {
     $location.path('/apply/federalskilledworker');
     $scope.isApply = true;
@@ -248,13 +254,13 @@ app.controller('ResultsController', function($scope, $routeParams, answersModel)
   if (!answersModel.answers) {
     answersModel.askWatson($routeParams.question).then(function(data) {
       answersModel.setData(data);
-      $scope.answers = answersModel.answers.question.answers;
+      $scope.answers = Array(answersModel.answers.question.answers[0]);
     }, function(error) {
       // console.log('error');
     });
 
   } else {
-    $scope.answers = answersModel.answers.question.answers;
+    $scope.answers = Array(answersModel.answers.question.answers[0]);
   }
 });
 
@@ -273,7 +279,7 @@ app.controller('DemoController', function($scope, $mdDialog) {
     fluent: '',
     armedForces: ''
   }
-  
+
   $scope.showPreview = function(ev) {$mdDialog.show({controller: DialogController,
       templateUrl: 'templates/previewdialog.html',
       targetEvent: ev,
@@ -322,21 +328,28 @@ app.service('answersModel', function($http, $q) {
       $http.get(watsonRoute, {params: {q: question}}).
       success(function(data, status, headers, config) {
         // hard code answer
-        if (question.toLowerCase() === SAMPLE_Q1) {
-          data.question.answers.unshift({
-            confidence: 0.74,
-            id: 0,
-            text: 'The National Occupational Classification (NOC) is the official governmental classification and description of occupations in the Canadian economy. The NOC identifies and groups occupations in the Canadian economy by skill type and level based on the tasks, duties and responsibilities of the occupation. The NOC is available on the Human Resources and Skills Development Canada (HRSDC) website at: http://www5.hrsdc.gc.ca/NOC',
-            source: 'http://www5.hrsdc.gc.ca/NOC'
-          });
-        } else if (question.toLowerCase() === SAMPLE_Q2) {
-          data.question.answers.unshift({
-            confidence: 0.89,
-            id: 0,
-            text: "Language proof if you are 18-54 years of age Select one of the following types of proof to submit with your application: Results of an accepted third-party test at the equivalent of Canadian Language Benchmark (CLB/NCLC) / Niveaux de competence linguistique canadiensFootnote 1 level 4 or higher in speaking and listening either done previously for immigration purposes (acceptable even if expired) or done specifically for citizenship purposes. Test results from the following list are acceptable: Canadian English Language Proficiency Index Program General Test (CELPIP-G), not the academic version or the CELPIP-General LS two-skill (listening and speaking) version of the CELPIP general test. For tests taken after April 1, 2014, you must have achieved a score of level 4 or higher (up to 12) in listening and speaking For tests taken before April 1, 2014, you must have achieved a score of 2H or higher (i.e., 3L, 3H, 4L, 4H, 5L, or 5H) in listening and speaking. International English Language Testing System (IELTS), general training, not the academic version You must have achieved a score of: 4.0 or higher in speaking, and 4.5 or higher in listening. (Please note: If the test was done before November 28, 2008, we will accept a level 4 or higher); or Test d'Evaluation de Francais (TEF), Test d'Evaluation du Francais adapte au Quebec (TEFAQ) or TEF pour la naturalisation. After July 1st, 2012, you must have achieved a score of : Niveau B1, B2, C1 or C2 in Comprehension de l'oral and Expression orale Before July 1st, 2012, you must have achieved a score of: Niveau 3 or higher in Comprehension de l'oral and Expression orale. (Please note: if the Test d'Evaluation de Francais (TEF) was taken before July 1st, 2012, a level 3 is required for expression orale only. This applies only to the TEF and not the TEFAQ or TEF pour la naturalisation).",
-            source: 'http://www.cic.gc.ca/english/information/applications/guides/EG7TOC.asp#factor2'
-          });
-        }
+        // if (question.toLowerCase() === SAMPLE_Q1) {
+        //   data.question.answers.unshift({
+        //     confidence: 0.4954,
+        //     id: 0,
+        //     text: 'After you have lived in Canada for some time, you may have good English or French skills, the right kind of skilled work experience, and be used to Canadian society. The Canadian Experience Class (CEC) was created to help people like this take part in the Canadian economy.',
+        //     source: 'http://www.cic.gc.ca/English/immigrate/cec/index.asp'
+        //   });
+        // } else if (question.toLowerCase() === SAMPLE_Q2) {
+        //   data.question.answers.unshift({
+        //     confidence: 0.544,
+        //     id: 0,
+        //     text: "To work in Canada after graduating, your best option is to apply for a post-graduation work permit. These permits may be valid for up to three years. To qualify for the CEC, remember that at least one year of your work experience must be in a skilled occupation. It is also important to note that work experience you may have acquired as part of your academic program, such as an internship or a co-op placement, does not qualify under the CEC. Part-time work you may have performed during your studies does not qualify either.",
+        //     source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
+        //   });
+        // } else if (question.toLowerCase() === SAMPLE_Q3) {
+        //   data.question.answers.unshift({
+        //     confidence: 0.6011,
+        //     id: 0,
+        //     text: "To qualify for the CEC, you must prove your proficiency in one of Canada's two official languages, which are English and French. The four linguistic abilities are speaking, reading, listening and writing. The required level of ability in English or French will vary according to your occupation. For example, the language requirements for managerial and professional positions are higher than the requirements for positions in technical occupations or skilled trades. To prove your language skills, you will need to take a language test approved by CIC and include those results with your application.",
+        //     source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
+        //   });
+        // }
         console.log(data);
         resolve(data);
       }).

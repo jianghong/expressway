@@ -16,14 +16,14 @@
       <md-tab label="My Info">
         <div layout="vertical" layout-align="space-between">
         <div>
-          <label for="">Name:</label>
+          <label for="">What is your name?</label>
           <div layout="horizontal">
             <md-text-float label="First Name" ng-model="personalResponses.firstName"></md-text-float>
             <md-text-float label="Last Name" ng-model="personalResponses.lastName"></md-text-float>
           </div>
           <br>
 
-          <label for="">Date of Birth:</label>
+          <label for="">When were you born?</label>
           <div layout="horizontal">
             <md-text-float label="Year" ng-model="personalResponses.birthYear"></md-text-float>
             <md-text-float label="Month" ng-model="personalResponses.birthMonth"></md-text-float>
@@ -31,13 +31,14 @@
           </div>
           <br>
 
-          <label for="">Location: </label>
-          <div layout="horizontal">
-            <md-text-float label="Country" ng-model="personalResponses.country"></md-text-float>
-            <md-text-float label="City" ng-model="personalResponses.city"></md-text-float>
-            <md-text-float label="Street" ng-model="personalResponses.street"></md-text-float>
-          </div>
+          <label for="">What languages can you speak fluently?</label>
+          <md-radio-group ng-model="personalResponses.maritalStatus" layout="horizontal">
+            <md-radio-button value="english">English</md-radio-button>
+            <md-radio-button value="french">French</md-radio-button>
+            <md-radio-button value="both">Both</md-radio-button>
+          </md-radio-group>
           <br>
+
           </div>
 
           <div class="card-triggers" layout="horizontal" layout-align="space-between">
@@ -53,25 +54,15 @@
       <md-tab label="My occupation">
         <div layout="vertical" layout-align="space-between">
           <div>
-          <label for="">Occupation: </label>
+          <label for="">What is your current occupation?</label>
           <div layout="horizontal">
             <md-text-float label="Occupation" ng-model="personalResponses.firstName"></md-text-float>
           </div>
           <br>
 
-          <label for="">Start Date: </label>
+          <label for="">How many months have you held this occupation?</label>
           <div layout="horizontal">
-            <md-text-float label="Year" ng-model="personalResponses.birthYear"></md-text-float>
-            <md-text-float label="Month" ng-model="personalResponses.birthMonth"></md-text-float>
-            <md-text-float label="Day" ng-model="personalResponses.birthDay"></md-text-float>
-          </div>
-          <br>
-
-          <label for="">End Date: </label>
-          <div layout="horizontal">
-            <md-text-float label="Year" ng-model="personalResponses.birthYear"></md-text-float>
-            <md-text-float label="Month" ng-model="personalResponses.birthMonth"></md-text-float>
-            <md-text-float label="Day" ng-model="personalResponses.birthDay"></md-text-float>
+            <md-text-float label="Months" ng-model="personalResponses.birthMonth"></md-text-float>
           </div>
           <br>
           </div>

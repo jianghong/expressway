@@ -43,15 +43,13 @@
               </form>
             </div>
           </div>
-          <div ng-show="inputIsFocused" class="autocomplete-container">
+          <div ng-show="isSearchContext" class="autocomplete-container">
             <md-card flex class="autocomplete-card">
               <md-subheader class="md-primary">Suggested Questions:</md-subheader>
               <md-list>
                 <md-item ng-repeat="question in suggestedQuestions">
-                  <md-item-content>
-                    <div style="padding: 10px;" class="md-tile-content">
+                  <md-item-content ng-click="askOnClick($event)" style="padding: 10px;" class="md-tile-content">
                       {{ question.question }}
-                    </div>
                   </md-item-content>
                 </md-item>
               </md-list>
