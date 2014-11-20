@@ -62,7 +62,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
 
   $scope.suggestedQuestions = [
     {
-      question: 'What is CEC?'
+      question: 'How much money should I declare for CEC?'
     },
     {
       question: 'What work experience can I use for CEC?'
@@ -71,7 +71,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
       question: 'What are the language requirements for CEC?'
     },
     {
-      question: 'What work programs can I apply for?'
+      question: 'Will my off-campus work count towards CEC?'
     }
   ];
 
