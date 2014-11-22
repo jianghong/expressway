@@ -265,7 +265,7 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 }
 
 .path-row {
-  height: 20vh;
+  height: 50vh;
 }
 
 .path-row img {
@@ -273,51 +273,27 @@ footer a, footer a:active, footer a:hover, footer a:visited {
   padding: 20px;
 }
 
-.path-row-1 md-button:nth-child(1) {
+.path-row md-button:nth-child(1) {
   fill: #1565C0;
   background-color: #1565C0 !important;  
   color: #fff;
 }
 
-.path-row-1 md-button:nth-child(4) {
+.path-row md-button:nth-child(4) {
   fill: #2196F3;
   background-color: #2196F3 !important;   
   color: #fff;
 }
 
-.path-row-1 md-button:nth-child(3) {
+.path-row md-button:nth-child(3) {
   fill: #1E88E5;
   background-color: #1E88E5 !important;
   color: #fff;
 }
 
-.path-row-1 md-button:nth-child(2) {
+.path-row md-button:nth-child(2) {
   fill: #1976D2;
   background-color: #1976D2 !important;
-  color: #fff;
-}
-
-.path-row-2 md-button:nth-child(1) {
-  fill: #2E7D32;
-  background-color: #2E7D32 !important;  
-  color: #fff;
-}
-
-.path-row-2 md-button:nth-child(4) {
-  fill: #4CAF50;
-  background-color: #4CAF50 !important;   
-  color: #fff;
-}
-
-.path-row-2 md-button:nth-child(3) {
-  fill: #43A047;
-  background-color: #43A047 !important;
-  color: #fff;
-}
-
-.path-row-2 md-button:nth-child(2) {
-  fill: #388E3C;
-  background-color: #388E3C !important;
   color: #fff;
 }
 
