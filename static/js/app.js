@@ -221,25 +221,29 @@ app.controller('InsideController', function($scope) {
       name: "Extend stay",
       imgSrc: STATIC_IMG_ROUTE + "/insidesponsor.png",
       description: 'Stay longer in Canada.',
-      href: "/#/apply/inside/extend"
+      href: "/#/apply/inside/extend",
+      disabled: false
     },
     {
       name: "Sponsor someone",
       imgSrc: STATIC_IMG_ROUTE + "/insideextend.png",
       description: 'Bring over someone you care about.',      
-      href: "/#/apply/inside/sponsor"
+      href: "/#/apply/inside/sponsor",
+      disabled: true
     },
     {
       name: "Stay permanently",
       imgSrc: STATIC_IMG_ROUTE + "/insidepermanent.png",
       description: 'Live here. Forever.',      
-      href: "/#/apply/inside/permanent"
+      href: "/#/apply/inside/permanent",
+      disabled: true
     },
     {
       name: "Obtain citizenship",
       imgSrc: STATIC_IMG_ROUTE + "/citizenship.png",
       description: 'Become a new citizen of Canada.',      
-      href: "/#/apply/inside/citizenship"
+      href: "/#/apply/inside/citizenship",
+      disabled: true
     }        
   ];
 });
@@ -290,63 +294,75 @@ app.controller('OutsidePermanentController', function($scope) {
   $scope.categories = [
     {
       name: "Skilled Worker Class",
-      disabled: true,
-      href: ""
+      description: 'Coming soon...',
+      href: "",
+      disabled: true
     },
     {
       name: "Skilled Trades Class",
-      disabled: true,
-      href: ""
+      description: 'Coming soon...',
+      href: "",
+      disabled: true
     },
     {
       name: "Quebec Investors and Entrepreneurs",
-      disabled: true,
-      href: ""
+      description: 'Coming soon...',
+      href: "",
+      disabled: true
     },
     {
       name: "Self-Employed Persons",
-      disabled: true,
-      href: ""
+      description: 'Coming soon...',
+      href: "",
+      disabled: true
     },
     {
       name: "Start up Visa",
-      disabled: true,
-      href: ""
+      description: 'Coming soon...',
+      href: "",
+      disabled: true
     },
     {
       name: "Canadian Experience Class",
-      disabled: true,
-      href: ""
+      description: 'Coming soon...',
+      href: "",
+      disabled: true
     },
     {
       name: "Provincial Nominees",
-      disabled: true,
-      href: ""
+      description: 'Coming soon...',
+      href: "",
+      disabled: true
     },
     {
       name: "Quebec-Selected Skilled Workers",
-      disabled: true,
-      href: ""
+      description: 'Coming soon...',
+      href: "",
+      disabled: true
     },
     {
       name: "Family Class",
-      disabled: true,
-      href: ""
+      description: 'Coming soon...',
+      href: "",
+      disabled: true
     },
     {
       name: "Family Class",
-      disabled: true,
-      href: ""
+      description: 'Coming soon...',
+      href: "",
+      disabled: true
     },
     {
-      name: "Convention Refugees Abroad and Humanitarian and Protected Persons Abroad",
-      disabled: true,
-      href: ""
+      name: "Refugees, Humanitarians and Protected Persons from Abroad",
+      description: 'Coming soon...',
+      href: "",
+      disabled: true
     },
     {
-      name: "Perons being sponsored under a Public Policy",
-      disabled: true,
-      href: ""
+      name: "Persons being sponsored under a Public Policy",
+      description: 'Coming soon...',
+      href: "",
+      disabled: true
     },                   
   ];
 });

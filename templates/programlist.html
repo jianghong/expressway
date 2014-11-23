@@ -5,11 +5,10 @@
     <img class="md-whiteframe-z1" style="border-radius: 200px;" ng-src="{{bannerIconSrc}}" alt="">
   </div>
   <div class="program-list">
-    <div>
-    <md-button style="display: block;" ng-disabled="{{category.disabled}}" ng-href="{{category.href}}" ng-repeat="category in categories" class="md-raised">
+    <md-card style="display: inline-block; width: 48%;" ng-href="{{category.href}}" ng-repeat="category in categories" class="md-raised">
       <h3>{{ category.name }}</h3>
-    </md-button>
-    </div>
+      <p>{{ category.description }}</p>
+    </md-card>
   </div>
   <div layout="horizontal" layout-align="center center" class="view-all-row">
     <a href="">View all options</a>

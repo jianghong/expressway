@@ -269,29 +269,6 @@ footer a, footer a:active, footer a:hover, footer a:visited {
   border-radius: 50%;
 }
 
-.path-row md-button:nth-child(1) {
-  fill: #1565C0;
-  background-color: #1565C0 !important;  
-  color: #fff;
-}
-
-.path-row md-button:nth-child(4) {
-  fill: #2196F3;
-  background-color: #2196F3 !important;   
-  color: #fff;
-}
-
-.path-row md-button:nth-child(3) {
-  fill: #1E88E5;
-  background-color: #1E88E5 !important;
-  color: #fff;
-}
-
-.path-row md-button:nth-child(2) {
-  fill: #1976D2;
-  background-color: #1976D2 !important;
-  color: #fff;
-}
 
 /*.demo-section md-card {
   height: calc(100vh - 99px) !important;

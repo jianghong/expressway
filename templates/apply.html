@@ -16,7 +16,8 @@
         <p>{{ category.description }}</p>
       </div>
       <div layout="vertical" layout-align="center">
-        <md-button ng-href="{{category.href}}">View options</md-button>
+        <md-button ng-hide="category.disabled" ng-href="{{category.href}}">View options</md-button>
+        <md-button ng-disabled="true" ng-show="category.disabled">Coming soon...</md-button>
       </div>
     </md-card>
   </div>
