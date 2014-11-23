@@ -30,6 +30,9 @@ img {
   max-width: 100%;
 }
 
+a, a:visited, a:hover, a:active {
+  text-decoration: none;
+}
 md-toolbar, .round-button, .search-input input, .icon-container {
   transition: background-color 0.2s ease;
   -webkit-transition: height 300ms ease-in-out;
@@ -39,7 +42,8 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .md-toolbar-blue {
-  background-color: #084D8C !important;
+  background-color: #f0f0f0 !important;
+  color: #000 !important;
 }
 
 .md-toolbar-none {
@@ -261,17 +265,8 @@ footer a, footer a:active, footer a:hover, footer a:visited {
   margin: 0 10px;
 }
 
-.path-row md-button {
-  margin-right: 20px;
-}
-
-.path-row {
-  height: 50vh;
-}
-
 .path-row img {
   border-radius: 50%;
-  padding: 20px;
 }
 
 .path-row md-button:nth-child(1) {
@@ -311,15 +306,15 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 }
 
 .apply-section h1 {
-  font-size: 5vh;
+  font-size: 1.7em;
 }
 
 .apply-section h2 {
-  font-size: 4vh;
+  font-size: 1.4em;
 }
 
 .apply-section h3 {
-  font-size: 3vh;
+  font-size: 1.1em;
 }
 
 .md-header-items {
@@ -342,3 +337,38 @@ footer a, footer a:active, footer a:hover, footer a:visited {
   width: 30vw;
   margin-bottom: 10px;
 }
+
+.section-card h2, .section-card p {
+  margin: 0;
+  padding: 0;
+}
+
+.section-card h2 {
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+.section-card .img-link{
+  margin-bottom:20px;
+}
+
+.section-card {
+  padding: 20px 25px;
+}
+
+.section-banner {
+  padding: 30px 0;
+  margin-bottom: 20px;
+  color: #fff;
+  background-color: #000;
+}
+
+.section-card p {
+  text-align: center;
+  line-height: 1.2;
+  margin: 5px;
+}
+
+.section-card md-button {
+  margin-top: 60px;
+}
+

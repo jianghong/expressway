@@ -2,8 +2,8 @@
   <div style="margin-top: 7vh;" layout="vertical" layout-align="center center">
     <h1>{{sectionTitle}}</h1>
   </div>
-  <div class="program-list" style="height: 300px; overflow: scroll;">
-    <div style="height: 300px; overflow: scroll;">
+  <div class="program-list">
+    <div>
     <md-button style="display: block;" ng-disabled="{{category.disabled}}" ng-href="{{category.href}}" ng-repeat="category in categories" class="md-raised">
       <h3>{{ category.name }}</h3>
     </md-button>

@@ -1,6 +1,7 @@
 var SAMPLE_Q1 = 'what is cec?'
 var SAMPLE_Q2 = 'what work experience can i use for cec?'
 var SAMPLE_Q3 = 'what are the language requirements for cec?'
+var STATIC_IMG_ROUTE = 'static/img'
 
 var app = angular.module('ExpressWay', ['ngRoute', 'ngMaterial']);
 
@@ -38,7 +39,11 @@ app.config(['$routeProvider',
       when('/apply/outside/permanent', {
         templateUrl: 'templates/programlist.html',
         controller: 'OutsidePermanentController'
-      }).        
+      }).
+      when('/apply/outside/temporarily', {
+        templateUrl: 'templates/programlist.html',
+        controller: 'OutsideTemporaryController'
+      }).      
       otherwise({
         redirectTo: '/'
       });
@@ -188,50 +193,73 @@ app.controller('MarketingController', function($scope, answersModel) {
 });
 
 app.controller('ApplyController', function($scope) {
-  $scope.sectionTitle = "Where are you applying from?";
+  $scope.sectionTitle = "Tell us where you are.";
 
   $scope.categories = [
     {
       name: "Inside Canada",
-      imgSrc: "http://lorempixel.com/600/600/food/",
-      href: "/#/apply/inside"
+      imgSrc: STATIC_IMG_ROUTE + "/insidecanada.png",
+      href: "/#/apply/inside",
+      description: "Find your way into Canada."
     },
     {
       name: "Outside Canada",
-      imgSrc: "http://lorempixel.com/700/700/food/",
-      href: "/#/apply/outside"
+      imgSrc: STATIC_IMG_ROUTE + "/outsidecanada.png",
+      href: "/#/apply/outside",
+      description: "Extend your stay or bring your family over."
     }
   ];
 });
 
 app.controller('InsideController', function($scope) {
   $scope.sectionTitle = "What would you like to do in Canada?";
+  $scope.bannerColor = '#C55C5E';
+  $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/insidecanada.png';
 
   $scope.categories = [
     {
       name: "Extend my stay",
-      imgSrc: "http://lorempixel.com/600/600/food/",
+      imgSrc: STATIC_IMG_ROUTE + "/outsidesponsor.png",
       href: "/#/apply/inside/extend"
     },
     {
       name: "Sponsor someone",
-      imgSrc: "http://lorempixel.com/700/700/food/",
+      imgSrc: STATIC_IMG_ROUTE + "/outsideextend.png",
       href: "/#/apply/inside/sponsor"
     },
     {
       name: "Stay permanently",
-      imgSrc: "http://lorempixel.com/500/500/food/",
+      imgSrc: STATIC_IMG_ROUTE + "/outsidepermanent.png",
       href: "/#/apply/inside/permanent"
     },
     {
       name: "Obtain citizenship",
-      imgSrc: "http://lorempixel.com/800/800/food/",
+      imgSrc: STATIC_IMG_ROUTE + "/citizenship.png",
       href: "/#/apply/inside/citizenship"
     }        
   ];
 });
 
 app.controller('OutsideController', function($scope) {
+  $scope.sectionTitle = 'Outside Canada';
+  $scope.bannerColor = '#79C2AF';
+  $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/outsidecanada.png';
+
+  $scope.categories = [
+    {
+      name: "Stay temporarily",
+      imgSrc: "http://lorempixel.com/600/600/food/",
+      href: "/#/apply/outside/temporary"
+    },
+    {
+      name: "Stay permanently",
+      imgSrc: "http://lorempixel.com/700/700/food/",
+      href: "/#/apply/outside/permanent"
+    }
+  ];
+});
+
+app.controller('OutsideTemporaryController', function($scope) {
   $scope.sectionTitle = "What would you like to do in Canada?";
 
   $scope.categories = [
