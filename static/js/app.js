@@ -212,29 +212,33 @@ app.controller('ApplyController', function($scope) {
 });
 
 app.controller('InsideController', function($scope) {
-  $scope.sectionTitle = "What would you like to do in Canada?";
+  $scope.sectionTitle = "Inside Canada";
   $scope.bannerColor = '#C55C5E';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/insidecanada.png';
 
   $scope.categories = [
     {
-      name: "Extend my stay",
-      imgSrc: STATIC_IMG_ROUTE + "/outsidesponsor.png",
+      name: "Extend stay",
+      imgSrc: STATIC_IMG_ROUTE + "/insidesponsor.png",
+      description: 'Stay longer in Canada.',
       href: "/#/apply/inside/extend"
     },
     {
       name: "Sponsor someone",
-      imgSrc: STATIC_IMG_ROUTE + "/outsideextend.png",
+      imgSrc: STATIC_IMG_ROUTE + "/insideextend.png",
+      description: 'Bring over someone you care about.',      
       href: "/#/apply/inside/sponsor"
     },
     {
       name: "Stay permanently",
-      imgSrc: STATIC_IMG_ROUTE + "/outsidepermanent.png",
+      imgSrc: STATIC_IMG_ROUTE + "/insidepermanent.png",
+      description: 'Live here. Forever.',      
       href: "/#/apply/inside/permanent"
     },
     {
       name: "Obtain citizenship",
       imgSrc: STATIC_IMG_ROUTE + "/citizenship.png",
+      description: 'Become a new citizen of Canada.',      
       href: "/#/apply/inside/citizenship"
     }        
   ];
@@ -248,12 +252,14 @@ app.controller('OutsideController', function($scope) {
   $scope.categories = [
     {
       name: "Stay temporarily",
-      imgSrc: "http://lorempixel.com/600/600/food/",
+      imgSrc: STATIC_IMG_ROUTE + '/outsidetemp.png',
+      description: 'Come see Canada. You might want to stay.',
       href: "/#/apply/outside/temporary"
     },
     {
       name: "Stay permanently",
-      imgSrc: "http://lorempixel.com/700/700/food/",
+      imgSrc: STATIC_IMG_ROUTE + '/outsidepermanent.png',
+      description: 'Move to Canada and join the workforce.',
       href: "/#/apply/outside/permanent"
     }
   ];
@@ -277,7 +283,9 @@ app.controller('OutsideTemporaryController', function($scope) {
 });
 
 app.controller('OutsidePermanentController', function($scope) {
-  $scope.sectionTitle = "Here are your options to apply from outside Canada for permanent stay";
+  $scope.sectionTitle = 'Apply from outside Canada to stay permanently.';
+  $scope.bannerColor = '#505D73';
+  $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/outsidepermanent.png';
 
   $scope.categories = [
     {
