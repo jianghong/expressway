@@ -87,19 +87,39 @@
       </div>
     </section>
 
-    <md-content style="overflow: visible; background: none;" flex layout="vertical" layout-align="space-between">
-      <div class="container" layout="vertical" flex ng-view></div>
-      <footer layout="horizontal" layout-align="center center">
-          <a>&#169; 2014 ExpressWay</a>
-          <div class="pipe">|</div>
-          <a href="#">Pricing</a>
-          <div class="pipe">|</div>
-          <a href="#">Feedback</a>
-          <div class="pipe">|</div>
-          <a href="#">About</a>
-          <div class="pipe">|</div>
-          <a href="#">Privacy</a>
-      </footer>
+    <md-content style="overflow: visible; background: none;" layout="vertical" flex>
+      <div class="container" ng-view></div>
+      <div flex layout="vertical" layout-align="end">
+        <section ng-show="!isApply" layout="vertical" flex>
+          <div flex layout="vertical" layout-align="end">
+            <div class="homepage-steps" layout="horizontal" layout-align="space-around">
+              <div>
+                <h3>Ask</h3>
+                <h4>Find what immigration officers want.</h4>
+              </div>
+              <div>
+                <h3>Apply</h3>
+                <h4>Receive your filled out immigration forms.</h4>
+              </div>
+              <div>
+                <h3>Immigrate</h3>
+                <h4>Start your new life in Canada.</h4>
+              </div>
+            </div>
+          </div>
+        </section>      
+        <footer layout="horizontal" layout-align="center center">
+            <a>&#169; 2014 ExpressWay</a>
+            <div class="pipe">|</div>
+            <a href="#">Pricing</a>
+            <div class="pipe">|</div>
+            <a href="#">Feedback</a>
+            <div class="pipe">|</div>
+            <a href="#">About</a>
+            <div class="pipe">|</div>
+            <a href="#">Privacy</a>
+        </footer>
+      </div>
     </md-content>
     
     <div class="backdrop md-opaque" ng-show="isSearchContext"></div>

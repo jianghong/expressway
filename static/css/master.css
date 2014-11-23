@@ -19,6 +19,7 @@ blue: #084D8C;
 
 body, md-content {
   font-family: 'RobotoDraft', sans-serif;
+  background-color: #f0f0f0;
 }
 
 md-card {
@@ -331,4 +332,13 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 
 .autocomplete-card md-item-content:hover {
   background-color: #f0f0f0;
+}
+
+.view-all-row {
+  margin-top: 40px;
+}
+
+.program-list md-button {
+  width: 30vw;
+  margin-bottom: 10px;
 }

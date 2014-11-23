@@ -23,14 +23,22 @@ app.config(['$routeProvider',
         templateUrl: 'templates/results.html',
         controller: 'ResultsController'
       }).
-      when('/apply/federalskilledworker', {
-        templateUrl: 'templates/federalskilledworker.html',
-        controller: 'FSWController'
+      when('/apply/inside', {
+        templateUrl: 'templates/apply.html',
+        controller: 'InsideController'
       }).
+      when('/apply/outside', {
+        templateUrl: 'templates/apply.html',
+        controller: 'OutsideController'
+      }).      
       when('/apply/demo', {
         templateUrl: 'templates/demo.html',
         controller: 'DemoController'
       }).
+      when('/apply/outside/permanent', {
+        templateUrl: 'templates/programlist.html',
+        controller: 'OutsidePermanentController'
+      }).        
       otherwise({
         redirectTo: '/'
       });
@@ -180,31 +188,133 @@ app.controller('MarketingController', function($scope, answersModel) {
 });
 
 app.controller('ApplyController', function($scope) {
-  $scope.nexting = true;
-  $scope.tabIndex = 0;
-  $scope.personalQResponses = {
-    age: '',
-    hasFamilyInCanada: false,
-    hasAccreditedCanadianDegree: false,
-    currentStatus: '',
-    inCanada: false,
-    yearsInCanada: '',
-    occupation: '',
-    reason: '',
-    fluent: '',
-    armedForces: ''
-  }
+  $scope.sectionTitle = "Where are you applying from?";
 
-  $scope.nextPage = function() {
-    $scope.tabIndex += 1;
-    $scope.nexting = true;
-  }
-
-  $scope.previousPage = function() {
-    $scope.tabIndex -= 1;
-    $scope.nexting = false;
-  }
+  $scope.categories = [
+    {
+      name: "Inside Canada",
+      imgSrc: "http://lorempixel.com/600/600/food/",
+      href: "/#/apply/inside"
+    },
+    {
+      name: "Outside Canada",
+      imgSrc: "http://lorempixel.com/700/700/food/",
+      href: "/#/apply/outside"
+    }
+  ];
 });
+
+app.controller('InsideController', function($scope) {
+  $scope.sectionTitle = "What would you like to do in Canada?";
+
+  $scope.categories = [
+    {
+      name: "Extend my stay",
+      imgSrc: "http://lorempixel.com/600/600/food/",
+      href: "/#/apply/inside/extend"
+    },
+    {
+      name: "Sponsor someone",
+      imgSrc: "http://lorempixel.com/700/700/food/",
+      href: "/#/apply/inside/sponsor"
+    },
+    {
+      name: "Stay permanently",
+      imgSrc: "http://lorempixel.com/500/500/food/",
+      href: "/#/apply/inside/permanent"
+    },
+    {
+      name: "Obtain citizenship",
+      imgSrc: "http://lorempixel.com/800/800/food/",
+      href: "/#/apply/inside/citizenship"
+    }        
+  ];
+});
+
+app.controller('OutsideController', function($scope) {
+  $scope.sectionTitle = "What would you like to do in Canada?";
+
+  $scope.categories = [
+    {
+      name: "Stay temporarily",
+      imgSrc: "http://lorempixel.com/600/600/food/",
+      href: "/#/apply/outside/temporary"
+    },
+    {
+      name: "Stay permanently",
+      imgSrc: "http://lorempixel.com/700/700/food/",
+      href: "/#/apply/outside/permanent"
+    }
+  ];
+});
+
+app.controller('OutsidePermanentController', function($scope) {
+  $scope.sectionTitle = "Here are your options to apply from outside Canada for permanent stay";
+
+  $scope.categories = [
+    {
+      name: "Skilled Worker Class",
+      disabled: true,
+      href: ""
+    },
+    {
+      name: "Skilled Trades Class",
+      disabled: true,
+      href: ""
+    },
+    {
+      name: "Quebec Investors and Entrepreneurs",
+      disabled: true,
+      href: ""
+    },
+    {
+      name: "Self-Employed Persons",
+      disabled: true,
+      href: ""
+    },
+    {
+      name: "Start up Visa",
+      disabled: true,
+      href: ""
+    },
+    {
+      name: "Canadian Experience Class",
+      disabled: true,
+      href: ""
+    },
+    {
+      name: "Provincial Nominees",
+      disabled: true,
+      href: ""
+    },
+    {
+      name: "Quebec-Selected Skilled Workers",
+      disabled: true,
+      href: ""
+    },
+    {
+      name: "Family Class",
+      disabled: true,
+      href: ""
+    },
+    {
+      name: "Family Class",
+      disabled: true,
+      href: ""
+    },
+    {
+      name: "Convention Refugees Abroad and Humanitarian and Protected Persons Abroad",
+      disabled: true,
+      href: ""
+    },
+    {
+      name: "Perons being sponsored under a Public Policy",
+      disabled: true,
+      href: ""
+    },                   
+  ];
+});
+
 
 app.controller('SearchController', function($scope) {
 });

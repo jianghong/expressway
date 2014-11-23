@@ -1,10 +1,9 @@
-<section class="apply-section" layout="vertical" flex layout-align="start">
+<section class="program-list-section" layout="vertical" flex layout-align="start">
   <div style="margin-top: 7vh;" layout="vertical" layout-align="center center">
     <h1>{{sectionTitle}}</h1>
   </div>
-  <div layout="horizontal" layout-align="center" class="path-row">
-    <md-button ng-href="{{category.href}}" ng-repeat="category in categories" class="md-raised" flex="20">
-      <img ng-src="{{category.imgSrc}}" alt="">
+  <div layout="vertical" layout-align="center center" class="program-list">
+    <md-button ng-disabled="{{category.disabled}}" ng-href="{{category.href}}" ng-repeat="category in categories" class="md-raised">
       <h3>{{ category.name }}</h3>
     </md-button>
   </div>
