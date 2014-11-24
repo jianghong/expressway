@@ -451,12 +451,33 @@ app.controller('OutsidePermanentController', function($scope, $location) {
   ];
 });
 
-app.controller('AllProgramsController', function($scope) {
-  $scope.sectionTitle = 'Apply from outside Canada to stay permanently.';
-  $scope.bannerColor = '#505D73';
-  $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/outsidepermanent.png';
+app.controller('AllProgramsController', function($scope, $location) {
+  $scope.sectionTitle = 'All of our programs layed out for you.';
+  $scope.bannerColor = '#DF9864';
+  $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/allprograms.png';
 
-  $scope.categories = [
+  $scope.available = [
+    {
+      name: "Canadian Experience Class",
+      description: 'Laoreet reprimique ei nec. Quo iisque maiorum hendrerit eu, an.',
+      href: "/apply/demo",
+      disabled: false
+    },
+    {
+      name: "New study permit",
+      description: 'Laoreet reprimique ei nec. Quo iisque maiorum hendrerit eu, an.',
+      href: "/apply/demo",
+      disabled: false
+    },
+    {
+      name: "Extend study permit",
+      description: 'Laoreet reprimique ei nec. Quo iisque maiorum hendrerit eu, an.',
+      href: "/apply/demo",
+      disabled: false
+    },     
+  ];
+
+  $scope.notAvailable = [
     {
       name: "Skilled Worker Class",
       description: 'Lorem ipsum dolor sit amet, mel postulant constituto ut, ex.',
@@ -484,12 +505,6 @@ app.controller('AllProgramsController', function($scope) {
     {
       name: "Start up Visa",
       description: 'At solum atomorum sed. Mollis dolores offendit no nec, te.',
-      href: "",
-      disabled: true
-    },
-    {
-      name: "Canadian Experience Class",
-      description: 'Laoreet reprimique ei nec. Quo iisque maiorum hendrerit eu, an.',
       href: "",
       disabled: true
     },
@@ -528,7 +543,43 @@ app.controller('AllProgramsController', function($scope) {
       description: 'Et eam paulo aliquid, modus ipsum quo te. Id vix.',
       href: "",
       disabled: true
-    },                   
+    },
+    {
+      name: "New work permit",
+      href: '',
+      description: 'Ex vel primis voluptua consequat, vis viderer menandri argumentum at.',
+      disabled: true
+    },
+    {
+      name: "New visitor permit",
+      href: '',
+      description: 'Iudico omnium sententiae at his, audire intellegam vel ut fabellas.',
+      disabled: true
+    },    
+    {
+      name: "Extend work permit",
+      href: '',
+      description: 'Ex vel primis voluptua consequat, vis viderer menandri argumentum at.',
+      disabled: true
+    },
+    {
+      name: "Extend visitor permit",
+      href: $location.absUrl() + "/permanent",
+      description: 'Iudico omnium sententiae at his, audire intellegam vel ut fabellas.',
+      disabled: true
+    },
+    {
+      name: "New Temporary Resident Visa",
+      href: $location.absUrl() + "/permanent",
+      description: 'Lorem ipsum dolor sit amet, sale sonet eum ne, in.',
+      disabled: true
+    },
+    {
+      name: "Temporary Resident Permit",
+      href: $location.absUrl() + "/permanent",
+      description: 'Ne qui latine sanctus scribentur, cu mei dico detraxit mei.',
+      disabled: true
+    }                   
   ];  
 });
 

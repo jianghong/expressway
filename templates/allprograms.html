@@ -9,15 +9,29 @@
     </div>
   </div>
   <div class="program-list">
-    <md-card style="display: inline-block; width: 48%;" ng-href="{{category.href}}" ng-repeat="category in categories" class="md-raised">
+    <h2>Available</h2>
+    <md-divider></md-divider>
+    <md-card style="display: inline-block; width: 48%;" ng-href="{{program.href}}" ng-repeat="program in available" class="md-raised">
       <div>
-        <h3>{{ category.name }}</h3>
-        <p>{{ category.description }}</p>
+        <h3>{{ program.name }}</h3>
+        <p>{{ program.description }}</p>
       </div>
       <div layout="horizontal" layout-align="end" class="start-program-btn">
-        <md-button class="md-primary" ng-hide="category.disabled" ng-click="startApplication(category.href)">Start Application</md-button>
-        <md-button ng-disabled="true" ng-show="category.disabled">Coming soon...</md-button>
+        <md-button class="md-primary" ng-hide="program.disabled" ng-click="startApplication(program.href)">Start Application</md-button>
+        <md-button ng-disabled="true" ng-show="program.disabled">Coming soon...</md-button>
+      </div>    
+    </md-card>
+    <h2>Coming soon</h2>
+    <md-divider></md-divider>
+    <md-card style="display: inline-block; width: 48%;" ng-href="{{program.href}}" ng-repeat="program in notAvailable" class="md-raised">
+      <div>
+        <h3>{{ program.name }}</h3>
+        <p>{{ program.description }}</p>
       </div>
+      <div layout="horizontal" layout-align="end" class="start-program-btn">
+        <md-button class="md-primary" ng-hide="program.disabled" ng-click="startApplication(program.href)">Start Application</md-button>
+        <md-button ng-disabled="true" ng-show="program.disabled">Coming soon...</md-button>
+      </div>    
     </md-card>
   </div>
 </section>
