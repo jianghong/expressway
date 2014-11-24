@@ -153,6 +153,11 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     $window.history.back();
   }
 
+  $scope.startApplication = function(applicationRoute) {
+    console.log("app route: " + applicationRoute);
+    $location.path(applicationRoute);
+  }
+
   function switchContext(context) {
     if (context.indexOf('/search') >= 0) {
       $scope.leftControlTitle = 'Back';
@@ -164,14 +169,14 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
       $scope.inputIsFocused = true;
       $rootScope.toolbarIsShrunk = true;
 
-    } else {
+    } else if (context === '/') {
+      $scope.isApply = false;
+      $rootScope.toolbarIsShrunk = false;
+    } else if (context.indexOf('/apply') >= 0) {
       $scope.leftControlTitle = 'ExpressWay';
       $scope.isSearchContext = false;
-      $scope.searchPlaceholder = "Ask your questions here";
-      $scope.leftControlIconSrc = hamburgerIconSrc
-      $scope.searchIconSrc = searchIconWSrc;
-      $scope.isSearchContext = false;
-
+      $scope.isApply = true;
+      $rootScope.toolbarIsShrunk = true;
     }
   }
 
@@ -297,7 +302,7 @@ app.controller('OutsideTemporaryController', function($scope, $location) {
     {
       name: "Study",
       imgSrc: "http://lorempixel.com/700/700/food/",
-      href: "/#/apply/demo",
+      href: "/apply/demo",
       description: 'Apply for a study permit.',
       disabled: false
     },
@@ -544,6 +549,7 @@ app.run( function($rootScope, $location) {
       return $location.path();
     },
     function(a){
+      console.log(a);
       $rootScope.switchContext(a);
     });
 });
