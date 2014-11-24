@@ -5,7 +5,7 @@
       <img ng-class="{'md-whiteframe-z2': imgHover, 'md-whiteframe-z1': !imgHover }" ng-mouseenter="imgHover = true" ng-mouseleave="imgHover = false" style="border-radius: 200px;" ng-src="{{bannerIconSrc}}" alt="">
     </div>
     <div layout="horizontal">
-      <md-button class="md-fab"><i class="fa fa-chevron-left"></i></md-button>
+      <md-button ng-click="goBack()" class="md-fab"><i class="fa fa-chevron-left"></i></md-button>
     </div>
   </div>
   <div class="program-list">

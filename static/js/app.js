@@ -76,7 +76,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
 
   $scope.results = answersModel.answers ? answersModel.answers.question.answers : [];
 
-  $scope.searchPlaceholder = "Where do I get my immigration forms?";
+  $scope.searchPlaceholder = "Ask your questions here";
 
   $scope.suggestedQuestions = [
     {
@@ -167,7 +167,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     } else {
       $scope.leftControlTitle = 'ExpressWay';
       $scope.isSearchContext = false;
-      $scope.searchPlaceholder = "Where do I get my immigration forms?";
+      $scope.searchPlaceholder = "Ask your questions here";
       $scope.leftControlIconSrc = hamburgerIconSrc
       $scope.searchIconSrc = searchIconWSrc;
       $scope.isSearchContext = false;
