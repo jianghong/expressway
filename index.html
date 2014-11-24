@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="static/css/master.css">
   </head>
   <body ng-controller="MainController" layout="vertical" ng-class="{ 'no-scroll': inputIsFocused, 'marketing-img': !isApply }">
-    <md-toolbar toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk, 'md-toolbar-none': !isApply, 'md-toolbar-blue': isApply}">
+    <md-toolbar toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk, 'md-toolbar-none': !isApply, 'md-toolbar-blue': isApply, 'md-whiteframe-z1': isApply}">
       <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
         <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
         <div layout="horizontal" layout-align="space-between">

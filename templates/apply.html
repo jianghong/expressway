@@ -1,18 +1,14 @@
 <section class="apply-section" layout="vertical" flex layout-align="start">
-  <div class="section-banner" layout="vertical" layout-align="center center" 
+  <div class="section-banner md-whiteframe-z1" layout="vertical" layout-align="center center" 
        style="background-color: {{bannerColor}}">
     <h1>{{sectionTitle}}</h1>
-    <img class="md-whiteframe-z1" style="border-radius: 200px;" ng-src="{{bannerIconSrc}}" alt="">
+    <img ng-class="{'md-whiteframe-z2': imgHover, 'md-whiteframe-z1': !imgHover }" ng-mouseenter="imgHover = true" ng-mouseleave="imgHover = false" style="border-radius: 200px;" ng-src="{{bannerIconSrc}}" alt="">
   </div>
   <div layout="horizontal" layout-align="center" class="path-row">
     <md-card ng-repeat="category in categories" layout="vertical" layout-align="space-between" class="md-raised section-card" flex="20">
       <div layout="vertical" layout-align="center center">
-        <a class="img-link" ng-href="{{category.href}}" layout="vertical" layout-align="center center">
-          <img class="md-whiteframe-z1" ng-src="{{category.imgSrc}}" alt="">
-        </a>
-        <a ng-href="{{category.href}}">
-          <h2 ng-href="{{category.href}}">{{ category.name }}</h2>
-        </a>
+        <img class="md-whiteframe-z1" ng-src="{{category.imgSrc}}" alt="">
+        <h2 ng-href="{{category.href}}">{{ category.name }}</h2>
         <p>{{ category.description }}</p>
       </div>
       <div layout="vertical" layout-align="center">

@@ -40,7 +40,7 @@ app.config(['$routeProvider',
         templateUrl: 'templates/programlist.html',
         controller: 'OutsidePermanentController'
       }).
-      when('/apply/outside/temporarily', {
+      when('/apply/outside/temporary', {
         templateUrl: 'templates/programlist.html',
         controller: 'OutsideTemporaryController'
       }).      
@@ -68,6 +68,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   $rootScope.inputIsFocused = false;
   $rootScope.toolbarIsShrunk = $location.path() === '/' ? false : true;
   $scope.isApply = $location.path() !== '/' ? true : false;
+  $scope.imgHover = false;
 
   $scope.results = answersModel.answers ? answersModel.answers.question.answers : [];
 
@@ -194,6 +195,8 @@ app.controller('MarketingController', function($scope, answersModel) {
 
 app.controller('ApplyController', function($scope) {
   $scope.sectionTitle = "Tell us where you are.";
+  $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/inorout.png';
+  $scope.bannerColor = '#78B4D2';
 
   $scope.categories = [
     {
@@ -270,19 +273,27 @@ app.controller('OutsideController', function($scope) {
 });
 
 app.controller('OutsideTemporaryController', function($scope) {
-  $scope.sectionTitle = "What would you like to do in Canada?";
+  $scope.sectionTitle = "Apply from outside Canada for a temporary stay.";
+  $scope.bannerColor = '#C55C5E';
+  $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/outsidetemp.png';
 
   $scope.categories = [
     {
-      name: "Stay temporarily",
+      name: "Work",
       imgSrc: "http://lorempixel.com/600/600/food/",
       href: "/#/apply/outside/temporary"
     },
     {
-      name: "Stay permanently",
+      name: "Study",
+      imgSrc: "http://lorempixel.com/700/700/food/",
+      href: "/#/apply/outside/permanent"
+    },
+    {
+      name: "Visit",
       imgSrc: "http://lorempixel.com/700/700/food/",
       href: "/#/apply/outside/permanent"
     }
+
   ];
 });
 
