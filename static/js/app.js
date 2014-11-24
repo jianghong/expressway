@@ -193,7 +193,7 @@ app.controller('MarketingController', function($scope, answersModel) {
   ];
 });
 
-app.controller('ApplyController', function($scope) {
+app.controller('ApplyController', function($scope, $location) {
   $scope.sectionTitle = "Tell us where you are.";
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/inorout.png';
   $scope.bannerColor = '#78B4D2';
@@ -202,19 +202,19 @@ app.controller('ApplyController', function($scope) {
     {
       name: "Inside Canada",
       imgSrc: STATIC_IMG_ROUTE + "/insidecanada.png",
-      href: "/#/apply/inside",
+      href:  $location.absUrl() + "/inside",
       description: "Find your way into Canada."
     },
     {
       name: "Outside Canada",
       imgSrc: STATIC_IMG_ROUTE + "/outsidecanada.png",
-      href: "/#/apply/outside",
+      href: $location.absUrl() + "/outside",
       description: "Extend your stay or bring your family over."
     }
   ];
 });
 
-app.controller('InsideController', function($scope) {
+app.controller('InsideController', function($scope, $location) {
   $scope.sectionTitle = "Inside Canada";
   $scope.bannerColor = '#C55C5E';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/insidecanada.png';
@@ -224,34 +224,34 @@ app.controller('InsideController', function($scope) {
       name: "Extend stay",
       imgSrc: STATIC_IMG_ROUTE + "/insidesponsor.png",
       description: 'Stay longer in Canada.',
-      href: "/#/apply/inside/extend",
+      href: $location.absUrl() + "/extend",
       disabled: false
     },
     {
       name: "Sponsor someone",
       imgSrc: STATIC_IMG_ROUTE + "/insideextend.png",
       description: 'Bring over someone you care about.',      
-      href: "/#/apply/inside/sponsor",
+      href: $location.absUrl() + "/sponsor",
       disabled: true
     },
     {
       name: "Stay permanently",
       imgSrc: STATIC_IMG_ROUTE + "/insidepermanent.png",
       description: 'Live here. Forever.',      
-      href: "/#/apply/inside/permanent",
+      href: $location.absUrl() + "/permanent",
       disabled: true
     },
     {
       name: "Obtain citizenship",
       imgSrc: STATIC_IMG_ROUTE + "/citizenship.png",
       description: 'Become a new citizen of Canada.',      
-      href: "/#/apply/inside/citizenship",
+      href: $location.absUrl() + "/citizenship",
       disabled: true
     }        
   ];
 });
 
-app.controller('OutsideController', function($scope) {
+app.controller('OutsideController', function($scope, $location) {
   $scope.sectionTitle = 'Outside Canada';
   $scope.bannerColor = '#79C2AF';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/outsidecanada.png';
@@ -261,18 +261,18 @@ app.controller('OutsideController', function($scope) {
       name: "Stay temporarily",
       imgSrc: STATIC_IMG_ROUTE + '/outsidetemp.png',
       description: 'Come see Canada. You might want to stay.',
-      href: "/#/apply/outside/temporary"
+      href: $location.absUrl() + "/temporary"
     },
     {
       name: "Stay permanently",
       imgSrc: STATIC_IMG_ROUTE + '/outsidepermanent.png',
       description: 'Move to Canada and join the workforce.',
-      href: "/#/apply/outside/permanent"
+      href: $location.absUrl() + "/permanent"
     }
   ];
 });
 
-app.controller('OutsideTemporaryController', function($scope) {
+app.controller('OutsideTemporaryController', function($scope, $location) {
   $scope.sectionTitle = "Apply from outside Canada for a temporary stay.";
   $scope.bannerColor = '#C55C5E';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/outsidetemp.png';
@@ -281,23 +281,29 @@ app.controller('OutsideTemporaryController', function($scope) {
     {
       name: "Work",
       imgSrc: "http://lorempixel.com/600/600/food/",
-      href: "/#/apply/outside/temporary"
+      href: $location.absUrl() + "/temporary",
+      description: 'Coming soon...',
+      disabled: true
     },
     {
       name: "Study",
       imgSrc: "http://lorempixel.com/700/700/food/",
-      href: "/#/apply/outside/permanent"
+      href: "/#/apply/demo",
+      description: 'Apply for a study permit.',
+      disabled: false
     },
     {
       name: "Visit",
       imgSrc: "http://lorempixel.com/700/700/food/",
-      href: "/#/apply/outside/permanent"
+      href: $location.absUrl() + "/permanent",
+      description: 'Coming soon...',
+      disabled: true
     }
 
   ];
 });
 
-app.controller('OutsidePermanentController', function($scope) {
+app.controller('OutsidePermanentController', function($scope, $location) {
   $scope.sectionTitle = 'Apply from outside Canada to stay permanently.';
   $scope.bannerColor = '#505D73';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/outsidepermanent.png';
@@ -305,73 +311,73 @@ app.controller('OutsidePermanentController', function($scope) {
   $scope.categories = [
     {
       name: "Skilled Worker Class",
-      description: 'Coming soon...',
+      description: 'Lorem ipsum dolor sit amet, mel postulant constituto ut, ex.',
       href: "",
       disabled: true
     },
     {
       name: "Skilled Trades Class",
-      description: 'Coming soon...',
+      description: 'Integre minimum adipiscing no nec, diam commodo at nec mea.',
       href: "",
       disabled: true
     },
     {
       name: "Quebec Investors and Entrepreneurs",
-      description: 'Coming soon...',
+      description: 'Lorem ipsum dolor sit amet, nec ei alii volumus nec.',
       href: "",
       disabled: true
     },
     {
       name: "Self-Employed Persons",
-      description: 'Coming soon...',
+      description: 'Lorem ipsum dolor sit amet, sea cu odio dicit atomorum.',
       href: "",
       disabled: true
     },
     {
       name: "Start up Visa",
-      description: 'Coming soon...',
+      description: 'At solum atomorum sed. Mollis dolores offendit no nec, te.',
       href: "",
       disabled: true
     },
     {
       name: "Canadian Experience Class",
-      description: 'Coming soon...',
+      description: 'Laoreet reprimique ei nec. Quo iisque maiorum hendrerit eu, an.',
       href: "",
       disabled: true
     },
     {
       name: "Provincial Nominees",
-      description: 'Coming soon...',
+      description: 'An probo solum zril vim, ad per mundi partiendo complectitur.',
       href: "",
       disabled: true
     },
     {
       name: "Quebec-Selected Skilled Workers",
-      description: 'Coming soon...',
+      description: 'Lorem ipsum dolor sit amet, id odio suscipiantur vel ex.',
       href: "",
       disabled: true
     },
     {
       name: "Family Class",
-      description: 'Coming soon...',
+      description: 'Et sit soluta accumsan voluptaria, usu sonet feugiat ex persius.',
       href: "",
       disabled: true
     },
     {
       name: "Family Class",
-      description: 'Coming soon...',
+      description: 'Ne veri primis expetendis mel, fastidii accusata has ad intellegat.',
       href: "",
       disabled: true
     },
     {
       name: "Refugees, Humanitarians and Protected Persons from Abroad",
-      description: 'Coming soon...',
+      description: 'Evertitur sententiae inciderint et pro, noster pertinax sapientem ad mea.',
       href: "",
       disabled: true
     },
     {
       name: "Persons being sponsored under a Public Policy",
-      description: 'Coming soon...',
+      description: 'Et eam paulo aliquid, modus ipsum quo te. Id vix.',
       href: "",
       disabled: true
     },                   

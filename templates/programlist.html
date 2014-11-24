@@ -1,13 +1,19 @@
 <section class="program-list-section" >
-  <div class="section-banner" layout="vertical" layout-align="center center" 
+  <div class="section-banner md-whiteframe-z1" layout="vertical" layout-align="center center" 
        style="background-color: {{bannerColor}}">
     <h1>{{sectionTitle}}</h1>
-    <img class="md-whiteframe-z1" style="border-radius: 200px;" ng-src="{{bannerIconSrc}}" alt="">
+    <img ng-class="{'md-whiteframe-z2': imgHover, 'md-whiteframe-z1': !imgHover }" ng-mouseenter="imgHover = true" ng-mouseleave="imgHover = false" style="border-radius: 200px;" ng-src="{{bannerIconSrc}}" alt="">
   </div>
   <div class="program-list">
     <md-card style="display: inline-block; width: 48%;" ng-href="{{category.href}}" ng-repeat="category in categories" class="md-raised">
-      <h3>{{ category.name }}</h3>
-      <p>{{ category.description }}</p>
+      <div>
+        <h3>{{ category.name }}</h3>
+        <p>{{ category.description }}</p>
+      </div>
+      <div layout="horizontal" layout-align="end" class="start-program-btn">
+        <md-button ng-hide="category.disabled" ng-href="{{category.href}}">Start Application</md-button>
+        <md-button ng-disabled="true" ng-show="category.disabled">Coming soon...</md-button>
+      </div>
     </md-card>
   </div>
   <div layout="horizontal" layout-align="center center" class="view-all-row">

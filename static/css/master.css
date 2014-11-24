@@ -354,3 +354,6 @@ footer a, footer a:active, footer a:hover, footer a:visited {
   margin-top: 60px;
 }
 
+.start-program-btn md-button {
+  width: 30%;
+}
