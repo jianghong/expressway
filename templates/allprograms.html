@@ -15,12 +15,9 @@
         <p>{{ category.description }}</p>
       </div>
       <div layout="horizontal" layout-align="end" class="start-program-btn">
-        <md-button class="md-primary" ng-hide="category.disabled" ng-click="routeMe(category.href)">Start Application</md-button>
+        <md-button class="md-primary" ng-hide="category.disabled" ng-click="startApplication(category.href)">Start Application</md-button>
         <md-button ng-disabled="true" ng-show="category.disabled">Coming soon...</md-button>
       </div>
     </md-card>
-  </div>
-  <div layout="horizontal" layout-align="center center" class="view-all-row">
-    <a ng-click="routeMe('/apply/all')">View all options</a>
   </div>
 </section>

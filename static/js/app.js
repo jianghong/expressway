@@ -47,7 +47,11 @@ app.config(['$routeProvider',
       when('/apply/inside/extend', {
         templateUrl: 'templates/programlist.html',
         controller: 'InsideExtendController'
-      }).            
+      }).
+      when('/apply/all', {
+        templateUrl: 'templates/allprograms.html',
+        controller: 'AllProgramsController'
+      }).        
       otherwise({
         redirectTo: '/'
       });
@@ -110,15 +114,16 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   }
 
   $scope.mainContext = function() {
-    if (!$scope.isApply) {
-      $rootScope.toolbarIsShrunk = false;
-    }
-    if (!$scope.isSearchContext) {
-      $scope.isApply = false;
-      $rootScope.toolbarIsShrunk = false;
+    if ($scope.isApply && $scope.isSearchContext) {
+      $scope.switchContext('/apply');
+    } else if ($scope.isApply && !$scope.isSearchContext) {
+      $scope.switchContext('/');
+      $location.path('/');
+    } else if (!$scope.isApply && $scope.isSearchContext) {
+      $scope.switchContext('/');
+    } else {
       $location.path('/');
     }
-    $scope.switchContext('/');
   }
 
   $scope.resultsContext = function() {
@@ -153,12 +158,13 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     $window.history.back();
   }
 
-  $scope.startApplication = function(applicationRoute) {
-    console.log("app route: " + applicationRoute);
+  $scope.routeMe = function(applicationRoute) {
+    console.log("app route:" + applicationRoute);
     $location.path(applicationRoute);
   }
 
   function switchContext(context) {
+    console.log("context:" + context);
     if (context.indexOf('/search') >= 0) {
       $scope.leftControlTitle = 'Back';
       $scope.isSearchContext = true;
@@ -171,12 +177,20 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
 
     } else if (context === '/') {
       $scope.isApply = false;
+      $scope.isSearchContext = false;
+      $scope.leftControlTitle = 'ExpressWay';
       $rootScope.toolbarIsShrunk = false;
     } else if (context.indexOf('/apply') >= 0) {
       $scope.leftControlTitle = 'ExpressWay';
       $scope.isSearchContext = false;
       $scope.isApply = true;
       $rootScope.toolbarIsShrunk = true;
+    } else {
+      $scope.isSearchContext = false;
+      $scope.searchPlaceholder = "Ask your questions here";
+      $scope.leftControlIconSrc = hamburgerIconSrc
+      $scope.searchIconSrc = searchIconWSrc;
+
     }
   }
 
@@ -437,6 +451,86 @@ app.controller('OutsidePermanentController', function($scope, $location) {
   ];
 });
 
+app.controller('AllProgramsController', function($scope) {
+  $scope.sectionTitle = 'Apply from outside Canada to stay permanently.';
+  $scope.bannerColor = '#505D73';
+  $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/outsidepermanent.png';
+
+  $scope.categories = [
+    {
+      name: "Skilled Worker Class",
+      description: 'Lorem ipsum dolor sit amet, mel postulant constituto ut, ex.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Skilled Trades Class",
+      description: 'Integre minimum adipiscing no nec, diam commodo at nec mea.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Quebec Investors and Entrepreneurs",
+      description: 'Lorem ipsum dolor sit amet, nec ei alii volumus nec.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Self-Employed Persons",
+      description: 'Lorem ipsum dolor sit amet, sea cu odio dicit atomorum.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Start up Visa",
+      description: 'At solum atomorum sed. Mollis dolores offendit no nec, te.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Canadian Experience Class",
+      description: 'Laoreet reprimique ei nec. Quo iisque maiorum hendrerit eu, an.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Provincial Nominees",
+      description: 'An probo solum zril vim, ad per mundi partiendo complectitur.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Quebec-Selected Skilled Workers",
+      description: 'Lorem ipsum dolor sit amet, id odio suscipiantur vel ex.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Family Class",
+      description: 'Et sit soluta accumsan voluptaria, usu sonet feugiat ex persius.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Family Class",
+      description: 'Ne veri primis expetendis mel, fastidii accusata has ad intellegat.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Refugees, Humanitarians and Protected Persons from Abroad",
+      description: 'Evertitur sententiae inciderint et pro, noster pertinax sapientem ad mea.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Persons being sponsored under a Public Policy",
+      description: 'Et eam paulo aliquid, modus ipsum quo te. Id vix.',
+      href: "",
+      disabled: true
+    },                   
+  ];  
+});
 
 app.controller('SearchController', function($scope) {
 });
