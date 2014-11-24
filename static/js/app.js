@@ -43,7 +43,11 @@ app.config(['$routeProvider',
       when('/apply/outside/temporary', {
         templateUrl: 'templates/programlist.html',
         controller: 'OutsideTemporaryController'
-      }).      
+      }).
+      when('/apply/inside/extend', {
+        templateUrl: 'templates/programlist.html',
+        controller: 'InsideExtendController'
+      }).            
       otherwise({
         redirectTo: '/'
       });
@@ -222,14 +226,14 @@ app.controller('InsideController', function($scope, $location) {
   $scope.categories = [
     {
       name: "Extend stay",
-      imgSrc: STATIC_IMG_ROUTE + "/insidesponsor.png",
+      imgSrc: STATIC_IMG_ROUTE + "/insideextend.png",
       description: 'Stay longer in Canada.',
       href: $location.absUrl() + "/extend",
       disabled: false
     },
     {
       name: "Sponsor someone",
-      imgSrc: STATIC_IMG_ROUTE + "/insideextend.png",
+      imgSrc: STATIC_IMG_ROUTE + "/insidesponsor.png",
       description: 'Bring over someone you care about.',      
       href: $location.absUrl() + "/sponsor",
       disabled: true
@@ -300,6 +304,45 @@ app.controller('OutsideTemporaryController', function($scope, $location) {
       disabled: true
     }
 
+  ];
+});
+
+app.controller('InsideExtendController', function($scope, $location) {
+  $scope.sectionTitle = 'Apply to extend your stay from inside Canada.';
+  $scope.bannerColor = '#505D73';
+  $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/insideextend.png';
+
+  $scope.categories = [
+    {
+      name: "Work",
+      href: $location.absUrl() + "/temporary",
+      description: 'Ex vel primis voluptua consequat, vis viderer menandri argumentum at.',
+      disabled: true
+    },
+    {
+      name: "Study",
+      href: "/#/apply/demo",
+      description: 'Renew your study permit.',
+      disabled: false
+    },
+    {
+      name: "Visit",
+      href: $location.absUrl() + "/permanent",
+      description: 'Iudico omnium sententiae at his, audire intellegam vel ut fabellas.',
+      disabled: true
+    },
+    {
+      name: "New Temporary Resident Visa",
+      href: $location.absUrl() + "/permanent",
+      description: 'Lorem ipsum dolor sit amet, sale sonet eum ne, in.',
+      disabled: true
+    },
+    {
+      name: "Temporary Resident Permit",
+      href: $location.absUrl() + "/permanent",
+      description: 'Ne qui latine sanctus scribentur, cu mei dico detraxit mei.',
+      disabled: true
+    }         
   ];
 });
 
