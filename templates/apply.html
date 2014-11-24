@@ -1,8 +1,12 @@
 <section class="apply-section" layout="vertical" flex layout-align="start">
-  <div class="section-banner md-whiteframe-z1" layout="vertical" layout-align="center center" 
-       style="background-color: {{bannerColor}}">
-    <h1>{{sectionTitle}}</h1>
-    <img ng-class="{'md-whiteframe-z2': imgHover, 'md-whiteframe-z1': !imgHover }" ng-mouseenter="imgHover = true" ng-mouseleave="imgHover = false" style="border-radius: 200px;" ng-src="{{bannerIconSrc}}" alt="">
+  <div class="section-banner md-whiteframe-z1" layout="vertical" layout-align="space-between" style="background-color: {{bannerColor}}">
+    <div layout="vertical" layout-align="center center">
+      <h1>{{sectionTitle}}</h1>
+      <img ng-class="{'md-whiteframe-z2': imgHover, 'md-whiteframe-z1': !imgHover }" ng-mouseenter="imgHover = true" ng-mouseleave="imgHover = false" style="border-radius: 200px;" ng-src="{{bannerIconSrc}}" alt="">
+    </div>
+    <div layout="horizontal">
+      <md-button ng-click="goBack()" class="md-fab"><i class="fa fa-chevron-left"></i></md-button>
+    </div>
   </div>
   <div layout="horizontal" layout-align="center" class="path-row">
     <md-card ng-repeat="category in categories" layout="vertical" layout-align="space-between" class="md-raised section-card" flex="20">

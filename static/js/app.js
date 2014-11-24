@@ -148,6 +148,11 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
     $scope.isApply = true;
   }
 
+  $scope.goBack = function() {
+    console.log('backing');
+    $window.history.back();
+  }
+
   function switchContext(context) {
     if (context.indexOf('/search') >= 0) {
       $scope.leftControlTitle = 'Back';

@@ -269,6 +269,10 @@ footer a, footer a:active, footer a:hover, footer a:visited {
   border-radius: 50%;
 }
 
+.path-row, .program-list {
+  margin-top: 30px;
+}
+
 
 /*.demo-section md-card {
   height: calc(100vh - 99px) !important;
@@ -356,4 +360,11 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 
 .start-program-btn md-button {
   width: 30%;
+}
+
+.section-banner .md-fab {
+  position: absolute;
+  background-color: #fff!important;
+  color: #000;
+  margin-left: 6.5%;
 }
