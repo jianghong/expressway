@@ -327,6 +327,7 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 
 .section-card h2 {
   margin-bottom: 3px;
+  text-align: center;
   font-weight: 500;
 }
 
@@ -368,4 +369,9 @@ footer a, footer a:active, footer a:hover, footer a:visited {
   background-color: #fff!important;
   color: #000;
   margin-left: 6.5%;
+}
+
+.sidenav {
+  z-index: 10;
+  padding: 0 10px;
 }

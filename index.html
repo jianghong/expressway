@@ -11,8 +11,9 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="static/css/master.css">
   </head>
-  <body ng-controller="MainController" layout="vertical" ng-class="{ 'no-scroll': inputIsFocused, 'marketing-img': !isApply }">
-    <md-toolbar toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk, 'md-toolbar-none': !isApply, 'md-toolbar-blue': isApply, 'md-whiteframe-z1': isApply}">
+  <body ng-controller="MainController" layout="horizontal" ng-class="{ 'no-scroll': inputIsFocused, 'marketing-img': !isApply }">
+    <div layout="vertical" flex>
+    <md-toolbar ng-show="!isApply" toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk, 'md-toolbar-none': !isApply, 'md-toolbar-blue': isApply, 'md-whiteframe-z1': isApply}">
       <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
         <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
         <div layout="horizontal" layout-align="space-between">
@@ -28,7 +29,7 @@
         </div>
       </div>
 
-      <div class="md-toolbar-tools md-toolbar-tools-bottom" flex="60" layout="horizontal" layout-align="space-between">
+      <div  class="md-toolbar-tools md-toolbar-tools-bottom" flex="60" layout="horizontal" layout-align="space-between">
         <div class="search-container" layout="vertical" flex ng-class="{ 'md-white-theme':isSearchContext }">
           <div class="search-icon-and-input" layout="horizontal">
             <div class="icon search-icon">
@@ -121,6 +122,26 @@
         </footer> -->
       </div>
     </md-content>
+    </div>
+
+    <div ng-show="isApply" class="sidenav md-whiteframe-z3" flex="25" layout="vertical">
+      <md-toolbar class="md-toolbar-blue" layout="vertical" layout-align="center">
+          <div class="search-icon-and-input" layout="horizontal">
+            <div class="icon search-icon">
+              <div class="icon-container" style="height: 30px; padding: 0 20px;" layout="vertical" layout-align="center center">
+                <img ng-hide="isLoading" style="height: 24px; width: 24px;" src="static/img/search-icon-b.png">
+                <md-progress-circular ng-show="isLoading" style="margin-bottom: 10px; height:24px; width:24px;" diameter="18" mode="indeterminate"></md-progress-circular>
+              </div>
+            </div>
+            <div class="search-input" flex>
+              <form>
+                <input type="text">
+              </form>
+            </div>
+          </div>            
+      </md-toolbar>
+    </div>
+
     
     <div class="backdrop md-opaque" ng-show="isSearchContext"></div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
