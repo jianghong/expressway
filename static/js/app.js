@@ -345,7 +345,7 @@ app.controller('InsideExtendController', function($scope, $location) {
     },
     {
       name: "Study",
-      href: "/#/apply/demo",
+      href: "/apply/demo",
       description: 'Renew your study permit.',
       disabled: false
     },
