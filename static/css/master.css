@@ -379,6 +379,10 @@ watson-panel {
   height: 74px;
 }
 
+.watson-content {
+  overflow: scroll;
+}
+
 .watson-fab md-button {
   /*background-color: #8CDAF8 !important;*/
 }
@@ -410,4 +414,11 @@ watson-panel {
   border-top-color: #ffffff;
   border-width: 10px;
   margin-left: -10px;
+}
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

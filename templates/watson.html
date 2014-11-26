@@ -1,6 +1,17 @@
 <div ng-controller="WatsonController" flex class="sidenav" layout="vertical" layout-align="space-between">
   <div class="watson-content">
-    <h1>Ask Watson</h1>
+    <md-list>
+      <md-item ng-repeat="result in results">
+        <md-item-content>
+          <div class="md-tile-left">
+            {{result.value}}
+          </div>
+          <div class="md-tile-content truncate">
+            {{result.text}}
+          </div>
+        </md-item-content>
+      </md-item>      
+    </md-list>
   </div>
   <div class="ask-watson" layout="vertical">
     <md-card ng-show="showInputCard" class="input-card arrow-box" layout="horizontal" flex>
