@@ -1,0 +1,18 @@
+<div ng-controller="WatsonController" flex class="sidenav" layout="vertical" layout-align="space-between">
+  <div class="watson-content">
+    <h1>Ask Watson</h1>
+  </div>
+  <div class="ask-watson" layout="vertical">
+    <md-card ng-show="showInputCard" class="input-card arrow-box" layout="horizontal" flex>
+      <form ng-submit="toggleAndAsk()">
+        <input placeholder="Ask your question here" ng-model="questionForWatson" name="ask-card" id="ask-watson-input"  />
+      </form>
+    </md-card>  
+    <div class="watson-fab" layout="horizontal" layout-align="center center">
+      <md-button ng-click="toggleAndAsk()" class="md-fab">
+        <img ng-show="!showInputCard" src="static/img/watson-icon.png" alt="">
+        <span ng-show="showInputCard">Ask</span>
+      </md-button>
+    </div>
+  </div>
+</div>

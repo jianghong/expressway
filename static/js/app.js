@@ -689,6 +689,29 @@ function DialogController($scope, $mdDialog) {
   };
 }
 
+app.controller('WatsonController', function($scope, answersModel) {
+  $scope.showInputCard = false;
+  $scope.questionForWatson = '';
+
+  $scope.toggleAndAsk = function() {
+    $scope.showInputCard = !$scope.showInputCard;
+    if (!$scope.showInputCard) {
+      // ask watson
+      console.log($scope.questionForWatson);
+      answersModel.askWatson($scope.questionForWatson).then(function(data) {
+        answersModel.setData(data);
+        $scope.results = answersModel.answers.question.evidencelist;
+        console.log($scope.results);
+      }, function(error) {
+        // console.log('error');
+      }).finally(function() {
+        $rootScope.isLoading = false;
+      });
+    }
+  }
+
+});
+
 app.run( function($rootScope, $location) {
    $rootScope.$watch(function() {
       return $location.path();
@@ -774,3 +797,10 @@ app.directive('infoAnimate', function(){
         }
     };
 });
+
+app.directive('watsonPanel', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/watson.html'
+  }
+})

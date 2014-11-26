@@ -124,23 +124,7 @@
     </md-content>
     </div>
 
-    <div ng-show="isApply" class="sidenav md-whiteframe-z3" flex="25" layout="vertical">
-      <md-toolbar class="md-toolbar-blue" layout="vertical" layout-align="center">
-          <div class="search-icon-and-input" layout="horizontal">
-            <div class="icon search-icon">
-              <div class="icon-container" style="height: 30px; padding: 0 20px;" layout="vertical" layout-align="center center">
-                <img ng-hide="isLoading" style="height: 24px; width: 24px;" src="static/img/search-icon-b.png">
-                <md-progress-circular ng-show="isLoading" style="margin-bottom: 10px; height:24px; width:24px;" diameter="18" mode="indeterminate"></md-progress-circular>
-              </div>
-            </div>
-            <div class="search-input" flex>
-              <form>
-                <input type="text">
-              </form>
-            </div>
-          </div>            
-      </md-toolbar>
-    </div>
+    <watson-panel ng-show="isApply" class="md-whiteframe-z3" flex="25" layout="vertical"></watson-panel>
 
     
     <div class="backdrop md-opaque" ng-show="isSearchContext"></div>
