@@ -227,10 +227,6 @@ md-tab {
   color: #000 !important;
 }
 
-.md-tabs-content {
-  padding: 20px;
-}
-
 md-tabs-ink-bar {
   height: 3px !important;
   background: #ffa726 !important;
@@ -274,15 +270,6 @@ footer a, footer a:active, footer a:hover, footer a:visited {
   padding: 40px;
 }
 
-
-/*.demo-section md-card {
-  height: calc(100vh - 99px) !important;
-}
-*/
-/*.demo-section .md-tab-content, .demo-section .md-tabs-content, .demo-section md-tabs {
-  height: calc(100% - 48px);
-}
-*/
 .apply-section {
   background-color: #f0f0f0;
 }
@@ -373,6 +360,7 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 
 watson-panel {
   z-index: 10;
+  background-color: #fff
 }
 
 .watson-fab {
@@ -417,8 +405,38 @@ watson-panel {
 }
 
 .truncate {
-  width: 250px;
-  white-space: nowrap;
+  height: 300px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+watson-panel md-tabs .md-header {
+  display: none;
+}
+
+.suggested-question {
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.suggested-question:hover {
+  background-color: #f0f0f0;
+}
+
+watson-panel .md-tile-content {
+  padding-left: 0;
+}
+
+md-tabs, .md-tabs-content, .loading-container {
+  min-height: 100px;
+}
+
+.back .stuff {
+  margin-right: 0;
+  cursor: pointer;
+  padding: 16px;
+}
+
+.answer-text {
+  padding: 10px;
 }

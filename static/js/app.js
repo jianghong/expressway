@@ -72,7 +72,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   $scope.leftControlIconSrc = hamburgerIconSrc;
   $scope.leftControlTitle = 'ExpressWay';
   $scope.searchIconSrc = searchIconWSrc;
-  $rootScope.isLoading = false;
+  $rootScope.isLoading = true;
   $rootScope.inputIsFocused = false;
   $rootScope.toolbarIsShrunk = $location.path() === '/' ? false : true;
   $scope.isApply = $location.path() !== '/' ? true : false;
@@ -689,27 +689,58 @@ function DialogController($scope, $mdDialog) {
   };
 }
 
-app.controller('WatsonController', function($scope, answersModel) {
+app.controller('WatsonController', function($scope, answersModel, $rootScope) {
+  $scope.tabIndex = 0;
   $scope.showInputCard = false;
   $scope.questionForWatson = '';
 
+  $scope.suggestedQuestions = [
+    {
+      question: 'How much money should I declare for CEC?'
+    },
+    {
+      question: 'What work experience can I use for CEC?'
+    },
+    {
+      question: 'What are the language requirements for CEC?'
+    },
+    {
+      question: 'Will my off-campus work count towards CEC?'
+    }
+  ];
+
+  $scope.doTheAsk = function(question) {
+    $scope.theAnswer = '';
+    $scope.tabIndex = 1;
+    $rootScope.isLoading = true;
+    answersModel.askWatson(question).then(function(data) {
+      answersModel.setData(data);
+      $scope.results = answersModel.answers.question.evidencelist;
+      $scope.theAnswer = $scope.results[0];
+      console.log($scope.results);
+    }, function(error) {
+      // console.log('error');
+    }).finally(function() {
+      $rootScope.isLoading = false;
+    });
+  }
+
   $scope.toggleAndAsk = function() {
     $scope.showInputCard = !$scope.showInputCard;
+
     if (!$scope.showInputCard) {
       // ask watson
-      console.log($scope.questionForWatson);
-      answersModel.askWatson($scope.questionForWatson).then(function(data) {
-        answersModel.setData(data);
-        $scope.results = answersModel.answers.question.evidencelist;
-        console.log($scope.results);
-      }, function(error) {
-        // console.log('error');
-      }).finally(function() {
-        $rootScope.isLoading = false;
-      });
+      $scope.doTheAsk($scope.questionForWatson);
     }
   }
 
+  $scope.askSuggested = function(ev) {
+    $scope.doTheAsk(ev.currentTarget.innerText);
+  }
+
+  $scope.backToSuggestions = function() {
+    $scope.tabIndex = 0;
+  }
 });
 
 app.run( function($rootScope, $location) {
@@ -766,6 +797,10 @@ app.service('answersModel', function($http, $q) {
       obj.value = obj.value * 100;
       obj.value = obj.value + '%';
     });
+  }
+
+  this.clearData = function() {
+    this.answers = [];
   }
 });
 

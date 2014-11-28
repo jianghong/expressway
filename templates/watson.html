@@ -1,17 +1,35 @@
 <div ng-controller="WatsonController" flex class="sidenav" layout="vertical" layout-align="space-between">
-  <div class="watson-content">
-    <md-list>
-      <md-item ng-repeat="result in results">
-        <md-item-content>
-          <div class="md-tile-left">
-            {{result.value}}
+  <div class="watson-content" flex>
+    <md-tabs selected="tabIndex">
+      <md-tab flex label="Suggestions" class="suggestions-tab">
+        <md-list>
+          <div ng-repeat="question in suggestedQuestions">
+            <md-item class="suggested-question" layout="horizontal" >
+              <div class="md-tile-content" ng-click="askSuggested($event)">
+                {{question.question}}
+              </div>
+              <div layout="horizontal" layout-align="center center">
+              <i class="fa fa-chevron-right"></i>
+              </div>
+            </md-item>
+            <md-divider></md-divider>
           </div>
-          <div class="md-tile-content truncate">
-            {{result.text}}
+        </md-list>        
+      </md-tab>
+      <md-tab label="Answer" class="answer-tab">
+        <div class="back md-whiteframe-z1" ng-click="backToSuggestions()" layout="horizontal">
+          <div class="stuff">
+            <i class="fa fa-chevron-left"></i> Back
           </div>
-        </md-item-content>
-      </md-item>      
-    </md-list>
+        </div>
+        <div class="answer-text">
+          {{theAnswer.text}}
+        </div>
+        <div class="loading-container "layout="vertical" layout-align="center center">
+          <md-progress-circular ng-show="isLoading" style="margin-left: -25px; margin-bottom: 10px; height:24px; width:24px;" diameter="50" mode="indeterminate"></md-progress-circular>
+        </div>
+      </md-tab>
+    </md-tabs>
   </div>
   <div class="ask-watson" layout="vertical">
     <md-card ng-show="showInputCard" class="input-card arrow-box" layout="horizontal" flex>
@@ -19,7 +37,7 @@
         <input placeholder="Ask your question here" ng-model="questionForWatson" name="ask-card" id="ask-watson-input"  />
       </form>
     </md-card>  
-    <div class="watson-fab" layout="horizontal" layout-align="center center">
+    <div class="watson-fab md-whiteframe-z3" layout="horizontal" layout-align="center center">
       <md-button ng-click="toggleAndAsk()" class="md-fab">
         <img ng-show="!showInputCard" src="static/img/watson-icon.png" alt="">
         <span ng-show="showInputCard">Ask</span>
