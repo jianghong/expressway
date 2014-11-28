@@ -434,9 +434,14 @@ watson-panel {
   text-overflow: ellipsis;
 }
 
-watson-panel md-tabs .md-header {
+watson-panel md-tabs .md-header, .demo-section md-tabs .md-header {
   display: none;
 }
+
+.demo-section md-card {
+  padding: 0;
+}
+
 
 .suggested-question {
   cursor: pointer;
@@ -470,10 +475,32 @@ watson-panel .topbar .stuff {
   padding: 10px;
 }
 
-.main-panel, watson-panel md-toolbar {
-  zoom: 75%;
+@media (max-width: 1300px) {
+  .main-panel, watson-panel md-toolbar {
+    zoom: 75%;
+  }
+}  
+
+.form-progress {
+  height: 150px;
 }
 
-watson-panel md-toolbar {
-  width: 33.5vw;
+.form-filling p {
+  font-size: 1.2em;
+}
+
+.form-filling h1 {
+  font-size: 36px;
+}
+
+.form-filling md-content {
+  padding: 30px;
+}
+
+.form-filling .md-fab {
+  margin-top: 10px;
+}
+
+.form-filling .right-nav, .form-filling .left-nav {
+  font-size: 2em;
 }

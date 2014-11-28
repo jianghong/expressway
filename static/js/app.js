@@ -666,20 +666,21 @@ app.controller('ResultsController', function($scope, $routeParams, AnswersModel)
 });
 
 app.controller('DemoController', function($scope, $mdDialog) {
-  $scope.nexting = true;
-  $scope.tabIndex = 0;
-  $scope.personalQResponses = {
-    age: '',
-    hasFamilyInCanada: false,
-    hasAccreditedCanadianDegree: false,
-    currentStatus: '',
-    inCanada: false,
-    yearsInCanada: '',
-    occupation: '',
-    reason: '',
-    fluent: '',
-    armedForces: ''
-  }
+  $scope.formTabIndex = 4;
+  // $scope.nexting = true;
+  // $scope.tabIndex = 0;
+  // $scope.personalQResponses = {
+  //   age: '',
+  //   hasFamilyInCanada: false,
+  //   hasAccreditedCanadianDegree: false,
+  //   currentStatus: '',
+  //   inCanada: false,
+  //   yearsInCanada: '',
+  //   occupation: '',
+  //   reason: '',
+  //   fluent: '',
+  //   armedForces: ''
+  // }
 
   $scope.showPreview = function(ev) {$mdDialog.show({controller: DialogController,
       templateUrl: 'templates/previewdialog.html',
@@ -687,15 +688,15 @@ app.controller('DemoController', function($scope, $mdDialog) {
     });
   }
 
-  $scope.nextPage = function() {
-    $scope.tabIndex += 1;
-    $scope.nexting = true;
-  }
+  // $scope.nextPage = function() {
+  //   $scope.tabIndex += 1;
+  //   $scope.nexting = true;
+  // }
 
-  $scope.previousPage = function() {
-    $scope.tabIndex -= 1;
-    $scope.nexting = false;
-  }  
+  // $scope.previousPage = function() {
+  //   $scope.tabIndex -= 1;
+  //   $scope.nexting = false;
+  // }  
 });
 
 function DialogController($scope, $mdDialog) {
