@@ -61,7 +61,7 @@ app.controller('BodyController', function($scope) {
 
 });
 
-app.controller('MainController', function($scope, $location, $rootScope, answersModel, $window) {
+app.controller('MainController', function($scope, $location, $rootScope, AnswersModel, $window) {
   var MAIN_THEME_CLASS = 'md-blue-theme';
   var hamburgerIconSrc = 'static/img/hamburger-icon.png';
   var backIconSrc = 'static/img/back-icon.png';
@@ -78,11 +78,11 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   $scope.isApply = $location.path() !== '/' ? true : false;
   $scope.imgHover = false;
 
-  $scope.results = answersModel.answers ? answersModel.answers.question.answers : [];
+  $scope.results = AnswersModel.answers ? AnswersModel.answers.question.answers : [];
 
   $scope.searchPlaceholder = "Ask your questions here";
 
-  $scope.suggestedQuestions = [
+  $rootScope.suggestedQuestions = [
     {
       question: 'How much money should I declare for CEC?'
     },
@@ -128,9 +128,9 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
 
   $scope.resultsContext = function() {
     $rootScope.isLoading = true;
-    answersModel.askWatson($scope.question).then(function(data) {
-      answersModel.setData(data);
-      $scope.results = answersModel.answers.question.evidencelist;
+    AnswersModel.askWatson($scope.question).then(function(data) {
+      AnswersModel.setData(data);
+      $scope.results = AnswersModel.answers.question.evidencelist;
       console.log($scope.results);
     }, function(error) {
       // console.log('error');
@@ -161,6 +161,10 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   $scope.routeMe = function(applicationRoute) {
     console.log("app route:" + applicationRoute);
     $location.path(applicationRoute);
+  }
+
+  $rootScope.populateQuestions = function(qArray) {
+    $rootScope.suggestedQuestions = qArray;
   }
 
   function switchContext(context) {
@@ -197,7 +201,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   $rootScope.switchContext = switchContext;
  });
 
-app.controller('MarketingController', function($scope, answersModel) {
+app.controller('MarketingController', function($scope, AnswersModel) {
   $scope.mainCard = {
     actionText: 'Start Asking',
     tagline: 'Immigrate with ease.',
@@ -221,31 +225,58 @@ app.controller('MarketingController', function($scope, answersModel) {
   ];
 });
 
-app.controller('ApplyController', function($scope, $location) {
+app.controller('ApplyController', function($scope, $location, $rootScope) {
   $scope.sectionTitle = "Tell us where you are.";
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/inorout.png';
   $scope.bannerColor = '#78B4D2';
+
+  $rootScope.populateQuestions([
+    {
+      question: 'Can I apply for status from inside Canada if I am an illegal immigrant?'
+    },
+    {
+      question: 'What are some examples of successful applicants for CEC?'
+    },
+    {
+      question: 'What are my options for immigrating to Canada as a refugee?'
+    },
+    {
+      question: 'How long does it take for a Canadian Experience Class application to get approved?'
+    },    
+  ]);
 
   $scope.categories = [
     {
       name: "Inside Canada",
       imgSrc: STATIC_IMG_ROUTE + "/insidecanada.png",
       href:  $location.absUrl() + "/inside",
-      description: "Find your way into Canada."
+      description: "Extend your stay or bring your family over."
     },
     {
       name: "Outside Canada",
       imgSrc: STATIC_IMG_ROUTE + "/outsidecanada.png",
       href: $location.absUrl() + "/outside",
-      description: "Extend your stay or bring your family over."
+      description: "Find your way into Canada."
     }
   ];
 });
 
-app.controller('InsideController', function($scope, $location) {
+app.controller('InsideController', function($scope, $location, $rootScope) {
   $scope.sectionTitle = "Inside Canada";
   $scope.bannerColor = '#C55C5E';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/insidecanada.png';
+
+  $rootScope.populateQuestions([
+    {
+      question: 'What can I do to extend my stay in Canada?'
+    },
+    {
+      question: 'What are the requirements to sponsor my spouse to Canada?'
+    },
+    {
+      question: 'What languages do I need to speak to apply for citizenship?'
+    },
+  ]);
 
   $scope.categories = [
     {
@@ -452,7 +483,7 @@ app.controller('OutsidePermanentController', function($scope, $location) {
 });
 
 app.controller('AllProgramsController', function($scope, $location) {
-  $scope.sectionTitle = 'All of our programs layed out for you.';
+  $scope.sectionTitle = 'All of our programs laid out for you.';
   $scope.bannerColor = '#DF9864';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/allprograms.png';
 
@@ -617,28 +648,20 @@ app.controller('FSWController', function($scope) {
 
 // TODO: What questions should we hardcode to suggest?
 app.controller('SuggestionsController', function($scope) {
-  $scope.suggestedQuestions = [
-    {
-      question: 'What is ...?'
-    },
-    {
-      question: 'What is your ...?'
-    }
-  ];
 });
 
-app.controller('ResultsController', function($scope, $routeParams, answersModel) {
-  // console.log(answersModel.answers);
-  if (!answersModel.answers) {
-    answersModel.askWatson($routeParams.question).then(function(data) {
-      answersModel.setData(data);
-      $scope.answers = answersModel.answers.question.evidencelist;
+app.controller('ResultsController', function($scope, $routeParams, AnswersModel) {
+  // console.log(AnswersModel.answers);
+  if (!AnswersModel.answers) {
+    AnswersModel.askWatson($routeParams.question).then(function(data) {
+      AnswersModel.setData(data);
+      $scope.answers = AnswersModel.answers.question.evidencelist;
     }, function(error) {
       // console.log('error');
     });
 
   } else {
-    $scope.answers = Array(answersModel.answers.question.answers[0]);
+    $scope.answers = Array(AnswersModel.answers.question.answers[0]);
   }
 });
 
@@ -689,24 +712,9 @@ function DialogController($scope, $mdDialog) {
   };
 }
 
-app.controller('WatsonController', function($scope, answersModel, $rootScope) {
+app.controller('WatsonController', function($scope, AnswersModel, $rootScope) {
   $scope.tabIndex = 0;
   $scope.questionForWatson = '';
-
-  $scope.suggestedQuestions = [
-    {
-      question: 'How much money should I declare for CEC?'
-    },
-    {
-      question: 'What work experience can I use for CEC?'
-    },
-    {
-      question: 'What are the language requirements for CEC?'
-    },
-    {
-      question: 'Will my off-campus work count towards CEC?'
-    }
-  ];
 
   $scope.doTheAsk = function(question) {
     $scope.theAnswer = '';
@@ -714,9 +722,9 @@ app.controller('WatsonController', function($scope, answersModel, $rootScope) {
     $rootScope.isLoading = true;
     $scope.questionText = question;
     $scope.questionForWatson = '';
-    answersModel.askWatson(question).then(function(data) {
-      answersModel.setData(data);
-      $scope.results = answersModel.answers.question.evidencelist;
+    AnswersModel.askWatson(question).then(function(data) {
+      AnswersModel.setData(data);
+      $scope.results = AnswersModel.answers.question.evidencelist;
       $scope.theAnswer = $scope.results[0];
       console.log($scope.results);
     }, function(error) {
@@ -749,7 +757,23 @@ app.run( function($rootScope, $location) {
     });
 });
 
-app.service('answersModel', function($http, $q) {
+app.service('SuggestedQuestionsService', function() {
+  var questions = [];
+
+  this.setQuestions = function(qArray) {
+    questions = qArray;
+  }
+
+  this.getQuestions = function() {
+    return questions;
+  }
+
+  this.clearQuestions = function() {
+    questions = [];
+  }
+});
+
+app.service('AnswersModel', function($http, $q) {
   var watsonRoute = 'http://54.69.43.163/ask';
 
   this.askWatson = function(question) {

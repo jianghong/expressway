@@ -7,7 +7,7 @@
             Suggested Questions <i class="fa fa-question-circle"></i> 
           </div>
         </md-toolbar>
-        <md-list>
+        <md-list id="repeatedSuggestions">
           <div ng-repeat="question in suggestedQuestions" class="animated fadeIn">
             <md-item class="suggested-question" layout="horizontal" >
               <div class="md-tile-content" ng-click="askSuggested($event)">
@@ -22,11 +22,12 @@
       </md-tab>
       <md-tab label="Answer" class="answer-tab">
         <md-toolbar class="md-toolbar-top md-whiteframe-z1 md-toolbar-white" layout="horizontal" layout-align="center">
-          <div class="md-toolbar-tools">
+          <div class="md-toolbar-tools" layout="horizontal" layout-align="space-between">
             <div class="back" ng-click="backToSuggestions()">
-              <i class="fa fa-chevron-left"></i> Back to suggestions
+              <i class="fa fa-chevron-left"></i> Suggestions
             </div>
-          </div>          
+            <md-button ng-href="http://www.cic.gc.ca/english/index.asp" target="_blank" style="font-size: 21px;"><i class="fa fa-external-link"></i></md-button>
+          </div>
         </md-toolbar>
         <div class="answer-text animated fadeIn">
           <div class="question-container">

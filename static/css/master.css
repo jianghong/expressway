@@ -473,3 +473,7 @@ watson-panel .topbar .stuff {
 .main-panel, watson-panel md-toolbar {
   zoom: 75%;
 }
+
+watson-panel md-toolbar {
+  width: 33.5vw;
+}
