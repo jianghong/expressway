@@ -691,7 +691,6 @@ function DialogController($scope, $mdDialog) {
 
 app.controller('WatsonController', function($scope, answersModel, $rootScope) {
   $scope.tabIndex = 0;
-  $scope.showInputCard = false;
   $scope.questionForWatson = '';
 
   $scope.suggestedQuestions = [
@@ -728,12 +727,7 @@ app.controller('WatsonController', function($scope, answersModel, $rootScope) {
   }
 
   $scope.toggleAndAsk = function() {
-    $scope.showInputCard = !$scope.showInputCard;
-
-    if (!$scope.showInputCard) {
-      // ask watson
-      $scope.doTheAsk($scope.questionForWatson);
-    }
+    $scope.doTheAsk($scope.questionForWatson);
   }
 
   $scope.askSuggested = function(ev) {

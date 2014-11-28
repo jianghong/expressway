@@ -364,16 +364,28 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 }
 
 watson-panel {
-  z-index: 5;
+  z-index: 10;
   background-color: #fff;
 }
 
-.watson-fab {
-  height: 74px;
+.watson-action {
+  padding: 10px;
+}
+
+.watson-action input {
+  width: 100%;
 }
 
 .watson-content {
   overflow: scroll;
+}
+
+.watson-content p {
+  margin: 5px 0;
+}
+
+.watson-content .question-container {
+  margin-bottom: 20px;
 }
 
 .watson-fab md-button {
@@ -421,7 +433,7 @@ watson-panel md-tabs .md-header {
 
 .suggested-question {
   cursor: pointer;
-  padding: 0 5px;
+  padding: 0 10px;
 }
 
 .suggested-question:hover {
@@ -436,12 +448,20 @@ watson-panel .md-tile-content {
   min-height: 100px;
 }
 
-.back .stuff {
-  margin-right: 0;
-  cursor: pointer;
+watson-panel .topbar .stuff {
+  margin: 0;
   padding: 16px;
+  font-weight: 700;
+}
+
+.back {
+  cursor: pointer;
 }
 
 .answer-text {
   padding: 10px;
+}
+
+.main-panel {
+  zoom: 75%;
 }
