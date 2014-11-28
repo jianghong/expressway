@@ -13,7 +13,7 @@
   </head>
   <body ng-controller="MainController" layout="horizontal" ng-class="{ 'no-scroll': inputIsFocused, 'marketing-img': !isApply }">
     <div class="main-panel" layout="vertical" flex>
-      <md-toolbar toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk, 'md-toolbar-none': !isApply, 'md-toolbar-blue': isApply, 'md-whiteframe-z1': isApply}">
+      <md-toolbar toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk, 'md-toolbar-none': !isApply, 'md-toolbar-white': isApply, 'md-whiteframe-z1': isApply}">
         <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
           <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
           <div layout="horizontal" layout-align="space-between">
@@ -109,7 +109,7 @@
               </div>
             </div>
           </section>      
-  <!--         <footer layout="horizontal" layout-align="center center">
+          <footer ng-show="!isApply" layout="horizontal" layout-align="center center">
               <a>&#169; 2014 ExpressWay</a>
               <div class="pipe">|</div>
               <a href="#">Pricing</a>
@@ -119,7 +119,7 @@
               <a href="#">About</a>
               <div class="pipe">|</div>
               <a href="#">Privacy</a>
-          </footer> -->
+          </footer>
         </div>
       </md-content>
     </div>

@@ -46,7 +46,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   z-index: 6;
 }
 
-.md-toolbar-blue {
+.md-toolbar-white {
   background-color: #f0f0f0 !important;
   color: #000 !important;
 }
@@ -459,9 +459,10 @@ watson-panel .topbar .stuff {
 }
 
 .answer-text {
+  margin-top: 49px;
   padding: 10px;
 }
 
-.main-panel {
+.main-panel, watson-panel md-toolbar {
   zoom: 75%;
 }

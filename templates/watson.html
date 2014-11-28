@@ -2,13 +2,17 @@
   <div class="watson-content" flex>
     <md-tabs selected="tabIndex">
       <md-tab flex label="Suggestions" class="suggestions-tab">
-        <div class="topbar" layout="horizontal" layout-align="center center">
-          <div class="stuff">
+        <md-toolbar class="md-whiteframe-z1 md-toolbar-white" layout="horizontal" layout-align="center center">
+          <div>
             Suggested Questions <i class="fa fa-question-circle"></i> 
+          </div>
+        </md-toolbar>
+<!--         <div class="topbar" layout="horizontal" layout-align="center center">
+          <div class="stuff">
           </div>
         </div>
         <md-divider></md-divider>
-        <md-list>
+ -->        <md-list>
           <div ng-repeat="question in suggestedQuestions">
             <md-item class="suggested-question" layout="horizontal" >
               <div class="md-tile-content" ng-click="askSuggested($event)">
@@ -22,12 +26,13 @@
         </md-list>        
       </md-tab>
       <md-tab label="Answer" class="answer-tab">
-        <div class="topbar back" ng-click="backToSuggestions()" layout="horizontal">
-          <div class="stuff">
-            <i class="fa fa-chevron-left"></i> Back
-          </div>
-        </div>
-        <md-divider></md-divider>
+        <md-toolbar class="md-toolbar-top md-whiteframe-z1 md-toolbar-white" layout="horizontal" layout-align="center">
+          <div class="md-toolbar-tools">
+            <div class="back" ng-click="backToSuggestions()">
+              <i class="fa fa-chevron-left"></i> Back to suggestions
+            </div>
+          </div>          
+        </md-toolbar>
         <div class="answer-text">
           <div class="question-container">
             <p><strong>Question: </strong></p>
