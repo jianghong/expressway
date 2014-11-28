@@ -7,13 +7,8 @@
             Suggested Questions <i class="fa fa-question-circle"></i> 
           </div>
         </md-toolbar>
-<!--         <div class="topbar" layout="horizontal" layout-align="center center">
-          <div class="stuff">
-          </div>
-        </div>
-        <md-divider></md-divider>
- -->        <md-list>
-          <div ng-repeat="question in suggestedQuestions">
+        <md-list>
+          <div ng-repeat="question in suggestedQuestions" class="animated fadeIn">
             <md-item class="suggested-question" layout="horizontal" >
               <div class="md-tile-content" ng-click="askSuggested($event)">
                 {{question.question}}
@@ -33,7 +28,7 @@
             </div>
           </div>          
         </md-toolbar>
-        <div class="answer-text">
+        <div class="answer-text animated fadeIn">
           <div class="question-container">
             <p><strong>Question: </strong></p>
             <p>{{questionText}}</p>
@@ -50,13 +45,7 @@
     </md-tabs>
   </div>
   <div class="ask-watson" layout="vertical">
-    <!--
-    <md-card ng-show="showInputCard" class="input-card arrow-box" layout="horizontal" flex>
-      <form ng-submit="toggleAndAsk()">
-        <input placeholder="Ask your question here" ng-model="questionForWatson" name="ask-card" id="ask-watson-input"  />
-      </form>
-    </md-card>  -->
-    <div class="watson-action md-whiteframe-z3" layout="horizontal">
+    <div class="watson-action md-whiteframe-z1" layout="horizontal">
       <div layout="vertical" layout-align="center" flex>
         <form ng-submit="toggleAndAsk()">
           <input placeholder="Ask your question here" ng-model="questionForWatson" name="ask-card" id="ask-watson-input"  />

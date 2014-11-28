@@ -368,12 +368,19 @@ watson-panel {
   background-color: #fff;
 }
 
-.watson-action {
-  padding: 10px;
+.watson-action, .watson-action input {
+  height: 64px;
+  background-color: #f6f6f6;
 }
 
 .watson-action input {
   width: 100%;
+  border: none;
+  padding: 0 10px;
+}
+
+.watson-action md-button {
+  height: 64px;
 }
 
 .watson-content {
