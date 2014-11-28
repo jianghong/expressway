@@ -23,7 +23,10 @@
           </div>
         </div>
         <div class="answer-text">
-          {{theAnswer.text}}
+          <p><strong>Question: </strong></p>
+          <p>{{questionText}}</p>
+          <p><strong>Answer: </strong></p>
+          <p>{{theAnswer.text}}</p>
         </div>
         <div class="loading-container "layout="vertical" layout-align="center center">
           <md-progress-circular ng-show="isLoading" style="margin-left: -25px; margin-bottom: 10px; height:24px; width:24px;" diameter="50" mode="indeterminate"></md-progress-circular>

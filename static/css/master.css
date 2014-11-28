@@ -9,6 +9,10 @@ blue: #084D8C;
   font-weight: 400;
 }
 
+strong {
+  font-weight: 700;
+}
+
 ::-webkit-scrollbar { 
   display: none;
 }
@@ -427,7 +431,7 @@ watson-panel .md-tile-content {
   padding-left: 0;
 }
 
-md-tabs, .md-tabs-content, .loading-container {
+.loading-container {
   min-height: 100px;
 }
 

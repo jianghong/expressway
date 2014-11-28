@@ -713,6 +713,8 @@ app.controller('WatsonController', function($scope, answersModel, $rootScope) {
     $scope.theAnswer = '';
     $scope.tabIndex = 1;
     $rootScope.isLoading = true;
+    $scope.questionText = question;
+    $scope.questionForWatson = '';
     answersModel.askWatson(question).then(function(data) {
       answersModel.setData(data);
       $scope.results = answersModel.answers.question.evidencelist;
@@ -760,6 +762,7 @@ app.service('answersModel', function($http, $q) {
     return $q(function(resolve, reject) {
       $http.get(watsonRoute, {params: {q: question}}).
       success(function(data, status, headers, config) {
+        console.log(data);
         // hard code answer
         // if (question.toLowerCase() === SAMPLE_Q1) {
         //   data.question.answers.unshift({
