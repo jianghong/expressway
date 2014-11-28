@@ -72,7 +72,7 @@ app.controller('MainController', function($scope, $location, $rootScope, answers
   $scope.leftControlIconSrc = hamburgerIconSrc;
   $scope.leftControlTitle = 'ExpressWay';
   $scope.searchIconSrc = searchIconWSrc;
-  $rootScope.isLoading = true;
+  $rootScope.isLoading = false;
   $rootScope.inputIsFocused = false;
   $rootScope.toolbarIsShrunk = $location.path() === '/' ? false : true;
   $scope.isApply = $location.path() !== '/' ? true : false;

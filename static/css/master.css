@@ -43,6 +43,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   -moz-transition: height 300ms ease-in-out;
   -o-transition: height 300ms ease-in-out;
   transition: height 300ms ease-in-out;
+  z-index: 6;
 }
 
 .md-toolbar-blue {
@@ -363,7 +364,7 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 }
 
 watson-panel {
-  z-index: 10;
+  z-index: 5;
   background-color: #fff
 }
 

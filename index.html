@@ -11,9 +11,8 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="static/css/master.css">
   </head>
-  <body ng-controller="MainController" layout="horizontal" ng-class="{ 'no-scroll': inputIsFocused, 'marketing-img': !isApply }">
-    <div layout="vertical" flex>
-    <md-toolbar ng-show="!isApply" toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk, 'md-toolbar-none': !isApply, 'md-toolbar-blue': isApply, 'md-whiteframe-z1': isApply}">
+  <body ng-controller="MainController" layout="vertical" ng-class="{ 'no-scroll': inputIsFocused, 'marketing-img': !isApply }">
+    <md-toolbar toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk, 'md-toolbar-none': !isApply, 'md-toolbar-blue': isApply, 'md-whiteframe-z2': isApply}">
       <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
         <span style="cursor: pointer;" ng-click="mainContext()">{{leftControlTitle}}</span>
         <div layout="horizontal" layout-align="space-between">
@@ -30,7 +29,7 @@
       </div>
 
       <div  class="md-toolbar-tools md-toolbar-tools-bottom" flex="60" layout="horizontal" layout-align="space-between">
-        <div class="search-container" layout="vertical" flex ng-class="{ 'md-white-theme':isSearchContext }">
+<!--         <div class="search-container" layout="vertical" flex ng-class="{ 'md-white-theme':isSearchContext }">
           <div class="search-icon-and-input" layout="horizontal">
             <div class="icon search-icon">
               <div class="icon-container" style="height: 30px; padding: 0 20px;" layout="vertical" layout-align="center center">
@@ -56,10 +55,11 @@
               </md-list>
             </md-card>
           </div>
-        </div>
+        </div> -->
       </div>
     </md-toolbar>
 
+    <div layout="horizontal" flex>
     <section class="watson-results" layout="vertical" layout-align="start center" ng-show="isSearchContext">
       <div layout="vertical" layout-align="center center">
         <md-list>
@@ -122,9 +122,9 @@
         </footer> -->
       </div>
     </md-content>
-    </div>
 
     <watson-panel ng-show="isApply" class="md-whiteframe-z3" flex="25" layout="vertical"></watson-panel>
+    </div>
 
     
     <div class="backdrop md-opaque" ng-show="isSearchContext"></div>
