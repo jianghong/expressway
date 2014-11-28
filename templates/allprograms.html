@@ -17,7 +17,7 @@
         <p>{{ program.description }}</p>
       </div>
       <div layout="horizontal" layout-align="end" class="start-program-btn">
-        <md-button class="md-primary" ng-hide="program.disabled" ng-click="startApplication(program.href)">Start Application</md-button>
+        <md-button class="md-primary" ng-hide="program.disabled" ng-click="routeMe(program.href)">Start Application</md-button>
         <md-button ng-disabled="true" ng-show="program.disabled">Coming soon...</md-button>
       </div>    
     </md-card>
@@ -29,7 +29,7 @@
         <p>{{ program.description }}</p>
       </div>
       <div layout="horizontal" layout-align="end" class="start-program-btn">
-        <md-button class="md-primary" ng-hide="program.disabled" ng-click="startApplication(program.href)">Start Application</md-button>
+        <md-button class="md-primary" ng-hide="program.disabled" ng-click="routeMe(program.href)">Start Application</md-button>
         <md-button ng-disabled="true" ng-show="program.disabled">Coming soon...</md-button>
       </div>    
     </md-card>
