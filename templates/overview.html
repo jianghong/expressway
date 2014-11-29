@@ -8,22 +8,75 @@
       <md-button class="submit-fab md-fab"><i class="fa fa-paper-plane"></i></md-button>
     </div>
   </div>
-  <div layout="horizontal" ng-repeat="formRow in programForms" layout-align="center" class="path-row">
-    <md-card ng-click="routeMe('/apply/demo')" class="form-card" ng-repeat="form in formRow" layout="vertical" layout-align="space-between" flex="20">
-      <div class="form-icon" layout="horizontal" layout-align="center center">
-        <i class="fa fa-file-text-o"></i>
+
+  <div class="overview-content">
+    <h2>Application Package</h2>
+    <md-divider></md-divider>
+
+    <section class="required-rows rows">
+      <h3>Required Forms</h3>
+      <div layout="horizontal" ng-repeat="formRow in requiredForms" class="path-row">
+        <md-card ng-click="routeMe('/apply/demo')" class="form-card" ng-repeat="form in formRow" layout="vertical" layout-align="space-between" flex="20">
+          <div class="form-icon" layout="horizontal" layout-align="center center">
+            <i class="fa fa-file-text-o"></i>
+          </div>
+          <md-divider></md-divider>
+          <div class="form-info" layout="vertical">
+            <div class="form-meta" layout="vertical" flex>
+              <p class="form-name">{{form.name}}</p>
+              <p class="form-code">{{form.code}}</p>
+            </div>
+            <div class="form-progress" layout="horizontal" layout-align="center center">
+              <md-progress-linear md-mode="determinate" ng-value="{{form.progress}}"></md-progress-linear>
+              {{form.progress}}%
+            </div>
+          </div>
+        </md-card>    
       </div>
-      <md-divider></md-divider>
-      <div class="form-info" layout="vertical">
-        <div class="form-meta" layout="vertical" flex>
-          <p class="form-name">{{form.name}}</p>
-          <p class="form-code">{{form.code}}</p>
-        </div>
-        <div class="form-progress" layout="horizontal" layout-align="center center">
-          <md-progress-linear md-mode="determinate" ng-value="{{form.progress}}"></md-progress-linear>
-          {{form.progress}}%
-        </div>
+    </section>
+
+    <section class="optional-rows rows">
+      <h3>Optional Forms</h3>
+      <div layout="horizontal" ng-repeat="formRow in optionalForms" class="path-row">
+        <md-card ng-click="routeMe('/apply/demo')" class="form-card" ng-repeat="form in formRow" layout="vertical" layout-align="space-between" flex="20">
+          <div class="form-icon" layout="horizontal" layout-align="center center">
+            <i class="fa fa-file-text-o"></i>
+          </div>
+          <md-divider></md-divider>
+          <div class="form-info" layout="vertical">
+            <div class="form-meta" layout="vertical" flex>
+              <p class="form-name">{{form.name}}</p>
+              <p class="form-code">{{form.code}}</p>
+            </div>
+            <div class="form-progress" layout="horizontal" layout-align="center center">
+              <md-progress-linear md-mode="determinate" ng-value="{{form.progress}}"></md-progress-linear>
+              {{form.progress}}%
+            </div>
+          </div>
+        </md-card>    
       </div>
-    </md-card>
+    </section>
+
+    <section class="supplementary-rows rows">
+      <h3>Supplementary</h3>
+      <div layout="horizontal" ng-repeat="formRow in supplementary" class="path-row">
+        <md-card ng-click="routeMe('/apply/demo')" class="form-card" ng-repeat="form in formRow" layout="vertical" layout-align="space-between" flex="20">
+          <div class="form-icon" layout="horizontal" layout-align="center center">
+            <i class="fa fa-file-text-o"></i>
+          </div>
+          <md-divider></md-divider>
+          <div class="form-info" layout="vertical">
+            <div class="form-meta" layout="vertical" flex>
+              <p class="form-name">{{form.name}}</p>
+              <p class="form-code">{{form.code}}</p>
+            </div>
+            <div class="form-progress" layout="horizontal" layout-align="center center">
+              <md-progress-linear md-mode="determinate" ng-value="{{form.progress}}"></md-progress-linear>
+              {{form.progress}}%
+            </div>
+          </div>
+        </md-card>    
+      </div>
+    </section>
   </div>
 </section>

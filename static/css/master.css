@@ -265,7 +265,7 @@ footer a, footer a:active, footer a:hover, footer a:visited {
   border-radius: 50%;
 }
 
-.path-row, .program-list {
+.program-list, .overview-content {
   margin-top: 30px;
   padding: 40px;
 }
@@ -526,7 +526,7 @@ watson-panel .topbar .stuff {
 }
 
 .overview-section .path-row {
-  padding: 0 40px;
+  padding: 0;
 }
 
 .overview-section .md-bar1 {
@@ -552,4 +552,8 @@ watson-panel .topbar .stuff {
 .overview-section .submit-fab {
   position: absolute;
   margin-left: 89.5%;
+}
+
+.overview-section .rows {
+  margin-bottom: 50px;
 }

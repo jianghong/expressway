@@ -694,7 +694,8 @@ app.controller('DemoController', function($scope, $mdDialog) {
   //   armedForces: ''
   // }
 
-  $scope.showPreview = function(ev) {$mdDialog.show({controller: DialogController,
+  $scope.showPreview = function(ev) {
+    $mdDialog.show({controller: DialogController,
       templateUrl: 'templates/previewdialog.html',
       targetEvent: ev,
     });
@@ -765,7 +766,7 @@ app.controller('CECOverviewController', function($scope) {
   $scope.bannerColor = '#C55C5E';
   $scope.compeletedProgram = false;
 
-  $scope.programForms = [
+  $scope.requiredForms = [
     [{
         code: "IMM 5610",
         name: "Document Checklist",
@@ -775,38 +776,15 @@ app.controller('CECOverviewController', function($scope) {
         name: "Generic Application Form for Canada",
         progress: 0
     }, {
-        code: "IMM 0008DEP",
-        name: "Additional Dependants/Declaration",
-        progress: 0
-    }, {
         code: "IMM 5669",
         name: "Schedule A - Background/Declaration",
         progress: 0
-    }],
-
-    [{
+    }, {
         code: "Schedule 8",
         name: "Economic Classes - Canadian Experience Class",
         progress: 0
-    }, {
-        code: "IMM 5406",
-        name: "Additional Family Information",
-        progress: 0
-    }, {
-        code: "IMM 5409",
-        name: "Statutory Declaration of Common-law Union",
-        progress: 0
-    }, {
-        code: "IMM 5604",
-        name: "Separation Declaration for Minors Travelling to Canada",
-        progress: 0
     }],
-
     [{
-        code: "IMM 5562",
-        name: "Supplementary Information - Your Travels",
-        progress: 0
-    }, {
         code: "IMM 5620",
         name: "Fee Payment Form - Application for Permanent Residence",
         progress: 0
@@ -821,6 +799,35 @@ app.controller('CECOverviewController', function($scope) {
     }]
   ];
 
+  $scope.optionalForms = [
+    [{
+        code: "IMM 0008DEP",
+        name: "Additional Dependants/Declaration",
+        progress: 0
+    }, {
+        code: "IMM 5406",
+        name: "Additional Family Information",
+        progress: 0
+    }, {
+        code: "IMM 5409",
+        name: "Statutory Declaration of Common-law Union",
+        progress: 0
+    }, {
+        code: "IMM 5604",
+        name: "Separation Declaration for Minors Travelling to Canada",
+        progress: 0
+    }
+    ]
+  ];
+
+  $scope.supplementary = [
+    [{
+        code: "IMM 5562",
+        name: "Supplementary Information - Your Travels",
+        progress: 0
+    }
+    ]
+  ]
 });
 
 app.controller('NewStudyOverviewController', function($scope) {
@@ -828,49 +835,53 @@ app.controller('NewStudyOverviewController', function($scope) {
   $scope.bannerColor = '#78B4D2';
   $scope.compeletedProgram = false;
 
-  $scope.programForms = [
-    [{
-        code: "IMM 5483",
-        name: "Document Checklist",
-        progress: 0
-    }, {
-        code: "IMM 1294",
-        name: "Application for a Study Permit Made Outside of Canada",
-        progress: 0
-    }, {
-        code: "IMM 5645",
-        name: "Family Information",
-        progress: 0
-    }, {
-        code: "Schedule - 1",
-        name: "Application for Temporary Resident Visa",
-        progress: 0
-    }],
+  $scope.requiredForms = [
+      [{
+          code: "IMM 5483",
+          name: "Document Checklist",
+          progress: 0
+      }, {
+          code: "IMM 1294",
+          name: "Application for a Study Permit Made Outside of Canada",
+          progress: 0
+      }, {
+          code: "IMM 5645",
+          name: "Family Information",
+          progress: 0
+      }, {
+          code: "Schedule - 1",
+          name: "Application for Temporary Resident Visa",
+          progress: 0
+      }], 
+      [{
+          code: "IMM 5269",
+          name: "Instruction Guide",
+          progress: 0
+      }]
+    ];
 
-    [{
-        code: "IMM 5409",
-        name: "Statutory Declaration of Common-Law Union",
-        progress: 0
-    }, {
-        code: "IMM 5646",
-        name: "Custodian Declaration",
-        progress: 0
-    }, {
-        code: "N/A",
-        name: "Visa application photograph specifications",
-        progress: 0
-    }, {
-        code: "IMM 5476",
-        name: "Use of a Representative",
-        progress: 0
-    }],
-    
-    [{
-        code: "IMM 5269",
-        name: "Instruction Guide",
-        progress: 0
-    }]
-  ];
+      $scope.optionalForms = [[{
+          code: "IMM 5409",
+          name: "Statutory Declaration of Common-Law Union",
+          progress: 0
+      }, {
+          code: "IMM 5646",
+          name: "Custodian Declaration",
+          progress: 0
+      }, {
+          code: "IMM 5476",
+          name: "Use of a Representative",
+          progress: 0
+      }]
+    ];
+      
+    $scope.supplementary = [
+      [{
+          code: "N/A",
+          name: "Visa application photograph specifications",
+          progress: 0
+      }]
+    ]
 
 });
 
@@ -879,39 +890,38 @@ app.controller('ExtendStudyOverviewController', function($scope) {
   $scope.bannerColor = '#79C2AF';
   $scope.compeletedProgram = false;
 
-  $scope.programForms = [
-    [{
-        code: "IMM 5555",
-        name: "Document Checklist",
-        progress: 0
-    }, {
-        code: "IMM 5709",
-        name: "Application to Change Conditions, Extend my Stay or Remain in Canada as a Student ",
-        progress: 0
-    }, {
-        code: "IMM 5409",
-        name: "Statutory Declaration of Common-Law Union",
-        progress: 0
-    }, {
-        code: "IMM 5646",
-        name: "Custodianship Declaration - Custodian for Minors Studying in Canada",
-        progress: 0
-    }],
+  $scope.requiredForms = [
+      [{
+          code: "IMM 5555",
+          name: "Document Checklist",
+          progress: 0
+      }, {
+          code: "IMM 5709",
+          name: "Application to Change Conditions, Extend my Stay or Remain in Canada as a Student ",
+          progress: 0
+      }, {
+          code: "IMM 5552",
+          name: "Instruction Guide",
+          progress: 0
+      }]
+    ];
 
-    [{
-        code: "IMM 5476",
-        name: "Use of a Representative",
-        progress: 0
-    }, {
-        code: "IMM 5552",
-        name: "Instruction Guide",
-        progress: 0
-    }, {
-        code: "IMM 5409",
-        name: "Statutory Declaration of Common-law Union",
-        progress: 0
-    }]
-  ];
+    $scope.optionalForms = [[{
+            code: "IMM 5646",
+            name: "Custodianship Declaration - Custodian for Minors Studying in Canada",
+            progress: 0
+        },{
+            code: "IMM 5476",
+            name: "Use of a Representative",
+            progress: 0
+        }, {
+            code: "IMM 5409",
+            name: "Statutory Declaration of Common-law Union",
+            progress: 0
+      }]
+    ];
+
+    $scope.supplementary = [];
 
 });
 
