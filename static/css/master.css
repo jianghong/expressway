@@ -266,23 +266,22 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 }
 
 .program-list, .overview-content {
-  margin-top: 30px;
-  padding: 40px;
+  padding: 0 40px 40px 40px;
 }
 
 .apply-section {
   background-color: #f0f0f0;
 }
 
-.apply-section h1 {
+.gps-section h1 {
   font-size: 1.7em;
 }
 
-.apply-section h2 {
+.gps-section h2 {
   font-size: 1.4em;
 }
 
-.apply-section h3 {
+.gps-section h3 {
   font-size: 1.1em;
 }
 
@@ -327,7 +326,7 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 
 .section-banner {
   padding: 30px 0;
-  margin-bottom: 20px;
+  margin-bottom: 80px;
   color: #fff;
   background-color: #000;
 }

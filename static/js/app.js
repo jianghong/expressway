@@ -48,6 +48,10 @@ app.config(['$routeProvider',
         templateUrl: 'templates/programlist.html',
         controller: 'InsideExtendController'
       }).
+      when('/apply/inside/permanent', {
+        templateUrl: 'templates/programlist.html',
+        controller: 'InsidePermanentController'
+      }).      
       when('/apply/all', {
         templateUrl: 'templates/allprograms.html',
         controller: 'AllProgramsController'
@@ -274,7 +278,7 @@ app.controller('ApplyController', function($scope, $location, $rootScope) {
 });
 
 app.controller('InsideController', function($scope, $location, $rootScope) {
-  $scope.sectionTitle = "Inside Canada";
+  $scope.sectionTitle = "Apply from inside Canada.";
   $scope.bannerColor = '#C55C5E';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/insidecanada.png';
 
@@ -310,7 +314,7 @@ app.controller('InsideController', function($scope, $location, $rootScope) {
       imgSrc: STATIC_IMG_ROUTE + "/insidepermanent.png",
       description: 'Live here. Forever.',      
       href: $location.absUrl() + "/permanent",
-      disabled: true
+      disabled: false
     },
     {
       name: "Obtain citizenship",
@@ -323,7 +327,7 @@ app.controller('InsideController', function($scope, $location, $rootScope) {
 });
 
 app.controller('OutsideController', function($scope, $location) {
-  $scope.sectionTitle = 'Outside Canada';
+  $scope.sectionTitle = 'Apply from outside Canada.';
   $scope.bannerColor = '#79C2AF';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/outsidecanada.png';
 
@@ -375,7 +379,7 @@ app.controller('OutsideTemporaryController', function($scope, $location) {
 });
 
 app.controller('InsideExtendController', function($scope, $location) {
-  $scope.sectionTitle = 'Apply to extend your stay from inside Canada.';
+  $scope.sectionTitle = 'Apply from inside Canada to extend your stay.';
   $scope.bannerColor = '#505D73';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/insideextend.png';
 
@@ -410,6 +414,87 @@ app.controller('InsideExtendController', function($scope, $location) {
       description: 'Ne qui latine sanctus scribentur, cu mei dico detraxit mei.',
       disabled: true
     }         
+  ];
+});
+
+app.controller('InsidePermanentController', function($scope, $location) {
+  $scope.sectionTitle = 'Apply from inside Canada to stay permanently.';
+  $scope.bannerColor = '#78B4D2';
+  $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/insidepermanent.png';
+
+  $scope.categories = [
+    {
+      name: "Skilled Worker Class",
+      description: 'Lorem ipsum dolor sit amet, mel postulant constituto ut, ex.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Skilled Trades Class",
+      description: 'Integre minimum adipiscing no nec, diam commodo at nec mea.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Quebec Investors and Entrepreneurs",
+      description: 'Lorem ipsum dolor sit amet, nec ei alii volumus nec.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Self-Employed Persons",
+      description: 'Lorem ipsum dolor sit amet, sea cu odio dicit atomorum.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Start up Visa",
+      description: 'At solum atomorum sed. Mollis dolores offendit no nec, te.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Canadian Experience Class",
+      description: 'The Canadian Experience Class (CEC) was created to help people take part in the Canadian economy.',
+      href: "/overview/cec",
+      disabled: false
+    },
+    {
+      name: "Provincial Nominees",
+      description: 'An probo solum zril vim, ad per mundi partiendo complectitur.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Quebec-Selected Skilled Workers",
+      description: 'Lorem ipsum dolor sit amet, id odio suscipiantur vel ex.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Family Class",
+      description: 'Et sit soluta accumsan voluptaria, usu sonet feugiat ex persius.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Family Class",
+      description: 'Ne veri primis expetendis mel, fastidii accusata has ad intellegat.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Refugees, Humanitarians and Protected Persons from Abroad",
+      description: 'Evertitur sententiae inciderint et pro, noster pertinax sapientem ad mea.',
+      href: "",
+      disabled: true
+    },
+    {
+      name: "Persons being sponsored under a Public Policy",
+      description: 'Et eam paulo aliquid, modus ipsum quo te. Id vix.',
+      href: "",
+      disabled: true
+    },                   
   ];
 });
 
@@ -451,7 +536,7 @@ app.controller('OutsidePermanentController', function($scope, $location) {
     },
     {
       name: "Canadian Experience Class",
-      description: 'Laoreet reprimique ei nec. Quo iisque maiorum hendrerit eu, an.',
+      description: 'The Canadian Experience Class (CEC) was created to help people take part in the Canadian economy.',
       href: "/overview/cec",
       disabled: false
     },
@@ -502,19 +587,19 @@ app.controller('AllProgramsController', function($scope, $location) {
   $scope.available = [
     {
       name: "Canadian Experience Class",
-      description: 'Laoreet reprimique ei nec. Quo iisque maiorum hendrerit eu, an.',
+      description: 'The Canadian Experience Class (CEC) was created to help people take part in the Canadian economy.',
       href: "/overview/cec",
       disabled: false
     },
     {
       name: "New study permit",
-      description: 'Laoreet reprimique ei nec. Quo iisque maiorum hendrerit eu, an.',
+      description: 'Incoming international students must acquire a study permit to initiate their studies in Canada.',
       href: "/overview/new-study-permit",
       disabled: false
     },
     {
       name: "Extend study permit",
-      description: 'Laoreet reprimique ei nec. Quo iisque maiorum hendrerit eu, an.',
+      description: 'International students must renew their study permits regularly to ensure their status in Canada.',
       href: "/overview/extend-study-permit",
       disabled: false
     },     
