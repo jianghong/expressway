@@ -352,7 +352,17 @@ app.controller('OutsideTemporaryController', function($scope, $location) {
   $scope.bannerColor = '#C55C5E';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/outsidetemp.png';
 
-  $scope.categories = [
+  $scope.available = [
+    {
+      name: "Study",
+      imgSrc: "http://lorempixel.com/700/700/food/",
+      href: "/overview/new-study-permit",
+      description: 'Apply for a study permit.',
+      disabled: false
+    }  
+  ];
+
+  $scope.notAvailable = [
     {
       name: "Work",
       imgSrc: "http://lorempixel.com/600/600/food/",
@@ -361,20 +371,12 @@ app.controller('OutsideTemporaryController', function($scope, $location) {
       disabled: true
     },
     {
-      name: "Study",
-      imgSrc: "http://lorempixel.com/700/700/food/",
-      href: "/overview/new-study-permit",
-      description: 'Apply for a study permit.',
-      disabled: false
-    },
-    {
       name: "Visit",
       imgSrc: "http://lorempixel.com/700/700/food/",
       href: $location.absUrl() + "/permanent",
       description: 'Coming soon',
       disabled: true
-    }
-
+    }  
   ];
 });
 
@@ -383,18 +385,21 @@ app.controller('InsideExtendController', function($scope, $location) {
   $scope.bannerColor = '#505D73';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/insideextend.png';
 
-  $scope.categories = [
-    {
-      name: "Work",
-      href: $location.absUrl() + "/temporary",
-      description: 'Ex vel primis voluptua consequat, vis viderer menandri argumentum at.',
-      disabled: true
-    },
+  $scope.available = [
     {
       name: "Study",
       href: "/overview/extend-study-permit",
       description: 'Renew your study permit.',
       disabled: false
+    }
+  ];
+  
+    $scope.notAvailable = [
+    {
+      name: "Work",
+      href: $location.absUrl() + "/temporary",
+      description: 'Ex vel primis voluptua consequat, vis viderer menandri argumentum at.',
+      disabled: true
     },
     {
       name: "Visit",
@@ -422,14 +427,15 @@ app.controller('InsidePermanentController', function($scope, $location) {
   $scope.bannerColor = '#78B4D2';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/insidepermanent.png';
 
-  $scope.categories = [
+  $scope.available = [
     {
       name: "Canadian Experience Class",
       description: 'The Canadian Experience Class (CEC) was created to help people take part in the Canadian economy.',
       href: "/overview/cec",
       disabled: false
-    },  
-    {
+    }];
+    
+    $scope.notAvailable = [{
       name: "Skilled Worker Class",
       description: 'Lorem ipsum dolor sit amet, mel postulant constituto ut, ex. diam commodo at nec mea.',
       href: "",
@@ -494,8 +500,7 @@ app.controller('InsidePermanentController', function($scope, $location) {
       description: 'Et eam paulo aliquid, modus ipsum quo te. Id vix.',
       href: "",
       disabled: true
-    },                   
-  ];
+    }]
 });
 
 app.controller('OutsidePermanentController', function($scope, $location) {
@@ -503,16 +508,17 @@ app.controller('OutsidePermanentController', function($scope, $location) {
   $scope.bannerColor = '#505D73';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/outsidepermanent.png';
 
-  $scope.categories = [
+  $scope.available = [
     {
       name: "Canadian Experience Class",
       description: 'The Canadian Experience Class (CEC) was created to help people take part in the Canadian economy.',
       href: "/overview/cec",
       disabled: false
-    },  
-    {
+    }];
+    
+    $scope.notAvailable = [{
       name: "Skilled Worker Class",
-      description: 'Lorem ipsum dolor sit amet, mel postulant constituto ut, ex, diam commodo at nec mea.',
+      description: 'Lorem ipsum dolor sit amet, mel postulant constituto ut, ex. diam commodo at nec mea.',
       href: "",
       disabled: true
     },
@@ -575,8 +581,7 @@ app.controller('OutsidePermanentController', function($scope, $location) {
       description: 'Et eam paulo aliquid, modus ipsum quo te. Id vix.',
       href: "",
       disabled: true
-    },                   
-  ];
+    }]
 });
 
 app.controller('AllProgramsController', function($scope, $location) {

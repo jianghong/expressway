@@ -1,4 +1,4 @@
-<section class="program-list-section" >
+<section class="program-list-section gps-section" >
   <div class="section-banner md-whiteframe-z1" layout="vertical" layout-align="space-between" style="background-color: {{bannerColor}}">
     <div layout="vertical" layout-align="center center">
       <h1>{{sectionTitle}}</h1>
@@ -9,18 +9,32 @@
     </div>
   </div>
   <div class="program-list">
-    <md-card style="display: inline-block; width: 48%;" ng-href="{{category.href}}" ng-repeat="category in categories" class="md-raised animated fadeIn">
+    <h2>Available</h2>
+    <md-divider></md-divider>
+    <md-card style="display: inline-block; width: 48%;" ng-href="{{program.href}}" ng-repeat="program in available" class="animated fadeIn md-raised">
       <div>
-        <h3>{{ category.name }}</h3>
-        <p>{{ category.description }}</p>
+        <h3>{{ program.name }}</h3>
+        <p>{{ program.description }}</p>
       </div>
       <div layout="horizontal" layout-align="end" class="start-program-btn">
-        <md-button class="md-primary" ng-hide="category.disabled" ng-click="routeMe(category.href)">View</md-button>
-        <md-button ng-disabled="true" ng-show="category.disabled">Coming soon</md-button>
+        <md-button class="md-primary apply-btn" ng-hide="program.disabled" ng-click="routeMe(program.href)">View</md-button>
+        <md-button class="coming-btn" ng-disabled="true" ng-show="program.disabled">Coming soon</md-button>
+      </div>    
+    </md-card>
+    <h2>Coming soon</h2>
+    <md-divider></md-divider>
+    <md-card style="display: inline-block; width: 48%;" ng-href="{{program.href}}" ng-repeat="program in notAvailable" class="animated fadeIn md-raised">
+      <div>
+        <h3>{{ program.name }}</h3>
+        <p>{{ program.description }}</p>
       </div>
+      <div layout="horizontal" layout-align="end" class="start-program-btn">
+        <md-button class="md-primary" ng-hide="program.disabled" ng-click="routeMe(program.href)">View</md-button>
+        <md-button ng-disabled="true" ng-show="program.disabled">Coming soon</md-button>
+      </div>    
     </md-card>
   </div>
   <div layout="horizontal" layout-align="center center" class="view-all-row">
     <md-button class="md-primary" ng-click="routeMe('/apply/all')">View all programs</md-button>
-  </div>
+  </div>  
 </section>
