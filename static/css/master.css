@@ -549,11 +549,23 @@ watson-panel .topbar .stuff {
   background-color: #f0f0f0
 }
 
-.overview-section .submit-fab {
+/*.overview-section .submit-fab {
+  background-color: #53A93F !important;
   position: absolute;
   margin-left: 89.5%;
 }
-
+*/
 .overview-section .rows {
   margin-bottom: 50px;
+}
+
+.section-banner md-button.start-app {
+  background-color: #53A93F !important;
+  fill: #53A93F !important;
+  font-size: 1.2em;
+  padding: 10px 30px;
+}
+
+.overview-section .submit-btn {
+  padding: 2px 15px;
 }

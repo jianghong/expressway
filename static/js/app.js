@@ -643,8 +643,6 @@ app.controller('FSWController', function($scope) {
     reason: '',
     fluent: '',
     armedForces: ''
-
-
   }
 
   $scope.nextPage = function() {
@@ -761,9 +759,12 @@ app.controller('WatsonController', function($scope, AnswersModel, $rootScope) {
   }
 });
 
+app.controller('OverviewController', function($scope) {
+  $scope.applicationCompleted = false;
+});
+
 app.controller('CECOverviewController', function($scope) {
   $scope.sectionTitle = 'Canadian Experience Class';
-  $scope.bannerColor = '#C55C5E';
   $scope.compeletedProgram = false;
 
   $scope.requiredForms = [
@@ -832,7 +833,6 @@ app.controller('CECOverviewController', function($scope) {
 
 app.controller('NewStudyOverviewController', function($scope) {
   $scope.sectionTitle = 'New Study Permit';
-  $scope.bannerColor = '#78B4D2';
   $scope.compeletedProgram = false;
 
   $scope.requiredForms = [
@@ -887,7 +887,6 @@ app.controller('NewStudyOverviewController', function($scope) {
 
 app.controller('ExtendStudyOverviewController', function($scope) {
   $scope.sectionTitle = 'Extend Study Permit';
-  $scope.bannerColor = '#79C2AF';
   $scope.compeletedProgram = false;
 
   $scope.requiredForms = [
