@@ -51,7 +51,11 @@ app.config(['$routeProvider',
       when('/apply/all', {
         templateUrl: 'templates/allprograms.html',
         controller: 'AllProgramsController'
-      }).        
+      }).
+      when('/overview/cec', {
+        templateUrl: 'templates/overview.html',
+        controller: 'CECOverviewController'
+      }).      
       otherwise({
         redirectTo: '/'
       });
@@ -491,19 +495,19 @@ app.controller('AllProgramsController', function($scope, $location) {
     {
       name: "Canadian Experience Class",
       description: 'Laoreet reprimique ei nec. Quo iisque maiorum hendrerit eu, an.',
-      href: "/apply/demo",
+      href: "/overview/cec",
       disabled: false
     },
     {
       name: "New study permit",
       description: 'Laoreet reprimique ei nec. Quo iisque maiorum hendrerit eu, an.',
-      href: "/apply/demo",
+      href: "/overview/new-study-permit",
       disabled: false
     },
     {
       name: "Extend study permit",
       description: 'Laoreet reprimique ei nec. Quo iisque maiorum hendrerit eu, an.',
-      href: "/apply/demo",
+      href: "/overview/extend-study-permit",
       disabled: false
     },     
   ];
@@ -666,7 +670,7 @@ app.controller('ResultsController', function($scope, $routeParams, AnswersModel)
 });
 
 app.controller('DemoController', function($scope, $mdDialog) {
-  $scope.formTabIndex = 4;
+  $scope.formTabIndex = 0;
   // $scope.nexting = true;
   // $scope.tabIndex = 0;
   // $scope.personalQResponses = {
@@ -688,15 +692,15 @@ app.controller('DemoController', function($scope, $mdDialog) {
     });
   }
 
-  // $scope.nextPage = function() {
-  //   $scope.tabIndex += 1;
-  //   $scope.nexting = true;
-  // }
+  $scope.nextPage = function() {
+    $scope.formTabIndex += 1;
+    $scope.nexting = true;
+  }
 
-  // $scope.previousPage = function() {
-  //   $scope.tabIndex -= 1;
-  //   $scope.nexting = false;
-  // }  
+  $scope.previousPage = function() {
+    $scope.formTabIndex -= 1;
+    $scope.nexting = false;
+  }  
 });
 
 function DialogController($scope, $mdDialog) {
@@ -746,6 +750,68 @@ app.controller('WatsonController', function($scope, AnswersModel, $rootScope) {
   $scope.backToSuggestions = function() {
     $scope.tabIndex = 0;
   }
+});
+
+app.controller('CECOverviewController', function($scope) {
+  $scope.sectionTitle = 'Canadian Experience Class';
+  $scope.compeletedProgram = false;
+
+  $scope.programForms = [
+    [{
+        code: "IMM 5610",
+        name: "Document Checklist",
+        progress: 0
+    }, {
+        code: "IMM 0008",
+        name: "Generic Application Form for Canada",
+        progress: 0
+    }, {
+        code: "IMM 0008DEP",
+        name: "Additional Dependants/Declaration",
+        progress: 0
+    }, {
+        code: "IMM 5669",
+        name: "Schedule A - Background/Declaration",
+        progress: 0
+    }],
+
+    [{
+        code: "Schedule 8",
+        name: "Economic Classes - Canadian Experience Class",
+        progress: 0
+    }, {
+        code: "IMM 5406",
+        name: "Additional Family Information",
+        progress: 0
+    }, {
+        code: "IMM 5409",
+        name: "Statutory Declaration of Common-law Union",
+        progress: 0
+    }, {
+        code: "IMM 5604",
+        name: "Separation Declaration for Minors Travelling to Canada",
+        progress: 0
+    }],
+
+    [{
+        code: "IMM 5562",
+        name: "Supplementary Information - Your Travels",
+        progress: 0
+    }, {
+        code: "IMM 5620",
+        name: "Fee Payment Form - Application for Permanent Residence",
+        progress: 0
+    }, {
+        code: "IMM 5476",
+        name: "Fee Payment Form - Application for Permanent Residence",
+        progress: 0
+    }, {
+        code: "IMM 5609",
+        name: "Instruction Guide",
+        progress: 0
+    }]
+];
+
 });
 
 app.run( function($rootScope, $location) {

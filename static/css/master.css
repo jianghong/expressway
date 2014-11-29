@@ -232,11 +232,6 @@ md-tab {
   color: #000 !important;
 }
 
-md-tabs-ink-bar {
-  height: 3px !important;
-  background: #ffa726 !important;
-}
-
 .homepage-steps {
   background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.55)),to(rgba(0,0,0,.55)));
   background-image: -moz-linear-gradient(rgba(0,0,0,.55) 0%,rgba(0,0,0,.55) 100%);
@@ -434,12 +429,18 @@ watson-panel {
   text-overflow: ellipsis;
 }
 
-watson-panel md-tabs .md-header, .demo-section md-tabs .md-header {
+watson-panel md-tabs .md-header {
   display: none;
 }
 
 .demo-section md-card {
   padding: 0;
+}
+
+.demo-section {
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
 }
 
 
@@ -481,8 +482,9 @@ watson-panel .topbar .stuff {
   }
 }  
 
-.form-progress {
-  height: 150px;
+.demo-section .form-progress {
+  height: 200px;
+  padding-top: 50px;
 }
 
 .form-filling p {
@@ -503,4 +505,44 @@ watson-panel .topbar .stuff {
 
 .form-filling .right-nav, .form-filling .left-nav {
   font-size: 2em;
+}
+
+.overview-section .form-progress md-progress-linear{
+  margin-right: 5px;
+}
+
+.overview-section .form-name, .overview-section .form-code {
+  margin: 0;
+}
+
+.overview-section p {
+  line-height: 1.2;
+}
+
+.overview-section .form-name {
+  font-weight: 700;
+}
+
+.overview-section .path-row {
+  padding: 0 40px;
+}
+
+.overview-section .md-bar1 {
+  display: none;
+}
+
+.form-icon, .form-info {
+  padding: 15px;
+}
+.form-icon {
+  font-size: 5em;
+}
+
+.form-card {
+  padding: 0;
+  cursor: pointer;
+}
+
+.form-card:hover {
+  background-color: #f0f0f0
 }

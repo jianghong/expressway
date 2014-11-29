@@ -1,4 +1,4 @@
-<section class="demo-section" layout="vertical" flex layout-align="space-between">
+<section class="demo-section animated fadeInUp" layout="vertical" flex layout-align="space-between">
   <div class="form-filling" layout="horizontal" flex>
     <div class="left-space" flex="20">
     </div>
@@ -10,13 +10,14 @@
               <h1>Welcome</h1>
             </div>
             <div class="form-nav" layout="horizontal" layout-align="end">
-              <md-button>Next</md-button>
+              <md-button ng-click="nextPage()">Next</md-button>
             </div>
           </md-toolbar>
           <md-content layout="vertical" layout-align="space-between" flex>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum massa sed risus rutrum, eu suscipit velit suscipit. In sodales massa ac enim dapibus, ut sollicitudin lacus tempor. Mauris lacinia auctor sapien a varius. Pellentesque nisi nulla, suscipit et dui vitae, dictum porttitor nibh. Praesent at semper massa. Nunc sollicitudin, tortor a aliquet vulputate, elit est imperdiet orci, non laoreet ex ligula a urna. Nunc eu velit massa. Sed eleifend convallis sapien, in luctus odio dignissim at.
-            </p>
+            <h3>Welcome</h3>
+            <p>For this demo, we will guide you through a sample form.</p>
+            <p>At the end, you will see that your answers have been filled out in a form for you.</p>      
+            <p>Let's begin.</p>
           </md-content>
         </md-tab>
         <md-tab label="Basic Information">
@@ -25,8 +26,8 @@
               <h1>Basic Information</h1>
             </div>
             <div class="form-nav" layout="horizontal" layout-align="space-between">
-              <md-button>Back</md-button>
-              <md-button>Next</md-button>
+              <md-button ng-click="previousPage()">Back</md-button>
+              <md-button ng-click="nextPage()">Next</md-button>
             </div>
           </md-toolbar>
           <md-content layout="vertical" layout-align="space-between" flex>
@@ -62,8 +63,8 @@
               <h1>Occupation</h1>
             </div>
             <div class="form-nav" layout="horizontal" layout-align="space-between">
-              <md-button>Back</md-button>
-              <md-button>Next</md-button>
+              <md-button ng-click="previousPage()">Back</md-button>
+              <md-button ng-click="nextPage()">Next</md-button>
             </div>
           </md-toolbar>
           <md-content layout="vertical" layout-align="space-between" flex>
@@ -88,8 +89,8 @@
               <h1>Finances</h1>
             </div>
             <div class="form-nav" layout="horizontal" layout-align="space-between">
-              <md-button>Back</md-button>
-              <md-button>Next</md-button>
+              <md-button ng-click="previousPage()">Back</md-button>
+              <md-button ng-click="nextPage()">Next</md-button>
             </div>
           </md-toolbar>
           <md-content layout="vertical" layout-align="space-between" flex>
@@ -108,7 +109,7 @@
               <h1>Completed Form</h1>
             </div>
             <div class="form-nav" layout="horizontal" layout-align="space-between">
-              <md-button>Back</md-button>
+              <md-button ng-click="previousPage()">Back</md-button>
             </div>
           </md-toolbar>
           <md-content layout="vertical" layout-align="space-between" flex>
@@ -129,126 +130,4 @@
     <div class="right-space" flex="20" layout="vertical" layout-align="center">
     </div>
   </div>
-  <div class="form-progress" layout="horizontal" layout-align="space-around">
-    blah 
-  </div>
 </section>
-<!-- <section class="demo-section" layout="vertical" layout-align="center center">
-  <h1>Form Filling Demo</h1>
-  <md-card style="width: 60vw; padding: 0;">
-    <md-tabs selected="tabIndex">
-      <md-tab label="Welcome">
-        <h3>Welcome</h3>
-        <p>For this demo, we will guide you through a sample form.</p>
-        <p>At the end, you will see that your answers have been filled out in a form for you.</p>      
-        <p>Let's begin.</p>
-        <div class="card-triggers" layout="horizontal" layout-align="end">
-          <md-button ng-click="nextPage()" class="md-blue-btn">
-            Next
-          </md-button>
-        </div>
-      </md-tab>    
-      <md-tab label="My Info">
-        <div layout="vertical" layout-align="space-between">
-        <div>
-          <label for="">What is your name?</label>
-          <div layout="horizontal">
-            <md-text-float label="First Name" ng-model="personalResponses.firstName"></md-text-float>
-            <md-text-float label="Last Name" ng-model="personalResponses.lastName"></md-text-float>
-          </div>
-          <br>
-
-          <label for="">When were you born?</label>
-          <div layout="horizontal">
-            <md-text-float label="Year" ng-model="personalResponses.birthYear"></md-text-float>
-            <md-text-float label="Month" ng-model="personalResponses.birthMonth"></md-text-float>
-            <md-text-float label="Day" ng-model="personalResponses.birthDay"></md-text-float>
-          </div>
-          <br>
-
-          <label for="">What languages can you speak fluently?</label>
-          <md-radio-group ng-model="personalResponses.maritalStatus" layout="horizontal">
-            <md-radio-button value="english">English</md-radio-button>
-            <md-radio-button value="french">French</md-radio-button>
-            <md-radio-button value="both">Both</md-radio-button>
-          </md-radio-group>
-          <br>
-
-          </div>
-
-          <div class="card-triggers" layout="horizontal" layout-align="space-between">
-            <md-button ng-click="previousPage()" class="md-blue-btn">
-              Back
-            </md-button>
-            <md-button ng-click="nextPage()" class="md-blue-btn">
-              Next
-            </md-button>
-          </div>
-        </div>
-      </md-tab>
-      <md-tab label="My occupation">
-        <div layout="vertical" layout-align="space-between">
-          <div>
-          <label for="">What is your current occupation?</label>
-          <div layout="horizontal">
-            <md-text-float label="Occupation" ng-model="personalResponses.firstName"></md-text-float>
-          </div>
-          <br>
-
-          <label for="">How many months have you held this occupation?</label>
-          <div layout="horizontal">
-            <md-text-float label="Months" ng-model="personalResponses.birthMonth"></md-text-float>
-          </div>
-          <br>
-          </div>
-
-          <div class="card-triggers" layout="horizontal" layout-align="space-between">
-            <md-button ng-click="previousPage()" class="md-blue-btn">
-              Back
-            </md-button>
-            <md-button ng-click="nextPage()" class="md-blue-btn">
-              Next
-            </md-button>
-          </div>
-        </div>
-      </md-tab>
-      <md-tab label="My Finances">
-        <div layout="vertical" layout-align="center">
-          <label for="">How much money do you have at your disposal to move to Canada?</label>
-          <div layout="horizontal">
-            <md-text-float label="CAD" ng-model="personalResponses.firstName"></md-text-float>
-          </div>
-          <br>
-          <div class="card-triggers" layout="horizontal" layout-align="space-between">
-            <md-button ng-click="previousPage()" class="md-blue-btn">
-              Back
-            </md-button>
-            <md-button ng-click="nextPage()" class="md-blue-btn">
-              Next
-            </md-button>
-          </div>
-        </div>
-      </md-tab>
-      <md-tab label="Completed form">
-        <div layout="vertical" layout-align="center">
-          <h3>You're done.</h3>
-          <p>You may now preview or download your completed form.</p>
-          <div layout="horizontal" layout-align="center">
-             <iframe id="iframepdf" src="http://s3-us-west-2.amazonaws.com/contrajd/Filled_form.pdf" style="height: 600px; width: 640px"></iframe>
-          </div>
-          <div layout="horizontal" layout-align="space-between" style="margin-top: 10px;">
-            <md-button ng-click="previousPage()" class="md-blue-btn">
-              Back
-            </md-button>
-            <div layout="horizontal" layout-align="end">
-            <md-button ng-click="showPreview($event)" class="md-blue-btn">
-              Preview Form
-            </md-button>
-              <md-button><a target="_blank" href="http://s3-us-west-2.amazonaws.com/contrajd/Filled_form.pdf">Download</a></md-button>
-            </div>
-          </div>
-        </div>
-      </md-tab>
-    </md-tabs>
- </md-card>
-</section> -->
