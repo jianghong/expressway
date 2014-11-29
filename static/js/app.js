@@ -424,8 +424,14 @@ app.controller('InsidePermanentController', function($scope, $location) {
 
   $scope.categories = [
     {
+      name: "Canadian Experience Class",
+      description: 'The Canadian Experience Class (CEC) was created to help people take part in the Canadian economy.',
+      href: "/overview/cec",
+      disabled: false
+    },  
+    {
       name: "Skilled Worker Class",
-      description: 'Lorem ipsum dolor sit amet, mel postulant constituto ut, ex.',
+      description: 'Lorem ipsum dolor sit amet, mel postulant constituto ut, ex. diam commodo at nec mea.',
       href: "",
       disabled: true
     },
@@ -452,12 +458,6 @@ app.controller('InsidePermanentController', function($scope, $location) {
       description: 'At solum atomorum sed. Mollis dolores offendit no nec, te.',
       href: "",
       disabled: true
-    },
-    {
-      name: "Canadian Experience Class",
-      description: 'The Canadian Experience Class (CEC) was created to help people take part in the Canadian economy.',
-      href: "/overview/cec",
-      disabled: false
     },
     {
       name: "Provincial Nominees",
@@ -505,8 +505,14 @@ app.controller('OutsidePermanentController', function($scope, $location) {
 
   $scope.categories = [
     {
+      name: "Canadian Experience Class",
+      description: 'The Canadian Experience Class (CEC) was created to help people take part in the Canadian economy.',
+      href: "/overview/cec",
+      disabled: false
+    },  
+    {
       name: "Skilled Worker Class",
-      description: 'Lorem ipsum dolor sit amet, mel postulant constituto ut, ex.',
+      description: 'Lorem ipsum dolor sit amet, mel postulant constituto ut, ex, diam commodo at nec mea.',
       href: "",
       disabled: true
     },
@@ -533,12 +539,6 @@ app.controller('OutsidePermanentController', function($scope, $location) {
       description: 'At solum atomorum sed. Mollis dolores offendit no nec, te.',
       href: "",
       disabled: true
-    },
-    {
-      name: "Canadian Experience Class",
-      description: 'The Canadian Experience Class (CEC) was created to help people take part in the Canadian economy.',
-      href: "/overview/cec",
-      disabled: false
     },
     {
       name: "Provincial Nominees",
