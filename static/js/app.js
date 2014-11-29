@@ -353,7 +353,7 @@ app.controller('OutsideTemporaryController', function($scope, $location) {
       name: "Work",
       imgSrc: "http://lorempixel.com/600/600/food/",
       href: $location.absUrl() + "/temporary",
-      description: 'Coming soon...',
+      description: 'Coming soon',
       disabled: true
     },
     {
@@ -367,7 +367,7 @@ app.controller('OutsideTemporaryController', function($scope, $location) {
       name: "Visit",
       imgSrc: "http://lorempixel.com/700/700/food/",
       href: $location.absUrl() + "/permanent",
-      description: 'Coming soon...',
+      description: 'Coming soon',
       disabled: true
     }
 

@@ -303,7 +303,6 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 }
 
 .program-list md-button {
-  width: 30vw;
   margin-bottom: 10px;
 }
 
@@ -347,8 +346,12 @@ footer a, footer a:active, footer a:hover, footer a:visited {
   margin-top: 60px;
 }
 
-.start-program-btn md-button {
-  width: 30%;
+.start-program-btn md-button.apply-btn {
+  width: 15%;
+}
+
+.start-program-btn md-button.coming-btn {
+  width: 15% !important;
 }
 
 .section-banner .md-fab {
