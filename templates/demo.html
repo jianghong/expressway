@@ -15,15 +15,14 @@
           </md-toolbar>
           <md-content layout="vertical" layout-align="space-between" flex>
             <h3>Welcome</h3>
-            <p>For this demo, we will guide you through a sample form.</p>
-            <p>At the end, you will see that your answers have been filled out in a form for you.</p>      
-            <p>Let's begin.</p>
-          </md-content>
+            <p>You can start filling in your information.</p>
+            <p> Let's Begin!</p>
+            </md-content>
         </md-tab>
-        <md-tab label="Basic Information">
+        <md-tab label="Personal Details">
           <md-toolbar class="md-tall md-whiteframe-z1" layout="vertical" layout-align="space-between">
             <div layout="vertical" flex layout-align="center center">
-              <h1>Basic Information</h1>
+              <h1>Personal Details</h1>
             </div>
             <div class="form-nav" layout="horizontal" layout-align="space-between">
               <md-button ng-click="previousPage()">Back</md-button>
@@ -39,6 +38,22 @@
               </div>
               <br>
 
+              <label for="">Select your gender</label>
+              <md-radio-group ng-model="personalResponses.sex" layout="horizontal">
+                <md-radio-button value="male">Male</md-radio-button>
+                <md-radio-button value="female">Female</md-radio-button>
+                <md-radio-button value="unknown">Unknown</md-radio-button>
+              </md-radio-group>
+              <br>
+
+              <label for="">Have you ever used another name or alias?</label>
+              <md-radio-group ng-model="personalResponses.hasAlias" layout="horizontal">
+                <md-radio-button value="true">Yes</md-radio-button>
+                <md-radio-button value="false">No</md-radio-button>
+              </md-radio-group>
+              <md-text-float label="Alias" ng-show="personalResponse.hasAlias =='yes'" ng-model="personalResponses.alias"></md-text-float>
+              <br>
+             
               <label for="">When were you born?</label>
               <div layout="horizontal">
                 <md-text-float label="Year" ng-model="personalResponses.birthYear"></md-text-float>
@@ -47,8 +62,22 @@
               </div>
               <br>
 
+              <label for="">Where were you born?</label>
+              <div layout="horizontal">
+                <md-text-float label="City" ng-model="personalResponses.city"></md-text-float>
+                <md-text-float label="Country" ng-model="personalResponses.country"></md-text-float>
+              </div>
+              <br>
+
+              <label for="">What are your current countries of citizenship?</label>
+              <div layout="horizontal">
+                <md-text-float label="1" ng-model="personalResponses.firstCitizenship"></md-text-float>
+                <md-text-float label="2" ng-model="personalResponses.secondCitizenship"></md-text-float>
+              </div>
+              <br>
+
               <label for="">What languages can you speak fluently?</label>
-              <md-radio-group ng-model="personalResponses.maritalStatus" layout="horizontal">
+              <md-radio-group ng-model="personalResponses.languages" layout="horizontal">
                 <md-radio-button value="english">English</md-radio-button>
                 <md-radio-button value="french">French</md-radio-button>
                 <md-radio-button value="both">Both</md-radio-button>
@@ -57,10 +86,10 @@
             </div>
           </md-content>
         </md-tab>
-        <md-tab label="Occupation">
+        <md-tab label="More Details">
           <md-toolbar class="md-tall md-whiteframe-z1" layout="vertical" layout-align="space-between">
             <div layout="vertical" flex layout-align="center center">
-              <h1>Occupation</h1>
+              <h1>More Details</h1>
             </div>
             <div class="form-nav" layout="horizontal" layout-align="space-between">
               <md-button ng-click="previousPage()">Back</md-button>
@@ -69,24 +98,66 @@
           </md-toolbar>
           <md-content layout="vertical" layout-align="space-between" flex>
             <div layout="vertical" layout-align="space-between">
-              <label for="">What is your current occupation?</label>
+
+              <label for="">Are you married?</label>
+              <md-radio-group ng-model="personalResponses.maritalStatus" layout="horizontal">
+                <md-radio-button value="married">Married</md-radio-button>
+                <md-radio-button value="single">Single</md-radio-button>
+              </md-radio-group>
+              <br>
+
+              <label for="">Have you previously been married or been in a common-law relationship?</label>
+              <md-radio-group ng-model="personalResponses.previousmaritalStatus" layout="horizontal">
+                <md-radio-button value="yes">Yes</md-radio-button>
+                <md-radio-button value="no">No</md-radio-button>
+              </md-radio-group>
+              <br>
+
+              <label for="">How many family member including you are applying in this application?</label>
               <div layout="horizontal">
-                <md-text-float label="Occupation" ng-model="personalResponses.firstName"></md-text-float>
+                <md-text-float label="Number of Family Members" ng-model="personalResponses.numberOfApplicants"></md-text-float>
               </div>
               <br>
 
-              <label for="">How many months have you held this occupation?</label>
+              <label for="">Where do you intend to stay in Canada?</label>
               <div layout="horizontal">
-                <md-text-float label="Months" ng-model="personalResponses.birthMonth"></md-text-float>
+                <md-text-float label="City" ng-model="personalResponses.cityToSettle"></md-text-float>
+                <md-text-float label="Province" ng-model="personalResponses.provinceToSettle"></md-text-float>
+              </div>
+              <br>
+
+              <label for="">What is your language preference for:</label>
+              <div layout="horizontal">
+                <md-text-float label="Correspondence" ng-model="personalResponses.correspondenceLanguage"></md-text-float>
+                <md-text-float label="Interview" ng-model="personalResponses.interviewLanguage"></md-text-float>
+              </div>
+              <br>
+
+              <label for="">Do you need a interpreter present during your interview?</label>
+              <md-radio-group ng-model="personalResponses.requestInterpreter" layout="horizontal">
+                <md-radio-button value="yes">Yes</md-radio-button>
+                <md-radio-button value="no">No</md-radio-button>
+              </md-radio-group>
+              <br>
+
+              <label for="">What is your height?</label>
+              <div layout="horizontal">
+                <md-text-float label="cm" ng-model="personalResponses.height"></md-text-float>
+              </div>
+              <br>
+
+              <label for="">What is the colour of your eyes?</label>
+              <div layout="horizontal">
+                <md-text-float label="Eye Colour" ng-model="personalResponses.eyeColour"></md-text-float>
               </div>
               <br>
             </div>
           </md-content>
         </md-tab>
-        <md-tab label="Finances">
+         <md-tab label="Residence">
           <md-toolbar class="md-tall md-whiteframe-z1" layout="vertical" layout-align="space-between">
             <div layout="vertical" flex layout-align="center center">
-              <h1>Finances</h1>
+              <h1>Residence</h1>
             </div>
             <div class="form-nav" layout="horizontal" layout-align="space-between">
               <md-button ng-click="previousPage()">Back</md-button>
@@ -95,10 +166,164 @@
           </md-toolbar>
           <md-content layout="vertical" layout-align="space-between" flex>
             <div layout="vertical" layout-align="space-between">
-              <label for="">How much money do you have at your disposal to move to Canada?</label>
+              <label for="">Where do you currently live? and what is your status there?</label>
               <div layout="horizontal">
-                <md-text-float label="CAD" ng-model="personalResponses.firstName"></md-text-float>
+                <md-text-float label="Country" ng-model="personalResponses.residenceCountry"></md-text-float>
+                <md-text-float label="Status" ng-model="personalResponses.residenceStatus"></md-text-float>
               </div>
+              <br>
+
+              <label for="">When did you live there?</label>
+              <div layout="horizontal">
+                <md-text-float label="From" ng-model="personalResponses.residenceFrom"></md-text-float>
+                <md-text-float label="To" ng-model="personalResponses.residenceTo"></md-text-float>
+              </div>
+              <br>
+
+              <label for="">Have you lived in any other countries other then your country of citizenship in the past 5 years?</label>
+              <md-radio-group ng-model="personalResponses.hasAdditionalResidence" layout="horizontal">
+                <md-radio-button value="true">Yes</md-radio-button>
+                <md-radio-button value="false">No</md-radio-button>
+              </md-radio-group>
+              <div layout="horizontal">
+                <md-text-float label="Country" ng-show="personalResponse.hasAdditionalResidence" ng-model="personalResponses.additionCountry"></md-text-float>
+                <md-text-float label="Status" ng-show="personalResponse.hasAdditionalResidence" ng-model="personalResponses.additionalStatus"></md-text-float>
+              </div>
+              <div layout="horizontal">
+                <md-text-float label="From" ng-show="personalResponse.hasAdditionalResidence" ng-model="personalResponses.additionFrom"></md-text-float>
+                <md-text-float label="To" ng-show="personalResponse.hasAdditionalResidence" ng-model="personalResponses.additonalTo"></md-text-float>
+              </div>
+              <br>
+            </div>
+          </md-content>
+        </md-tab>
+        <md-tab label="Contact Information">
+          <md-toolbar class="md-tall md-whiteframe-z1" layout="vertical" layout-align="space-between">
+            <div layout="vertical" flex layout-align="center center">
+              <h1>Contact Information</h1>
+            </div>
+            <div class="form-nav" layout="horizontal" layout-align="space-between">
+              <md-button ng-click="previousPage()">Back</md-button>
+              <md-button ng-click="nextPage()">Next</md-button>
+            </div>
+          </md-toolbar>
+          <md-content layout="vertical" layout-align="space-between" flex>
+            <div layout="vertical" layout-align="space-between">
+              <label for="">What is your mailing address?</label>
+              <div layout="horizontal">
+                <md-text-float label="Unit" ng-model="personalResponses.addressUnit"></md-text-float>
+                <md-text-float label="Street no." ng-model="personalResponses.addressStreetNo"></md-text-float>
+              </div>
+              <div layout="horizontal">
+                <md-text-float label="Street Name" ng-model="personalResponses.addressStreetName"></md-text-float>
+              </div>
+              <div layout="horizontal">
+                <md-text-float label="City" ng-model="personalResponses.addressCity"></md-text-float>
+                <md-text-float label="Country" ng-model="personalResponses.addressCountry"></md-text-float>
+                 <md-text-float label="province" ng-model="personalResponses.addressProvince"></md-text-float>
+              </div>
+              <div layout="horizontal">
+                <md-text-float label="Postal Code" ng-model="personalResponses.addressPostalCode"></md-text-float>
+              </div>
+              <br>
+
+              <label for="">Is your residential address the same as your mailing address?</label>
+              <md-radio-group ng-model="personalResponses.sameAsMailing" layout="horizontal">
+                <md-radio-button value="yes">Yes</md-radio-button>
+                <md-radio-button value="no">No</md-radio-button>
+              </md-radio-group>
+              <br>
+
+              <label for="">What is your phone number and email address?</label>
+              <div layout="horizontal">
+                <md-text-float label="Phone Number" ng-model="personalResponses.phoneNumber"></md-text-float>
+                <md-text-float label="E-mail" ng-model="personalResponses.email"></md-text-float>
+              </div>
+              <br>
+            </div>
+          </md-content>
+        </md-tab>
+        <md-tab label="Documentations">
+          <md-toolbar class="md-tall md-whiteframe-z1" layout="vertical" layout-align="space-between">
+            <div layout="vertical" flex layout-align="center center">
+              <h1>Documentation</h1>
+            </div>
+            <div class="form-nav" layout="horizontal" layout-align="space-between">
+              <md-button ng-click="previousPage()">Back</md-button>
+              <md-button ng-click="nextPage()">Next</md-button>
+            </div>
+          </md-toolbar>
+          <md-content layout="vertical" layout-align="space-between" flex>
+            <div layout="vertical" layout-align="space-between">
+              <label for="">Do you have a valid passport/travel document?</label>
+              <md-radio-group ng-model="personalResponses.hasPassport" layout="horizontal">
+                <md-radio-button value="yes">Yes</md-radio-button>
+                <md-radio-button value="no">No</md-radio-button>
+              </md-radio-group>
+              <br>
+
+          <div layout="horizontal">
+                <md-text-float label="Document number" ng-show="personalResponse.hasPassport" ng-model="personalResponses.documentNumber"></md-text-float>
+                <md-text-float label="Country of Issue" ng-show="personalResponse.hasPassport" ng-model="personalResponses.countryofIssue"></md-text-float>
+              </div>
+              <div layout="horizontal">
+                <md-text-float label="Issue Date" ng-show="personalResponse.hasPassport" ng-model="personalResponses.issueDate"></md-text-float>
+                <md-text-float label="Expiry Date" ng-show="personalResponse.hasPassport" ng-model="personalResponses.expiryDate"></md-text-float>
+              </div>
+
+
+              <label for="">Do you have a national identity document?</label>
+              <md-radio-group ng-model="personalResponses.nationalIdentityDocs" layout="horizontal">
+                <md-radio-button value="yes">Yes</md-radio-button>
+                <md-radio-button value="no">No</md-radio-button>
+              </md-radio-group>
+              <br>
+            </div>
+          </md-content>
+        </md-tab>
+
+        <md-tab label="Education">
+          <md-toolbar class="md-tall md-whiteframe-z1" layout="vertical" layout-align="space-between">
+            <div layout="vertical" flex layout-align="center center">
+              <h1>Education</h1>
+            </div>
+            <div class="form-nav" layout="horizontal" layout-align="space-between">
+              <md-button ng-click="previousPage()">Back</md-button>
+              <md-button ng-click="nextPage()">Next</md-button>
+            </div>
+          </md-toolbar>
+          <md-content layout="vertical" layout-align="space-between" flex>
+            <div layout="vertical" layout-align="space-between">
+              <label for="">What is your highest level of education that you have obtained(completed)?</label>
+              <div layout="horizontal">
+                <md-text-float label="Level of education" ng-model="personalResponses.highestlevelEducation"></md-text-float>
+              </div>
+              <br>
+
+              <label for="">How many years of education do you have in total?</label>
+              <div layout="horizontal">
+                <md-text-float label="Years of education" ng-model="personalResponses.yearofEducation"></md-text-float>
+              </div>
+              <br>
+
+              <label for="">What is your occupation?</label>
+              <div layout="horizontal">
+                <md-text-float label="Current" ng-model="personalResponses.currentOccupation"></md-text-float>
+                <md-text-float label="Intended" ng-model="personalResponses.intendedOccupation"></md-text-float>
+              </div>
+              <br>
+
+              <label for="">What is your native language?</label>
+              <div layout="horizontal">
+                <md-text-float label="Language" ng-model="personalResponses.nativeLanguage"></md-text-float>
+              </div>
+              <br>
+
+              <label for="">Have you taken a test from a designated testing agency to access your English or French?</label>
+              <md-radio-group ng-model="personalResponses.languageTest" layout="horizontal">
+                <md-radio-button value="yes">Yes</md-radio-button>
+                <md-radio-button value="no">No</md-radio-button>
+              </md-radio-group>
               <br>
             </div>
           </md-content>
