@@ -55,7 +55,15 @@ app.config(['$routeProvider',
       when('/overview/cec', {
         templateUrl: 'templates/overview.html',
         controller: 'CECOverviewController'
-      }).      
+      }).
+      when('/overview/new-study-permit', {
+        templateUrl: 'templates/overview.html',
+        controller: 'NewStudyOverviewController'
+      }).
+      when('/overview/extend-study-permit', {
+        templateUrl: 'templates/overview.html',
+        controller: 'ExtendStudyOverviewController'
+      }).            
       otherwise({
         redirectTo: '/'
       });
@@ -351,7 +359,7 @@ app.controller('OutsideTemporaryController', function($scope, $location) {
     {
       name: "Study",
       imgSrc: "http://lorempixel.com/700/700/food/",
-      href: "/apply/demo",
+      href: "/overview/new-study-permit",
       description: 'Apply for a study permit.',
       disabled: false
     },
@@ -380,7 +388,7 @@ app.controller('InsideExtendController', function($scope, $location) {
     },
     {
       name: "Study",
-      href: "/apply/demo",
+      href: "/overview/extend-study-permit",
       description: 'Renew your study permit.',
       disabled: false
     },
@@ -444,8 +452,8 @@ app.controller('OutsidePermanentController', function($scope, $location) {
     {
       name: "Canadian Experience Class",
       description: 'Laoreet reprimique ei nec. Quo iisque maiorum hendrerit eu, an.',
-      href: "",
-      disabled: true
+      href: "/overview/cec",
+      disabled: false
     },
     {
       name: "Provincial Nominees",
@@ -754,6 +762,7 @@ app.controller('WatsonController', function($scope, AnswersModel, $rootScope) {
 
 app.controller('CECOverviewController', function($scope) {
   $scope.sectionTitle = 'Canadian Experience Class';
+  $scope.bannerColor = '#C55C5E';
   $scope.compeletedProgram = false;
 
   $scope.programForms = [
@@ -810,7 +819,99 @@ app.controller('CECOverviewController', function($scope) {
         name: "Instruction Guide",
         progress: 0
     }]
-];
+  ];
+
+});
+
+app.controller('NewStudyOverviewController', function($scope) {
+  $scope.sectionTitle = 'New Study Permit';
+  $scope.bannerColor = '#78B4D2';
+  $scope.compeletedProgram = false;
+
+  $scope.programForms = [
+    [{
+        code: "IMM 5483",
+        name: "Document Checklist",
+        progress: 0
+    }, {
+        code: "IMM 1294",
+        name: "Application for a Study Permit Made Outside of Canada",
+        progress: 0
+    }, {
+        code: "IMM 5645",
+        name: "Family Information",
+        progress: 0
+    }, {
+        code: "Schedule - 1",
+        name: "Application for Temporary Resident Visa",
+        progress: 0
+    }],
+
+    [{
+        code: "IMM 5409",
+        name: "Statutory Declaration of Common-Law Union",
+        progress: 0
+    }, {
+        code: "IMM 5646",
+        name: "Custodian Declaration",
+        progress: 0
+    }, {
+        code: "N/A",
+        name: "Visa application photograph specifications",
+        progress: 0
+    }, {
+        code: "IMM 5476",
+        name: "Use of a Representative",
+        progress: 0
+    }],
+    
+    [{
+        code: "IMM 5269",
+        name: "Instruction Guide",
+        progress: 0
+    }]
+  ];
+
+});
+
+app.controller('ExtendStudyOverviewController', function($scope) {
+  $scope.sectionTitle = 'Extend Study Permit';
+  $scope.bannerColor = '#79C2AF';
+  $scope.compeletedProgram = false;
+
+  $scope.programForms = [
+    [{
+        code: "IMM 5555",
+        name: "Document Checklist",
+        progress: 0
+    }, {
+        code: "IMM 5709",
+        name: "Application to Change Conditions, Extend my Stay or Remain in Canada as a Student ",
+        progress: 0
+    }, {
+        code: "IMM 5409",
+        name: "Statutory Declaration of Common-Law Union",
+        progress: 0
+    }, {
+        code: "IMM 5646",
+        name: "Custodianship Declaration - Custodian for Minors Studying in Canada",
+        progress: 0
+    }],
+
+    [{
+        code: "IMM 5476",
+        name: "Use of a Representative",
+        progress: 0
+    }, {
+        code: "IMM 5552",
+        name: "Instruction Guide",
+        progress: 0
+    }, {
+        code: "IMM 5409",
+        name: "Statutory Declaration of Common-law Union",
+        progress: 0
+    }]
+  ];
 
 });
 

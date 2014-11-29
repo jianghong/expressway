@@ -507,7 +507,7 @@ watson-panel .topbar .stuff {
   font-size: 2em;
 }
 
-.overview-section .form-progress md-progress-linear{
+.overview-section .form-progress md-progress-linear {
   margin-right: 5px;
 }
 
@@ -545,4 +545,9 @@ watson-panel .topbar .stuff {
 
 .form-card:hover {
   background-color: #f0f0f0
+}
+
+.overview-section .submit-fab {
+  position: absolute;
+  margin-left: 89.5%;
 }
