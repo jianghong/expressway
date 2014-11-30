@@ -195,30 +195,35 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   background-color: rgba(0, 124, 124, 0.3) !important;
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 43px;
   left: 0;
   right: 0;
-  z-index:-1;
+  z-index: 5;
 }
 
 .marketing-img {
   background: url('../img/lake-louise-canada-bg.jpg') no-repeat center center;
-  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 43px;
+  right: 0;
+  left: 0;
+  z-index: 4;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-.marketing-img h1 {
+homepage-panel h1 {
   font-size: 5.5vw;
 }
 
-.marketing-img p {
+homepage-panel p {
   font-size: 1.2vw;
 }
 
-.marketing-img strong {
+homepage-panel strong {
   font-size: 1.5vw;
 }
 
@@ -574,16 +579,23 @@ watson-panel .topbar .stuff {
 }
 
 #homepage-panel {
+  background-color: transparent;
   overflow-y: auto;
   position: fixed;
   width: 100vw;
   height: 100vh;
   z-index: 15;
   color: #fff;
+  transform: translate3d(0, 0, 0);
+  transition: transform 1000ms ease;
 }
 
-.hide-panel {
-  height: 0 !important;
+#homepage-megaman {
+  padding-bottom: 100px;
+}
+
+.translate-up {
+  transform: translate3d(0, -100%, 0) !important;
 }
 
 watson-panel .recommendation-row {
