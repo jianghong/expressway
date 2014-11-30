@@ -193,7 +193,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 
 .md-opaque {
   background-color: rgba(0, 124, 124, 0.3) !important;
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
