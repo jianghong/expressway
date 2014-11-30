@@ -101,16 +101,13 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
 
   $rootScope.suggestedQuestions = [
     {
-      question: 'How much money should I declare for CEC?'
+      question: 'How do I stay in Canada after I graduate?'
     },
     {
-      question: 'What work experience can I use for CEC?'
+      question: 'What are the processing times for extending a study permit?'
     },
     {
-      question: 'What are the language requirements for CEC?'
-    },
-    {
-      question: 'Will my off-campus work count towards CEC?'
+      question: 'What do I need to study in Canada?'
     }
   ];
 
@@ -221,6 +218,10 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
 
   $rootScope.switchContext = switchContext;
  });
+
+app.controller('ToastCtrl', function() {
+
+});
 
 app.controller('MarketingController', function($scope, AnswersModel) {
   $scope.mainCard = {
@@ -819,9 +820,12 @@ function DialogController($scope, $mdDialog) {
   };
 }
 
-app.controller('WatsonController', function($scope, AnswersModel, $rootScope) {
+app.controller('WatsonController', function($scope, AnswersModel, $rootScope, $mdToast) {
   $scope.tabIndex = 0;
   $scope.questionForWatson = '';
+  $scope.showRecommendation = false;
+  $scope.recommendedProgram = '';
+  $scope.recommendedRoute = '';
 
   $scope.doTheAsk = function(question) {
     $scope.theAnswer = '';
@@ -838,6 +842,18 @@ app.controller('WatsonController', function($scope, AnswersModel, $rootScope) {
       // console.log('error');
     }).finally(function() {
       $rootScope.isLoading = false;
+      $scope.showRecommendation = true;
+      if (question === 'How do I stay in Canada after I graduate?') {
+        $scope.recommendedProgram = 'Canadian Experience Class';
+        $scope.recommendedRoute = 'cec';
+      } else if (question === 'What are the processing times for extending a study permit?') {
+        $scope.recommendedProgram = 'Extend a study permit';
+        $scope.recommendedRoute = 'extend-study-permit';
+
+      } else if (question === 'What do I need to study in Canada?') {
+        $scope.recommendedProgram = 'study';
+        $scope.recommendedRoute = 'new-study-permit';
+      }
     });
   }
 
@@ -851,7 +867,8 @@ app.controller('WatsonController', function($scope, AnswersModel, $rootScope) {
 
   $scope.backToSuggestions = function() {
     $scope.tabIndex = 0;
-  }
+    $scope.showRecommendation = false;
+  }  
 });
 
 app.controller('OverviewController', function($scope) {

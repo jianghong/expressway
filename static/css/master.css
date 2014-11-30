@@ -192,7 +192,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .md-opaque {
-  background-color: rgba(145, 70, 70, 0.4) !important;
+  background-color: rgba(0, 124, 124, 0.3) !important;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -202,7 +202,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .marketing-img {
-  background: url('../img/maple-leaves-bg.jpg') no-repeat center center;
+  background: url('../img/lake-louise-canada-bg.jpg') no-repeat center center;
   height: 100vh;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -211,15 +211,15 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .marketing-img h1 {
-  font-size: 4.5vw;
+  font-size: 5.5vw;
 }
 
 .marketing-img p {
-  font-size: 1vw;
+  font-size: 1.2vw;
 }
 
 .marketing-img strong {
-  font-size: 1.3vw;
+  font-size: 1.5vw;
 }
 
 
@@ -584,4 +584,11 @@ watson-panel .topbar .stuff {
 
 .hide-panel {
   height: 0 !important;
+}
+
+watson-panel .recommendation-row {
+  background-color: #C55C5E;
+  color: #fff;
+  padding: 15px;
+  cursor: pointer;
 }
