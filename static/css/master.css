@@ -594,8 +594,17 @@ watson-panel .topbar .stuff {
   padding-bottom: 100px;
 }
 
+#peek-row {
+  transform: translate3d(0, 100%, 0);
+  transition: transform 400ms ease;
+}
+
 .translate-up {
   transform: translate3d(0, -100%, 0) !important;
+}
+
+.translate-up-2 {
+  transform: translate3d(0, 0, 0) !important;
 }
 
 watson-panel .recommendation-row {

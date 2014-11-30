@@ -94,6 +94,7 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   $scope.isApply = $location.path() !== '/' ? true : false;
   $scope.imgHover = false;
   $scope.panelHidden = false;
+  $scope.animatePeekRow = false;
 
   $scope.results = AnswersModel.answers ? AnswersModel.answers.question.answers : [];
 
@@ -110,6 +111,10 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
       question: 'What do I need to study in Canada?'
     }
   ];
+
+  setTimeout(function($scope){
+    document.getElementById('peek-row').className += ' translate-up-2';
+  }, 1000);
 
   $scope.searchContext = function() {
     $scope.switchContext('/search');
@@ -842,15 +847,16 @@ app.controller('WatsonController', function($scope, AnswersModel, $rootScope, $m
       // console.log('error');
     }).finally(function() {
       $rootScope.isLoading = false;
-      $scope.showRecommendation = true;
       if (question === 'How do I stay in Canada after I graduate?') {
+        $scope.showRecommendation = true;
         $scope.recommendedProgram = 'Canadian Experience Class';
         $scope.recommendedRoute = 'cec';
       } else if (question === 'What are the processing times for extending a study permit?') {
+        $scope.showRecommendation = true;
         $scope.recommendedProgram = 'Extend a study permit';
         $scope.recommendedRoute = 'extend-study-permit';
-
       } else if (question === 'What do I need to study in Canada?') {
+        $scope.showRecommendation = true;
         $scope.recommendedProgram = 'study';
         $scope.recommendedRoute = 'new-study-permit';
       }
