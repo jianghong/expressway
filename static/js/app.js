@@ -113,8 +113,10 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   ];
 
   setTimeout(function($scope){
-    document.getElementById('peek-row').className += ' translate-up-2';
+    document.getElementById('marketing-img').className += ' shrink-height';
+    document.getElementById('md-opaque').className += ' shrink-height';
   }, 1000);
+
 
   $scope.searchContext = function() {
     $scope.switchContext('/search');
