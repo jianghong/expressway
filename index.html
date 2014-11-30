@@ -11,108 +11,19 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="static/css/master.css">
   </head>
-  <body ng-controller="MainController" layout="horizontal" ng-class="{ 'no-scroll': inputIsFocused, 'marketing-img': !isApply }">
-
-    <homepage-panel></homepage-panel>
-    
+  <body ng-controller="MainController" layout="horizontal">
+    <homepage-panel ng-show="!isApply"></homepage-panel>
     <div class="main-panel" layout="vertical" flex>
-      <md-toolbar toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk, 'md-toolbar-none': !isApply, 'md-toolbar-white': isApply, 'md-whiteframe-z1': isApply}">
+      <md-toolbar class="md-toolbar-white md-whiteframe-z1">
         <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
-          <span style="cursor: pointer; font-weight: 700;" ng-click="mainContext()">{{leftControlTitle}}</span>
+          <span style="cursor: pointer; font-weight: 700;" ng-click="mainContext()">ExpressWay</span>
           <div layout="horizontal" layout-align="space-between">
-              <md-button ng-hide="isApply" class="md-raised md-green-btn" ng-click="applyContext()">Start</md-button>
           </div>
-        </div>
-
-        <div info-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center">
-          <div class="bundle-for-animation">
-            <h1 style="margin-bottom: 6px; text-align: center; font-size: 1.7em;">Immigration simplified.</h1>
-            <h4 style="margin-top: 0px; margin-bottom: 10px; text-align: center;">Find your answers and get your forms filled.</h4>
-            <!-- <h4 style="margin-top: 0px; margin-bottom: 10px; text-align: center;">We will also help you come to Canada.</h4> -->
-          </div>
-        </div>
-
-        <div ng-show="!isApply" class="md-toolbar-tools md-toolbar-tools-bottom" flex="60" layout="horizontal" layout-align="space-between">
-          <div class="search-container" layout="vertical" flex ng-class="{ 'md-white-theme':isSearchContext }">
-            <div class="search-icon-and-input" layout="horizontal">
-              <div class="icon search-icon">
-                <div class="icon-container" style="height: 30px; padding: 0 20px;" layout="vertical" layout-align="center center">
-                  <img ng-hide="isLoading" style="height: 24px; width: 24px;" src="static/img/search-icon-b.png">
-                  <md-progress-circular ng-show="isLoading" style="margin-bottom: 10px; height:24px; width:24px;" diameter="18" mode="indeterminate"></md-progress-circular>
-                </div>
-              </div>
-              <div class="search-input" flex>
-                <form ng-submit="resultsContext()">
-                  <input type="text" placeholder="{{ searchPlaceholder }}" ng-model="question" ng-blur="inputBlur()" ng-focus="searchContext()">
-                </form>
-              </div>
-            </div>
-            <div ng-show="isSearchContext" class="autocomplete-container">
-              <md-card flex class="autocomplete-card">
-                <md-subheader class="md-primary">Suggested Questions:</md-subheader>
-                <md-list>
-                  <md-item ng-repeat="question in suggestedQuestions">
-                    <md-item-content ng-click="askOnClick($event)" style="padding: 10px;" class="md-tile-content">
-                        {{ question.question }}
-                    </md-item-content>
-                  </md-item>
-                </md-list>
-              </md-card>
-            </div>
-          </div>
-        </div>
+        </div>      
       </md-toolbar>
-
-
-      <section class="watson-results" layout="vertical" layout-align="start center" ng-show="isSearchContext">
-        <div layout="vertical" layout-align="center center">
-          <md-list>
-            <md-item ng-repeat="result in results">
-              <md-item-content layout="horizontal">
-                <div class="md-tile-content">
-                  <md-card class="animated fadeInUp" style="width: 640px">
-                    <h2>Answer Card</h2>
-                    <div class="card-content">
-                      {{result.text}}
-                    </div>
-                    <md-divider></md-divider>
-                    <div class="card-triggers" layout="horizontal" layout-align="space-between">
-                      <md-button class="md-yellow-btn">
-                        <a target="_blank" href="{{result.source}}">Evidence</a>
-                      </md-button>
-                      <md-button>
-                        {{result.value}}
-                      </md-button>
-                    </div>                    
-                  </md-card>
-                </div>
-              </md-item-content>
-            </md-item>
-          </md-list>
-        </div>
-      </section>
-
       <md-content style="background: none;" layout="vertical" flex>
         <div flex layout="vertical" class="container" ng-view></div>
-        <div layout="vertical" layout-align="end">
-          <section ng-show="!isApply" layout="vertical" flex>
-            <div flex layout="vertical" layout-align="end">
-              <div class="homepage-steps" layout="horizontal" layout-align="space-around">
-                <div>
-                  <h3>Ask</h3>
-                  <h4>Find what immigration officers want.</h4>
-                </div>
-                <div>
-                  <h3>Apply</h3>
-                  <h4>Receive your filled out immigration forms.</h4>
-                </div>
-                <div>
-                  <h3>Immigrate</h3>
-                  <h4>Start your new life in Canada.</h4>
-                </div>
-              </div>
-            </div>
-          </section>      
+<!--         <div layout="vertical" layout-align="end">
           <footer ng-show="!isApply" layout="horizontal" layout-align="center center">
               <a>&#169; 2014 ExpressWay</a>
               <div class="pipe">|</div>
@@ -124,7 +35,7 @@
               <div class="pipe">|</div>
               <a href="#">Privacy</a>
           </footer>
-        </div>
+        </div> -->
       </md-content>
     </div>
 

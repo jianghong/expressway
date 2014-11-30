@@ -192,12 +192,13 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .md-opaque {
-  background-color: rgba(0, 0, 0, 0.7) !important;
+  background-color: rgba(145, 70, 70, 0.4) !important;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  z-index:-1;
 }
 
 .marketing-img {
@@ -210,8 +211,17 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .marketing-img h1 {
-  font-size: 5em;
+  font-size: 4.5vw;
 }
+
+.marketing-img p {
+  font-size: 1vw;
+}
+
+.marketing-img strong {
+  font-size: 1.3vw;
+}
+
 
 .steps-section {
   position: relative;
@@ -548,12 +558,6 @@ watson-panel .topbar .stuff {
   background-color: #f0f0f0
 }
 
-/*.overview-section .submit-fab {
-  background-color: #53A93F !important;
-  position: absolute;
-  margin-left: 89.5%;
-}
-*/
 .overview-section .rows {
   margin-bottom: 50px;
 }
@@ -569,13 +573,13 @@ watson-panel .topbar .stuff {
   padding: 2px 15px;
 }
 
-#homepage-megaman {
-  background-color: #f0f0f0;
+#homepage-panel {
   overflow-y: auto;
   position: fixed;
   width: 100vw;
   height: 100vh;
   z-index: 15;
+  color: #fff;
 }
 
 .hide-panel {
