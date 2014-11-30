@@ -93,6 +93,7 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   $rootScope.toolbarIsShrunk = $location.path() === '/' ? false : true;
   $scope.isApply = $location.path() !== '/' ? true : false;
   $scope.imgHover = false;
+  $scope.panelHidden = false;
 
   $scope.results = AnswersModel.answers ? AnswersModel.answers.question.answers : [];
 
@@ -177,6 +178,10 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   $scope.routeMe = function(applicationRoute) {
     console.log("app route:" + applicationRoute);
     $location.path(applicationRoute);
+  }
+
+  $scope.hideThePanel = function() {
+    $scope.panelHidden = true;
   }
 
   $rootScope.populateQuestions = function(qArray) {
@@ -1095,12 +1100,9 @@ app.service('AnswersModel', function($http, $q) {
 app.directive('toolbarAnimate', function($window){
     return {
         link: function($scope, $element, $attributes){
-            $attributes.$observe('isSearching', function(value){
+            $attributes.$observe('hidePanel', function(value){
               if (value === 'true') {
-                $element.animate({
-                  height: '64px'
-                }, 100, function() {
-                });
+                $element.slideUp(750);
               }
             });
         }
@@ -1126,4 +1128,11 @@ app.directive('watsonPanel', function() {
     restrict: 'E',
     templateUrl: 'templates/watson.html'
   }
-})
+});
+
+app.directive('homepagePanel', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/homepagepanel.html'
+  }
+});

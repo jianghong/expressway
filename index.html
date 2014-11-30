@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="static/css/master.css">
   </head>
   <body ng-controller="MainController" layout="horizontal" ng-class="{ 'no-scroll': inputIsFocused, 'marketing-img': !isApply }">
+
+    <homepage-panel></homepage-panel>
+    
     <div class="main-panel" layout="vertical" flex>
       <md-toolbar toolbar-animate is-searching="{{toolbarIsShrunk}}" layout="vertical" layout-align="center center" ng-class="{'md-tall': !toolbarIsShrunk, 'md-toolbar-none': !isApply, 'md-toolbar-white': isApply, 'md-whiteframe-z1': isApply}">
         <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
@@ -59,6 +62,7 @@
           </div>
         </div>
       </md-toolbar>
+
 
       <section class="watson-results" layout="vertical" layout-align="start center" ng-show="isSearchContext">
         <div layout="vertical" layout-align="center center">

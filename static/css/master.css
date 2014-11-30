@@ -201,7 +201,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .marketing-img {
-  background: url('../img/to-bg.jpg') no-repeat center center;
+  background: url('../img/maple-leaves-bg.jpg') no-repeat center center;
   height: 100vh;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -567,4 +567,17 @@ watson-panel .topbar .stuff {
 
 .overview-section .submit-btn {
   padding: 2px 15px;
+}
+
+#homepage-megaman {
+  background-color: #f0f0f0;
+  overflow-y: auto;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 15;
+}
+
+.hide-panel {
+  height: 0 !important;
 }
