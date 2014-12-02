@@ -16,12 +16,12 @@
         <p>{{ category.description }}</p>
       </div>
       <div layout="vertical" layout-align="center">
-        <md-button class="md-primary" ng-hide="category.disabled" ng-href="{{category.href}}">View options</md-button>
+        <md-button class="md-primary" ng-hide="category.disabled" ng-href="{{category.href}}">Continue</md-button>
         <md-button ng-disabled="true" ng-show="category.disabled">Coming soon</md-button>
       </div>
     </md-card>
   </div>
   <div layout="horizontal" layout-align="center center" class="view-all-row">
-    <md-button class="md-primary" ng-click="routeMe('/apply/all')">View all programs</md-button>
+    <md-button class="md-primary" ng-click="routeMe('/apply/all')">Skip to all immigration packages</md-button>
   </div>
 </section>

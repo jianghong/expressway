@@ -327,18 +327,18 @@ app.controller('InsideController', function($scope, $location, $rootScope) {
       disabled: false
     },
     {
-      name: "Sponsor someone",
-      imgSrc: STATIC_IMG_ROUTE + "/insidesponsor.png",
-      description: 'Bring over someone you care about.',      
-      href: $location.absUrl() + "/sponsor",
-      disabled: true
-    },
-    {
       name: "Stay permanently",
       imgSrc: STATIC_IMG_ROUTE + "/insidepermanent.png",
       description: 'Live here. Forever.',      
       href: $location.absUrl() + "/permanent",
       disabled: false
+    },    
+    {
+      name: "Sponsor someone",
+      imgSrc: STATIC_IMG_ROUTE + "/insidesponsor.png",
+      description: 'Bring over someone you care about.',      
+      href: $location.absUrl() + "/sponsor",
+      disabled: true
     },
     {
       name: "Obtain citizenship",
@@ -791,8 +791,8 @@ app.controller('ResultsController', function($scope, $routeParams, AnswersModel)
 
 app.controller('DemoController', function($scope, $mdDialog, $rootScope) {
   $rootScope.selecedProgramRoute = '/overview/cec'
-  $rootScope.selectedProgram = ' > Canadian Experience Class';
-  $rootScope.selectedForm = ' > Demo Form';
+  $rootScope.selectedProgram = ' / Canadian Experience Class';
+  $rootScope.selectedForm = ' / Demo Form';
   $scope.formTabIndex = 0;
   // $scope.nexting = true;
   // $scope.tabIndex = 0;
