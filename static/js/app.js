@@ -846,12 +846,21 @@ app.controller('DemoController', function($scope, $mdDialog, $rootScope) {
     if ($scope.formTabIndex === 1) {
       $rootScope.populateQuestions([
         {
-          question: 'What up'
-        },
-        {
-          question: 'What is an alias?'
+          question: 'What is a common-law relationship?'
         }
       ]);      
+    } else if ($scope.formTabIndex === 4) {
+      $rootScope.populateQuestions([
+        {
+          question: 'What is a national identity document?'
+        }
+      ]);         
+    } else if ($scope.formTabIndex === 5) {
+      $rootScope.populateQuestions([
+        {
+          question: 'What is a designated testing agency?'
+        }
+      ]);       
     }
   }
 });
