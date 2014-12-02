@@ -1,4 +1,4 @@
-var app = angular.module('ExpressWay', ['ngRoute', 'ngMaterial']);
+var app = angular.module('ExpressWay', ['ngRoute', 'ngMaterial', 'firebase']);
 
 app.config(['$routeProvider',
   function($routeProvider){
@@ -15,7 +15,7 @@ app.config(['$routeProvider',
 );
 
 
-app.controller('MainController', function($scope, $location, $rootScope, $window, $mdDialog) {
+app.controller('MainController', function($scope, $location, $rootScope, $window, $mdDialog, $firebase) {
   $scope.panelHidden = false;
   $scope.animatePeekRow = false;
 
@@ -28,6 +28,19 @@ app.controller('MainController', function($scope, $location, $rootScope, $window
   $scope.hideThePanel = function() {
     $scope.panelHidden = true;
   }
+
+  $scope.email = "";
+
+  var ref = new Firebase("https://expressway.firebaseio.com/");
+  var sync = $firebase(ref);
+
+  $scope.sendEmail = function() {
+    console.log($scope.email);
+    if(validateEmail($scope.email)){
+      sync.$push({emails: $scope.email});
+    }
+  }
+
 });
 
 
@@ -37,3 +50,8 @@ app.directive('homepagePanel', function() {
     templateUrl: 'templates/homepagepanel.html'
   }
 });
+
+function validateEmail(email) { 
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}

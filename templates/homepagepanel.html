@@ -12,8 +12,8 @@
       <p>Leave us your email and we'll let you know as soon as we're ready!</p>
     </div>
     <div layout="horizontal" layout-align="center center">
-      <input type="email" placeholder="john@gmail.com"> 
-      <md-button class="md-btn-green">Subscribe</md-button>
+      <input type="email" ng-model="email" placeholder="john@gmail.com"> 
+      <md-button class="md-btn-green" ng-click="sendEmail()">Subscribe</md-button>
     </div>
   </div>
   <div id="peek-row" layout="vertical" layout-align="end">
