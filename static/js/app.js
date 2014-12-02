@@ -96,6 +96,8 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   $scope.panelHidden = false;
   $scope.animatePeekRow = false;
   $scope.showMegaman = false;
+  $rootScope.formProgress = 0;
+  $rootScope.canSubmit = false;
 
   $scope.results = AnswersModel.answers ? AnswersModel.answers.question.answers : [];
 
@@ -180,7 +182,7 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
     $window.history.back();
   }
 
-  $scope.routeMe = function(applicationRoute) {
+  $rootScope.routeMe = function(applicationRoute) {
     console.log("app route:" + applicationRoute);
     $location.path(applicationRoute);
   }
@@ -822,7 +824,13 @@ app.controller('DemoController', function($scope, $mdDialog, $rootScope) {
   $scope.previousPage = function() {
     $scope.formTabIndex -= 1;
     $scope.nexting = false;
-  }  
+  }
+
+  $scope.finishForm = function() {
+    $rootScope.canSubmit = true;
+    $rootScope.formProgress = 100;
+    $rootScope.routeMe('/overview/cec');
+  }
 });
 
 function DialogController($scope, $mdDialog) {

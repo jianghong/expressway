@@ -16,7 +16,7 @@
     <div layout="horizontal" layout-align="space-between" flex>
       <h2>Application Package</h2>
       <div layout="vertical" layout-align="center center">
-        <md-button class="md-primary md-raised submit-btn">Complete</md-button>
+        <md-button ng-disabled="!canSubmit" class="md-primary md-raised submit-btn">Complete</md-button>
       </div>
     </div>
     <md-divider></md-divider>
@@ -35,8 +35,8 @@
               <p class="form-code">{{form.code}}</p>
             </div>
             <div class="form-progress" layout="horizontal" layout-align="center center">
-              <md-progress-linear md-mode="determinate" ng-value="{{form.progress}}"></md-progress-linear>
-              {{form.progress}}%
+              <md-progress-linear md-mode="determinate" ng-value="{{formProgress}}"></md-progress-linear>
+              {{formProgress}}%
             </div>
           </div>
         </md-card>    
@@ -57,8 +57,8 @@
               <p class="form-code">{{form.code}}</p>
             </div>
             <div class="form-progress" layout="horizontal" layout-align="center center">
-              <md-progress-linear md-mode="determinate" ng-value="{{form.progress}}"></md-progress-linear>
-              {{form.progress}}%
+              <md-progress-linear md-mode="determinate" ng-value="{{formProgress}}"></md-progress-linear>
+              {{formProgress}}%
             </div>
           </div>
         </md-card>    
@@ -79,8 +79,8 @@
               <p class="form-code">{{form.code}}</p>
             </div>
             <div class="form-progress" layout="horizontal" layout-align="center center">
-              <md-progress-linear md-mode="determinate" ng-value="{{form.progress}}"></md-progress-linear>
-              {{form.progress}}%
+              <md-progress-linear md-mode="determinate" ng-value="{{formProgress}}"></md-progress-linear>
+              {{formProgress}}%
             </div>
           </div>
         </md-card>    

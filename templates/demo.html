@@ -265,19 +265,18 @@
             </div>
           </md-content>
         </md-tab>
-
         <md-tab label="Education">
-          <md-toolbar class="md-tall md-whiteframe-z1" layout="vertical" layout-align="space-between">
-            <div layout="vertical" flex layout-align="center center">
-              <h1>Education</h1>
-            </div>
-            <div class="form-nav" layout="horizontal" layout-align="space-between">
-              <md-button ng-click="previousPage()">Back</md-button>
-              <md-button ng-click="nextPage()">Next</md-button>
-            </div>
-          </md-toolbar>
-          <md-content layout="vertical" layout-align="space-between" flex>
-            <div layout="vertical" layout-align="space-between">
+          <md-content class="document-container md-whiteframe-z1" layout="horizontal" layout-align="center center">
+            <div layout="vertical" flex="50">
+              <md-toolbar class="md-toolbar-whiter" layout="vertical" layout-align="space-between">
+                <div layout="horizontal" flex layout-align="space-between center">
+                  <md-button ng-click="previousPage()">Back</md-button>
+                  <h1>Education</h1>
+                  <md-button ng-click="finishForm()">Finish Form</md-button>
+                </div>
+              </md-toolbar>            
+              <md-divider></md-divider>
+              <div class="document">
               <label for="">What is your highest level of education that you have obtained(completed)?</label>
               <div layout="horizontal">
                 <md-text-float label="Level of education" ng-model="personalResponses.highestlevelEducation"></md-text-float>
@@ -310,29 +309,10 @@
               </md-radio-group>
               <br>
             </div>
-          </md-content>
-        </md-tab>
-        <md-tab label="Completion">
-          <md-toolbar class="md-tall md-whiteframe-z1" layout="vertical" layout-align="space-between">
-            <div layout="vertical" flex layout-align="center center">
-              <h1>Completed Form</h1>
-            </div>
-            <div class="form-nav" layout="horizontal" layout-align="space-between">
-              <md-button ng-click="previousPage()">Back</md-button>
-            </div>
-          </md-toolbar>
-          <md-content layout="vertical" layout-align="space-between" flex>
-            <div layout="vertical" layout-align="space-between">
-              <h3>You're done.</h3>
-              <p>You may now preview or download your completed form.</p>
-              <div layout="horizontal" layout-align="end">
-                <md-button ng-click="showPreview($event)" class="md-blue-btn">
-                  Preview Form
-                </md-button>
-                <md-button><a target="_blank" href="http://s3-us-west-2.amazonaws.com/contrajd/Filled_form.pdf">Download</a></md-button>
-              </div>
             </div>
           </md-content>
+        </md-tab>        
+      </md-tabs>
     </div>
   </div>
 </section>
