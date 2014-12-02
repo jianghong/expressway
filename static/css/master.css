@@ -51,6 +51,11 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   color: #000 !important;
 }
 
+.md-toolbar-whiter {
+  background-color: #C55C5E !important;
+  color: #fff !important;
+}
+
 .md-toolbar-none {
   background: none !important;
 }
@@ -192,26 +197,47 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .md-opaque {
-  background-color: rgba(0, 0, 0, 0.7) !important;
-  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 5;
+  -webkit-transition: bottom 500ms ease;
+  -o-transition: bottom 500ms ease;
+  transition: bottom 500ms ease;
 }
 
 .marketing-img {
-  background: url('../img/to-bg.jpg') no-repeat center center;
-  height: 100vh;
+  background: url('../img/ice-skating-bg.jpg') no-repeat center center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  -webkit-transition: bottom 500ms ease;
+  -o-transition: bottom 500ms ease;
+  transition: bottom 500ms ease;
 }
 
-.marketing-img h1 {
-  font-size: 5em;
+homepage-panel h1 {
+  font-size: 5.5vw;
 }
+
+homepage-panel p {
+  font-size: 1.2vw;
+}
+
+homepage-panel strong {
+  font-size: 1.5vw;
+}
+
 
 .steps-section {
   position: relative;
@@ -230,6 +256,15 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 md-tab {
   background-color: #fff;
   color: #000 !important;
+}
+
+md-tab.active {
+  background-color: #C55C5E !important;
+  color: #fff !important;
+}
+
+md-tabs-ink-bar {
+  background-color: #C55C5E !important;
 }
 
 .homepage-steps {
@@ -361,6 +396,7 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 }
 
 watson-panel {
+  color: #000;
   z-index: 10;
   background-color: #fff;
 }
@@ -497,7 +533,6 @@ watson-panel .topbar .stuff {
 }
 
 .form-filling md-content {
-  padding: 30px;
 }
 
 .form-filling .md-fab {
@@ -548,17 +583,11 @@ watson-panel .topbar .stuff {
   background-color: #f0f0f0
 }
 
-/*.overview-section .submit-fab {
-  background-color: #53A93F !important;
-  position: absolute;
-  margin-left: 89.5%;
-}
-*/
 .overview-section .rows {
   margin-bottom: 50px;
 }
 
-.section-banner md-button.start-app {
+.section-banner md-button.start-app, .try-me-btn {
   background-color: #53A93F !important;
   fill: #53A93F !important;
   font-size: 1.2em;
@@ -567,4 +596,58 @@ watson-panel .topbar .stuff {
 
 .overview-section .submit-btn {
   padding: 2px 15px;
+}
+
+#homepage-panel {
+  background-color: transparent;
+  overflow-y: auto;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+  color: #fff;
+  transform: translate3d(0, 0, 0);
+  transition: transform 1000ms ease;
+}
+
+#homepage-megaman {
+  color: #fff;
+  padding-bottom: 100px;
+  background-color: #C55C5E;
+}
+
+#peek-row {
+  
+}
+
+.translate-up {
+  transform: translate3d(0, -100%, 0) !important;
+}
+
+.shrink-height {
+  bottom: 3vw;
+}
+
+.translate-up-2 {
+  transform: translate3d(0, 0, 0) !important;
+}
+
+watson-panel .recommendation-row {
+  background-color: #53A93F;
+  color: #fff;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.document {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.document-container {
+  background-color: #C55C5E !important;
+}
+
+.main {
+  background-color: #C55C5E;
 }

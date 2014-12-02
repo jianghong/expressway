@@ -45,7 +45,12 @@
       </md-tab>
     </md-tabs>
   </div>
-  <div class="ask-watson" layout="vertical">
+  <div class="ask-watson" layout="vertical" layout-align="end">
+    <div ng-click="routeMeRecommended()" class="recommendation-row" ng-show="showRecommendation" layout="horizontal" layout-align="center center">
+      <strong>
+        Apply to {{recommendedProgram}}
+      </strong>
+    </div>
     <div class="watson-action md-whiteframe-z1" layout="horizontal">
       <div layout="vertical" layout-align="center" flex>
         <form ng-submit="toggleAndAsk()">

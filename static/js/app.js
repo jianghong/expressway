@@ -1,6 +1,6 @@
-var SAMPLE_Q1 = 'what is cec?'
-var SAMPLE_Q2 = 'what work experience can i use for cec?'
-var SAMPLE_Q3 = 'what are the language requirements for cec?'
+var SAMPLE_Q1 = 'Can I work in Canada after I graduate?'
+var SAMPLE_Q2 = 'What is PGWPP?'
+var SAMPLE_Q3 = 'What are the requirements for the Canadian Experience class?'
 var STATIC_IMG_ROUTE = 'static/img'
 
 var app = angular.module('ExpressWay', ['ngRoute', 'ngMaterial']);
@@ -86,13 +86,18 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
 
   $scope.isSearchContext = false;
   $scope.leftControlIconSrc = hamburgerIconSrc;
-  $scope.leftControlTitle = 'ExpressWay';
+  $scope.leftControlTitle = 'EXPRESSWAY';
   $scope.searchIconSrc = searchIconWSrc;
   $rootScope.isLoading = false;
   $rootScope.inputIsFocused = false;
   $rootScope.toolbarIsShrunk = $location.path() === '/' ? false : true;
   $scope.isApply = $location.path() !== '/' ? true : false;
   $scope.imgHover = false;
+  $scope.panelHidden = false;
+  $scope.animatePeekRow = false;
+  $scope.showMegaman = false;
+  $rootScope.formProgress = 0;
+  $rootScope.canSubmit = false;
 
   $scope.results = AnswersModel.answers ? AnswersModel.answers.question.answers : [];
 
@@ -100,18 +105,21 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
 
   $rootScope.suggestedQuestions = [
     {
-      question: 'How much money should I declare for CEC?'
+      question: 'Can I work in Canada after I graduate?'
     },
     {
-      question: 'What work experience can I use for CEC?'
+      question: 'What are the processing times for extending a study permit?'
     },
     {
-      question: 'What are the language requirements for CEC?'
-    },
-    {
-      question: 'Will my off-campus work count towards CEC?'
+      question: 'What do I need to study in Canada?'
     }
   ];
+
+  setTimeout(function($scope){
+    document.getElementById('marketing-img').className += ' shrink-height';
+    document.getElementById('md-opaque').className += ' shrink-height';
+  }, 1000);
+
 
   $scope.searchContext = function() {
     $scope.switchContext('/search');
@@ -174,9 +182,13 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
     $window.history.back();
   }
 
-  $scope.routeMe = function(applicationRoute) {
+  $rootScope.routeMe = function(applicationRoute) {
     console.log("app route:" + applicationRoute);
     $location.path(applicationRoute);
+  }
+
+  $scope.hideThePanel = function() {
+    $scope.panelHidden = true;
   }
 
   $rootScope.populateQuestions = function(qArray) {
@@ -194,28 +206,40 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
       $scope.isSearchContext = true;
       $scope.inputIsFocused = true;
       $rootScope.toolbarIsShrunk = true;
-
+      $rootScope.selecedProgramRoute = ''
+      $rootScope.selectedProgram = '';
+      $rootScope.selectedForm = '';
     } else if (context === '/') {
       $scope.isApply = false;
       $scope.isSearchContext = false;
       $scope.leftControlTitle = 'ExpressWay';
       $rootScope.toolbarIsShrunk = false;
+      $rootScope.selecedProgramRoute = ''
+      $rootScope.selectedProgram = '';
+      $rootScope.selectedForm = '';      
     } else if (context.indexOf('/apply') >= 0) {
       $scope.leftControlTitle = 'ExpressWay';
       $scope.isSearchContext = false;
       $scope.isApply = true;
       $rootScope.toolbarIsShrunk = true;
     } else {
+      $scope.isApply = true;
       $scope.isSearchContext = false;
       $scope.searchPlaceholder = "Ask your questions here";
       $scope.leftControlIconSrc = hamburgerIconSrc
       $scope.searchIconSrc = searchIconWSrc;
-
+      $rootScope.selecedProgramRoute = ''
+      $rootScope.selectedProgram = '';
+      $rootScope.selectedForm = '';      
     }
   }
 
   $rootScope.switchContext = switchContext;
  });
+
+app.controller('ToastCtrl', function() {
+
+});
 
 app.controller('MarketingController', function($scope, AnswersModel) {
   $scope.mainCard = {
@@ -765,7 +789,10 @@ app.controller('ResultsController', function($scope, $routeParams, AnswersModel)
   }
 });
 
-app.controller('DemoController', function($scope, $mdDialog) {
+app.controller('DemoController', function($scope, $mdDialog, $rootScope) {
+  $rootScope.selecedProgramRoute = '/overview/cec'
+  $rootScope.selectedProgram = ' > Canadian Experience Class';
+  $rootScope.selectedForm = ' > Demo Form';
   $scope.formTabIndex = 0;
   // $scope.nexting = true;
   // $scope.tabIndex = 0;
@@ -797,7 +824,13 @@ app.controller('DemoController', function($scope, $mdDialog) {
   $scope.previousPage = function() {
     $scope.formTabIndex -= 1;
     $scope.nexting = false;
-  }  
+  }
+
+  $scope.finishForm = function() {
+    $rootScope.canSubmit = true;
+    $rootScope.formProgress = 100;
+    $rootScope.routeMe('/overview/cec');
+  }
 });
 
 function DialogController($scope, $mdDialog) {
@@ -814,11 +847,15 @@ function DialogController($scope, $mdDialog) {
   };
 }
 
-app.controller('WatsonController', function($scope, AnswersModel, $rootScope) {
+app.controller('WatsonController', function($scope, AnswersModel, $rootScope, $mdToast, $location) {
   $scope.tabIndex = 0;
   $scope.questionForWatson = '';
+  $scope.showRecommendation = false;
+  $scope.recommendedProgram = '';
+  $scope.recommendedRoute = '';
 
   $scope.doTheAsk = function(question) {
+    $scope.showRecommendation = false;
     $scope.theAnswer = '';
     $scope.tabIndex = 1;
     $rootScope.isLoading = true;
@@ -833,7 +870,29 @@ app.controller('WatsonController', function($scope, AnswersModel, $rootScope) {
       // console.log('error');
     }).finally(function() {
       $rootScope.isLoading = false;
+      showRecommendationRow(question);
     });
+  }
+
+  function showRecommendationRow(question) {
+    var blob = question.toLowerCase() + ' ' + $scope.theAnswer.text.toLowerCase();
+    if ((blob.indexOf('cec') >= 0 ) || (blob.indexOf('canadian experience') >= 0)) {
+      $scope.showRecommendation = true;
+      $scope.recommendedProgram = 'Canadian Experience Class';
+      $scope.recommendedRoute = 'cec';      
+    } else if ((blob.indexOf('extend') >= 0 ) || (blob.indexOf('renew') >= 0)) {
+      $scope.showRecommendation = true;
+      $scope.recommendedProgram = 'Extend a study permit';
+      $scope.recommendedRoute = 'extend-study-permit';
+    } else if (blob.indexOf('study') >= 0 ) {
+      $scope.showRecommendation = true;
+      $scope.recommendedProgram = 'study';
+      $scope.recommendedRoute = 'new-study-permit';      
+    }
+  }
+
+  $scope.routeMeRecommended = function() {
+    $location.path('/overview/' + $scope.recommendedRoute);
   }
 
   $scope.toggleAndAsk = function() {
@@ -846,7 +905,8 @@ app.controller('WatsonController', function($scope, AnswersModel, $rootScope) {
 
   $scope.backToSuggestions = function() {
     $scope.tabIndex = 0;
-  }
+    $scope.showRecommendation = false;
+  }  
 });
 
 app.controller('OverviewController', function($scope) {
@@ -1049,28 +1109,28 @@ app.service('AnswersModel', function($http, $q) {
       success(function(data, status, headers, config) {
         console.log(data);
         // hard code answer
-        // if (question.toLowerCase() === SAMPLE_Q1) {
-        //   data.question.answers.unshift({
-        //     confidence: 0.4954,
-        //     id: 0,
-        //     text: 'After you have lived in Canada for some time, you may have good English or French skills, the right kind of skilled work experience, and be used to Canadian society. The Canadian Experience Class (CEC) was created to help people like this take part in the Canadian economy.',
-        //     source: 'http://www.cic.gc.ca/English/immigrate/cec/index.asp'
-        //   });
-        // } else if (question.toLowerCase() === SAMPLE_Q2) {
-        //   data.question.answers.unshift({
-        //     confidence: 0.544,
-        //     id: 0,
-        //     text: "To work in Canada after graduating, your best option is to apply for a post-graduation work permit. These permits may be valid for up to three years. To qualify for the CEC, remember that at least one year of your work experience must be in a skilled occupation. It is also important to note that work experience you may have acquired as part of your academic program, such as an internship or a co-op placement, does not qualify under the CEC. Part-time work you may have performed during your studies does not qualify either.",
-        //     source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
-        //   });
-        // } else if (question.toLowerCase() === SAMPLE_Q3) {
-        //   data.question.answers.unshift({
-        //     confidence: 0.6011,
-        //     id: 0,
-        //     text: "To qualify for the CEC, you must prove your proficiency in one of Canada's two official languages, which are English and French. The four linguistic abilities are speaking, reading, listening and writing. The required level of ability in English or French will vary according to your occupation. For example, the language requirements for managerial and professional positions are higher than the requirements for positions in technical occupations or skilled trades. To prove your language skills, you will need to take a language test approved by CIC and include those results with your application.",
-        //     source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
-        //   });
-        // }
+        if (question.toLowerCase() === SAMPLE_Q1.toLowerCase()) {
+          data.question.evidencelist.unshift({
+            confidence: 0.4954,
+            id: 0,
+            text: 'To work in Canada after you graduate, you must apply for a work permit under the Post-Graduation Work Permit Program (PGWPP). If you want to stay in Canada as a permanent resident after you graduate, there are a number of programs available, each with its own requirements.',
+            source: 'http://www.cic.gc.ca/English/immigrate/cec/index.asp'
+          });
+        } else if (question.toLowerCase() === SAMPLE_Q2.toLowerCase()) {
+          data.question.evidencelist.unshift({
+            confidence: 0.544,
+            id: 0,
+            text: "The PGWPP allows students who have graduated from a participating Canadian post-secondary institution to gain valuable Canadian work experience. Skilled Canadian work experience gained through the PGWPP helps graduates qualify for permanent residence in Canada through the Canadian Experience Class (CEC).",
+            source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
+          });
+        } else if (question.toLowerCase() === SAMPLE_Q3.toLowerCase()) {
+          data.question.evidencelist.unshift({
+            confidence: 0.6011,
+            id: 0,
+            text: "Canadian Experience Class requirements The CEC is prescribed as a class of persons who may become permanent residents on the basis of their Canadian experience and who: maintained temporary resident status during their qualifying period of work intend to reside in a province or territory other than Quebec; experience as well as during any period of full-time study or training in Canada.",
+            source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
+          });
+        }
         resolve(data);
       }).
       error(function(error, status, headers, config) {
@@ -1095,12 +1155,9 @@ app.service('AnswersModel', function($http, $q) {
 app.directive('toolbarAnimate', function($window){
     return {
         link: function($scope, $element, $attributes){
-            $attributes.$observe('isSearching', function(value){
+            $attributes.$observe('hidePanel', function(value){
               if (value === 'true') {
-                $element.animate({
-                  height: '64px'
-                }, 100, function() {
-                });
+                $element.slideUp(750);
               }
             });
         }
@@ -1126,4 +1183,11 @@ app.directive('watsonPanel', function() {
     restrict: 'E',
     templateUrl: 'templates/watson.html'
   }
-})
+});
+
+app.directive('homepagePanel', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/homepagepanel.html'
+  }
+});
