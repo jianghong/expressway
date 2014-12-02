@@ -12,34 +12,7 @@
     <link rel="stylesheet" href="static/css/master.css">
   </head>
   <body ng-controller="MainController" layout="horizontal">
-    <homepage-panel ng-show="!isApply"></homepage-panel>
-    <div class="main-panel" layout="vertical" flex>
-      <md-toolbar ng-class="{'md-toolbar-white': isApply, 'md-whiteframe-z1': isApply}" style="background-color: #C55C5E">
-        <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
-          <span><span style="font-weight: 700; cursor: pointer" ng-click="mainContext()">EXPRESSWAY</span><span style="cursor: pointer;" ng-click="routeMe(selecedProgramRoute)">{{ selectedProgram }}</span> <span>{{ selectedForm}}</span></span>
-        </div>      
-      </md-toolbar>
-      <md-content style="background: none;" layout="vertical" flex>
-        <div flex layout="vertical" class="container" ng-view></div>
-<!--         <div layout="vertical" layout-align="end">
-          <footer ng-show="!isApply" layout="horizontal" layout-align="center center">
-              <a>&#169; 2014 ExpressWay</a>
-              <div class="pipe">|</div>
-              <a href="#">Pricing</a>
-              <div class="pipe">|</div>
-              <a href="#">Feedback</a>
-              <div class="pipe">|</div>
-              <a href="#">About</a>
-              <div class="pipe">|</div>
-              <a href="#">Privacy</a>
-          </footer>
-        </div> -->
-      </md-content>
-    </div>
-
-    <watson-panel id="watson-panel" ng-show="isApply" class="md-whiteframe-z1" flex="25" layout="vertical"></watson-panel>
-    
-    <div class="backdrop md-opaque" ng-show="isSearchContext"></div>
+    <homepage-panel></homepage-panel>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
