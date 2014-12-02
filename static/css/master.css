@@ -109,6 +109,7 @@ homepage-panel strong {
   height: 40px;
   font-size: 20px;
   padding: 0 5px;
+  border-radius: 3px;
 }
 
 .md-btn-green, .md-btn-green:hover, .md-btn-green:focus, .md-btn-green:active {
@@ -116,4 +117,5 @@ homepage-panel strong {
   background-color: #53A93F !important;
   fill: #53A93F;
   color: #fff;
+  padding: 4px;
 }
