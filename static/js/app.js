@@ -103,18 +103,6 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
 
   $scope.searchPlaceholder = "Ask your questions here";
 
-  $rootScope.suggestedQuestions = [
-    {
-      question: 'Can I work in Canada after I graduate?'
-    },
-    {
-      question: 'What are the processing times for extending a study permit?'
-    },
-    {
-      question: 'What do I need to study in Canada?'
-    }
-  ];
-
   setTimeout(function($scope){
     document.getElementById('marketing-img').className += ' shrink-height';
     document.getElementById('md-opaque').className += ' shrink-height';
@@ -249,28 +237,18 @@ app.controller('ToastCtrl', function() {
 
 });
 
-app.controller('MarketingController', function($scope, AnswersModel) {
-  $scope.mainCard = {
-    actionText: 'Start Asking',
-    tagline: 'Immigrate with ease.',
-    firstP: 'We are an immigration research tool that assist immigrants around the world.',
-    secondP: 'With the power of Watson we answer natural language questions.'
-  };
-
-  $scope.testimonials = [
+app.controller('MarketingController', function($scope, AnswersModel, $rootScope) {
+  $rootScope.populateQuestions([
     {
-      name: 'Don Handerson',
-      quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt tristique sem at ornare. Morbi vel augue eu eros euismod vulputate. Praesent tortor ante, imperdiet quis tellus sed, fermentum viverra elit.'
+      question: 'Can I work in Canada after I graduate?'
     },
     {
-      name: 'Nancy Policks',
-      quote: 'Donec sed porttitor ex, a tincidunt elit. Maecenas tincidunt tincidunt urna, aliquam imperdiet felis tincidunt in. Nunc et arcu eros.'
+      question: 'What are the processing times for extending a study permit?'
     },
     {
-      name: 'Helen Mario',
-      quote: 'Maecenas et orci quis dui eleifend efficitur. Vestibulum augue odio, luctus at consectetur a, luctus in odio. Suspendisse suscipit lacus ut lobortis imperdiet. Nullam elementum elementum mi nec faucibus.'
+      question: 'What do I need to study in Canada?'
     }
-  ];
+  ]);
 });
 
 app.controller('ApplyController', function($scope, $location, $rootScope) {
@@ -363,6 +341,13 @@ app.controller('OutsideController', function($scope, $location) {
   $scope.bannerColor = '#79C2AF';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/outsidecanada.png';
 
+
+  $rootScope.populateQuestions([
+    {
+      question: 'How does a temporary worker become a permanent resident?'
+    }
+  ]);
+
   $scope.categories = [
     {
       name: "Stay temporarily",
@@ -412,11 +397,19 @@ app.controller('OutsideTemporaryController', function($scope, $location) {
   ];
 });
 
-app.controller('InsideExtendController', function($scope, $location) {
+app.controller('InsideExtendController', function($scope, $location, $rootScope) {
   $scope.sectionTitle = 'Apply from inside Canada to extend your stay.';
   $scope.bannerColor = '#505D73';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/insideextend.png';
 
+  $rootScope.populateQuestions([
+    {
+      question: 'What do I need to renew my study permit?'
+    },
+    {
+      question: 'Are study permits tied to the university I attend?'
+    }
+  ])
   $scope.available = [
     {
       name: "Study",
@@ -817,6 +810,14 @@ app.controller('DemoController', function($scope, $mdDialog, $rootScope) {
   //   armedForces: ''
   // }
 
+  $rootScope.populateQuestions([
+    {
+      question: 'What are the language requirements for immigrating to Canada?'
+    },
+    {
+      question: 'What is an alias?'
+    }
+  ]);
   $scope.showPreview = function(ev) {
     $mdDialog.show({controller: DialogController,
       templateUrl: 'templates/previewdialog.html',
@@ -827,6 +828,7 @@ app.controller('DemoController', function($scope, $mdDialog, $rootScope) {
   $scope.nextPage = function() {
     $scope.formTabIndex += 1;
     $scope.nexting = true;
+    $scope.cycleSuggestedQuestions();
   }
 
   $scope.previousPage = function() {
@@ -838,6 +840,19 @@ app.controller('DemoController', function($scope, $mdDialog, $rootScope) {
     $rootScope.canSubmit = true;
     $rootScope.formProgress = 100;
     $rootScope.routeMe('/overview/cec');
+  }
+
+  $scope.cycleSuggestedQuestions = function() {
+    if ($scope.formTabIndex === 1) {
+      $rootScope.populateQuestions([
+        {
+          question: 'What up'
+        },
+        {
+          question: 'What is an alias?'
+        }
+      ]);      
+    }
   }
 });
 
