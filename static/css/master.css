@@ -51,6 +51,11 @@ md-toolbar, .round-button, .search-input input, .icon-container {
   color: #000 !important;
 }
 
+.md-toolbar-whiter {
+  background-color: #C55C5E !important;
+  color: #fff !important;
+}
+
 .md-toolbar-none {
   background: none !important;
 }
@@ -205,7 +210,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .marketing-img {
-  background: url('../img/lake-louise-canada-bg.jpg') no-repeat center center;
+  background: url('../img/ice-skating-bg.jpg') no-repeat center center;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -251,6 +256,15 @@ homepage-panel strong {
 md-tab {
   background-color: #fff;
   color: #000 !important;
+}
+
+md-tab.active {
+  background-color: #C55C5E !important;
+  color: #fff !important;
+}
+
+md-tabs-ink-bar {
+  background-color: #C55C5E !important;
 }
 
 .homepage-steps {
@@ -519,7 +533,6 @@ watson-panel .topbar .stuff {
 }
 
 .form-filling md-content {
-  padding: 30px;
 }
 
 .form-filling .md-fab {
@@ -624,4 +637,13 @@ watson-panel .recommendation-row {
   color: #fff;
   padding: 15px;
   cursor: pointer;
+}
+
+.document {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.document-container {
+  background-color: #C55C5E !important;
 }

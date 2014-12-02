@@ -204,12 +204,17 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
       $scope.isSearchContext = true;
       $scope.inputIsFocused = true;
       $rootScope.toolbarIsShrunk = true;
-
+      $rootScope.selecedProgramRoute = ''
+      $rootScope.selectedProgram = '';
+      $rootScope.selectedForm = '';
     } else if (context === '/') {
       $scope.isApply = false;
       $scope.isSearchContext = false;
       $scope.leftControlTitle = 'ExpressWay';
       $rootScope.toolbarIsShrunk = false;
+      $rootScope.selecedProgramRoute = ''
+      $rootScope.selectedProgram = '';
+      $rootScope.selectedForm = '';      
     } else if (context.indexOf('/apply') >= 0) {
       $scope.leftControlTitle = 'ExpressWay';
       $scope.isSearchContext = false;
@@ -221,7 +226,9 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
       $scope.searchPlaceholder = "Ask your questions here";
       $scope.leftControlIconSrc = hamburgerIconSrc
       $scope.searchIconSrc = searchIconWSrc;
-
+      $rootScope.selecedProgramRoute = ''
+      $rootScope.selectedProgram = '';
+      $rootScope.selectedForm = '';      
     }
   }
 
@@ -780,7 +787,10 @@ app.controller('ResultsController', function($scope, $routeParams, AnswersModel)
   }
 });
 
-app.controller('DemoController', function($scope, $mdDialog) {
+app.controller('DemoController', function($scope, $mdDialog, $rootScope) {
+  $rootScope.selecedProgramRoute = '/overview/cec'
+  $rootScope.selectedProgram = ' > Canadian Experience Class';
+  $rootScope.selectedForm = ' > Demo Form';
   $scope.formTabIndex = 0;
   // $scope.nexting = true;
   // $scope.tabIndex = 0;

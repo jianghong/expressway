@@ -16,9 +16,7 @@
     <div class="main-panel" layout="vertical" flex>
       <md-toolbar ng-class="{'md-toolbar-white': isApply, 'md-whiteframe-z1': isApply}" style="background-color: #C55C5E">
         <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
-          <span style="cursor: pointer; font-weight: 700;" ng-click="mainContext()">EXPRESSWAY</span>
-          <div layout="horizontal" layout-align="space-between">
-          </div>
+          <span><span style="font-weight: 700; cursor: pointer" ng-click="mainContext()">EXPRESSWAY</span><span style="cursor: pointer;" ng-click="routeMe(selecedProgramRoute)">{{ selectedProgram }}</span> <span>{{ selectedForm}}</span></span>
         </div>      
       </md-toolbar>
       <md-content style="background: none;" layout="vertical" flex>

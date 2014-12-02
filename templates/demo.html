@@ -1,36 +1,19 @@
 <section class="demo-section animated fadeInUp" layout="vertical" flex layout-align="space-between">
   <div class="form-filling" layout="horizontal" flex>
-    <div class="left-space" flex="20">
-    </div>
-    <md-card class="main" flex>
+    <div class="main" flex>
       <md-tabs selected="formTabIndex">
-        <md-tab label="Welcome">
-          <md-toolbar class="md-tall md-whiteframe-z1" layout="vertical" layout-align="space-between">
-            <div layout="vertical" flex layout-align="center center">
-              <h1>Welcome</h1>
-            </div>
-            <div class="form-nav" layout="horizontal" layout-align="end">
-              <md-button ng-click="nextPage()">Next</md-button>
-            </div>
-          </md-toolbar>
-          <md-content layout="vertical" layout-align="space-between" flex>
-            <h3>Welcome</h3>
-            <p>You can start filling in your information.</p>
-            <p> Let's Begin!</p>
-            </md-content>
-        </md-tab>
         <md-tab label="Personal Details">
-          <md-toolbar class="md-tall md-whiteframe-z1" layout="vertical" layout-align="space-between">
-            <div layout="vertical" flex layout-align="center center">
-              <h1>Personal Details</h1>
-            </div>
-            <div class="form-nav" layout="horizontal" layout-align="space-between">
-              <md-button ng-click="previousPage()">Back</md-button>
-              <md-button ng-click="nextPage()">Next</md-button>
-            </div>
-          </md-toolbar>
-          <md-content layout="vertical" layout-align="space-between" flex>
-            <div layout="vertical" layout-align="space-between">
+          <md-content class="document-container md-whiteframe-z1" layout="horizontal" layout-align="center center" flex>
+            <div layout="vertical" flex="50">
+              <md-toolbar class="md-toolbar-whiter" layout="vertical" layout-align="space-between">
+                <div layout="horizontal" flex layout-align="space-between center">
+                  <md-button ng-click="previousPage()">Back</md-button>
+                  <h1>Personal Details</h1>
+                  <md-button ng-click="nextPage()">Next</md-button>
+                </div>
+              </md-toolbar>            
+              <md-divider></md-divider>
+              <div class="document">
               <label for="">What is your name?</label>
               <div layout="horizontal">
                 <md-text-float label="First Name" ng-model="personalResponses.firstName"></md-text-float>
@@ -83,6 +66,7 @@
                 <md-radio-button value="both">Both</md-radio-button>
               </md-radio-group>
               <br>
+            </div>
             </div>
           </md-content>
         </md-tab>
@@ -349,10 +333,6 @@
               </div>
             </div>
           </md-content>
-        </md-tab>               
-      </md-tabs>
-    </md-card>
-    <div class="right-space" flex="20" layout="vertical" layout-align="center">
     </div>
   </div>
 </section>
