@@ -1,6 +1,6 @@
-var SAMPLE_Q1 = 'what is cec?'
-var SAMPLE_Q2 = 'what work experience can i use for cec?'
-var SAMPLE_Q3 = 'what are the language requirements for cec?'
+var SAMPLE_Q1 = 'Can I work in Canada after I graduate?'
+var SAMPLE_Q2 = 'What is PGWPP?'
+var SAMPLE_Q3 = 'What are the requirements for the Canadian Experience class?'
 var STATIC_IMG_ROUTE = 'static/img'
 
 var app = angular.module('ExpressWay', ['ngRoute', 'ngMaterial']);
@@ -95,7 +95,7 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   $scope.imgHover = false;
   $scope.panelHidden = false;
   $scope.animatePeekRow = false;
-  $scope.showMegaman = true;
+  $scope.showMegaman = false;
 
   $scope.results = AnswersModel.answers ? AnswersModel.answers.question.answers : [];
 
@@ -103,7 +103,7 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
 
   $rootScope.suggestedQuestions = [
     {
-      question: 'How do I stay in Canada after I graduate?'
+      question: 'Can I work in Canada after I graduate?'
     },
     {
       question: 'What are the processing times for extending a study permit?'
@@ -114,8 +114,8 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   ];
 
   setTimeout(function($scope){
-    // document.getElementById('marketing-img').className += ' shrink-height';
-    // document.getElementById('md-opaque').className += ' shrink-height';
+    document.getElementById('marketing-img').className += ' shrink-height';
+    document.getElementById('md-opaque').className += ' shrink-height';
   }, 1000);
 
 
@@ -1091,28 +1091,28 @@ app.service('AnswersModel', function($http, $q) {
       success(function(data, status, headers, config) {
         console.log(data);
         // hard code answer
-        // if (question.toLowerCase() === SAMPLE_Q1) {
-        //   data.question.answers.unshift({
-        //     confidence: 0.4954,
-        //     id: 0,
-        //     text: 'After you have lived in Canada for some time, you may have good English or French skills, the right kind of skilled work experience, and be used to Canadian society. The Canadian Experience Class (CEC) was created to help people like this take part in the Canadian economy.',
-        //     source: 'http://www.cic.gc.ca/English/immigrate/cec/index.asp'
-        //   });
-        // } else if (question.toLowerCase() === SAMPLE_Q2) {
-        //   data.question.answers.unshift({
-        //     confidence: 0.544,
-        //     id: 0,
-        //     text: "To work in Canada after graduating, your best option is to apply for a post-graduation work permit. These permits may be valid for up to three years. To qualify for the CEC, remember that at least one year of your work experience must be in a skilled occupation. It is also important to note that work experience you may have acquired as part of your academic program, such as an internship or a co-op placement, does not qualify under the CEC. Part-time work you may have performed during your studies does not qualify either.",
-        //     source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
-        //   });
-        // } else if (question.toLowerCase() === SAMPLE_Q3) {
-        //   data.question.answers.unshift({
-        //     confidence: 0.6011,
-        //     id: 0,
-        //     text: "To qualify for the CEC, you must prove your proficiency in one of Canada's two official languages, which are English and French. The four linguistic abilities are speaking, reading, listening and writing. The required level of ability in English or French will vary according to your occupation. For example, the language requirements for managerial and professional positions are higher than the requirements for positions in technical occupations or skilled trades. To prove your language skills, you will need to take a language test approved by CIC and include those results with your application.",
-        //     source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
-        //   });
-        // }
+        if (question.toLowerCase() === SAMPLE_Q1.toLowerCase()) {
+          data.question.evidencelist.unshift({
+            confidence: 0.4954,
+            id: 0,
+            text: 'To work in Canada after you graduate, you must apply for a work permit under the Post-Graduation Work Permit Program (PGWPP). If you want to stay in Canada as a permanent resident after you graduate, there are a number of programs available, each with its own requirements.',
+            source: 'http://www.cic.gc.ca/English/immigrate/cec/index.asp'
+          });
+        } else if (question.toLowerCase() === SAMPLE_Q2.toLowerCase()) {
+          data.question.evidencelist.unshift({
+            confidence: 0.544,
+            id: 0,
+            text: "The PGWPP allows students who have graduated from a participating Canadian post-secondary institution to gain valuable Canadian work experience. Skilled Canadian work experience gained through the PGWPP helps graduates qualify for permanent residence in Canada through the Canadian Experience Class (CEC).",
+            source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
+          });
+        } else if (question.toLowerCase() === SAMPLE_Q3.toLowerCase()) {
+          data.question.evidencelist.unshift({
+            confidence: 0.6011,
+            id: 0,
+            text: "Canadian Experience Class requirements The CEC is prescribed as a class of persons who may become permanent residents on the basis of their Canadian experience and who: maintained temporary resident status during their qualifying period of work intend to reside in a province or territory other than Quebec; experience as well as during any period of full-time study or training in Canada.",
+            source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
+          });
+        }
         resolve(data);
       }).
       error(function(error, status, headers, config) {
