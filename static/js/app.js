@@ -29,7 +29,9 @@ app.controller('MainController', function($scope, $location, $rootScope, $window
     $scope.panelHidden = true;
   }
 
-  $scope.email = "";
+  $scope.email = '';
+  $scope.inputError = false;
+  $scope.emailSubmitted = false;
 
   var ref = new Firebase("https://expressway.firebaseio.com/");
   var sync = $firebase(ref);
@@ -37,9 +39,19 @@ app.controller('MainController', function($scope, $location, $rootScope, $window
   $scope.sendEmail = function() {
     console.log($scope.email);
     if(validateEmail($scope.email)){
+      $scope.inputError = false;
+      $scope.emailSubmitted = true;
       sync.$push({emails: $scope.email});
+    } else {
+      $scope.inputError = true;
+      $scope.email = '';
     }
   }
+
+  function validateEmail(email) { 
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }  
 
 });
 
@@ -51,7 +63,3 @@ app.directive('homepagePanel', function() {
   }
 });
 
-function validateEmail(email) { 
-  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(email);
-}

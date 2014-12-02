@@ -7,14 +7,17 @@
       <strong>Our goal is to help you immigrate to Canada in a fast and affordable way.</strong>
     </div>
   </div>
-  <div class="email-input" style="z-index: 6; margin-bottom: 50px;" layout="vertical" layout-align="center">
+  <div ng-show="!emailSubmitted" class="email-input" style="z-index: 6; margin-bottom: 50px;" layout="vertical" layout-align="center">
     <div layout="horizontal" layout-align="center">
       <p>Leave us your email and we'll let you know as soon as we're ready!</p>
     </div>
-    <div layout="horizontal" layout-align="center center">
-      <input type="email" ng-model="email" placeholder="john@gmail.com"> 
-      <md-button class="md-btn-green" ng-click="sendEmail()">Subscribe</md-button>
-    </div>
+    <form ng-submit="sendEmail()" layout="horizontal" layout-align="center center">
+      <input ng-class="{'input-error': inputError}" type="email" ng-model="email" placeholder="john@gmail.com"> 
+      <md-button class="md-btn-green">Subscribe</md-button>
+    </form>
+  </div>
+  <div style="z-index: 6; margin-bottom: 50px; text-align: center;" ng-show="emailSubmitted" layout="vertical" layout-align="center">
+    <h2>Thank you! We will be in touch.</h2>
   </div>
   <div id="peek-row" layout="vertical" layout-align="end">
     <div style="background-color: transparent; color: #fff; padding-bottom: 10px;" layout="horizontal" layout-align="center center">

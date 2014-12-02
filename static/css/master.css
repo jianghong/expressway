@@ -119,3 +119,7 @@ homepage-panel strong {
   color: #fff;
   padding: 4px;
 }
+
+.input-error {
+  border: 1px #FE0002 solid !important;
+}
