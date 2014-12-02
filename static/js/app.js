@@ -86,7 +86,7 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
 
   $scope.isSearchContext = false;
   $scope.leftControlIconSrc = hamburgerIconSrc;
-  $scope.leftControlTitle = 'ExpressWay';
+  $scope.leftControlTitle = 'EXPRESSWAY';
   $scope.searchIconSrc = searchIconWSrc;
   $rootScope.isLoading = false;
   $rootScope.inputIsFocused = false;
@@ -113,8 +113,8 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   ];
 
   setTimeout(function($scope){
-    document.getElementById('marketing-img').className += ' shrink-height';
-    document.getElementById('md-opaque').className += ' shrink-height';
+    // document.getElementById('marketing-img').className += ' shrink-height';
+    // document.getElementById('md-opaque').className += ' shrink-height';
   }, 1000);
 
 

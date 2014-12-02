@@ -192,7 +192,7 @@ md-toolbar, .round-button, .search-input input, .icon-container {
 }
 
 .md-opaque {
-  background-color: rgba(0, 124, 124, 0.3) !important;
+  background-color: rgba(0, 0, 0, 0.4);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -382,6 +382,7 @@ footer a, footer a:active, footer a:hover, footer a:visited {
 }
 
 watson-panel {
+  color: #000;
   z-index: 10;
   background-color: #fff;
 }
@@ -573,7 +574,7 @@ watson-panel .topbar .stuff {
   margin-bottom: 50px;
 }
 
-.section-banner md-button.start-app {
+.section-banner md-button.start-app, .try-me-btn {
   background-color: #53A93F !important;
   fill: #53A93F !important;
   font-size: 1.2em;
@@ -597,10 +598,13 @@ watson-panel .topbar .stuff {
 }
 
 #homepage-megaman {
+  color: #fff;
   padding-bottom: 100px;
+  background-color: #C55C5E;
 }
 
 #peek-row {
+  
 }
 
 .translate-up {
@@ -608,7 +612,7 @@ watson-panel .topbar .stuff {
 }
 
 .shrink-height {
-  bottom: 43px;
+  bottom: 3vw;
 }
 
 .translate-up-2 {

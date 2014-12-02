@@ -1,6 +1,18 @@
 <section id="homepage-megaman" layout="vertical" layout-align="center center" flex>
   <div layout="vertical" style="width:50%;" flex>
-    <h1 style="text-align: center;">Your question will lead you to the correct program. <br> Or find your own <strong ng-click="applyContext()" style="cursor: pointer; text-decoration: underline; color:rgb(41, 182, 246);">way</strong>.</h1>
+    <md-card id="ibm-panel" layout="vertical" flex layout-align="center center">
+      <div class="ibm-logo-container" layout="vertical" layout-align="center center">
+        <img src="../static/img/ibm-watson-2.png" alt="">
+      </div>
+      <div class="ibm-content" layout="vertical" style="text-align: center; color: #000;" layout-align="center center">
+        <h1 style="margin-bottom: 0;">EXPRESSWAY is powered by IBM Watson.</h1>
+        <h2>We can match you with an appropriate immigration program. <br> Try asking me anything.</h2>
+      </div>
+      <div class="ibm-start-container" layout="vertical" layout-align="center center">
+        <md-button class="try-me-btn">Try Me</md-button>
+      </div>
+    </md-card>
+    
     <watson-panel layout="vertical" flex class="md-whiteframe-z1"></watson-panel>
   </div>
 </section>
