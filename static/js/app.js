@@ -126,16 +126,8 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   }
 
   $scope.mainContext = function() {
-    if ($scope.isApply && $scope.isSearchContext) {
-      $scope.switchContext('/apply');
-    } else if ($scope.isApply && !$scope.isSearchContext) {
-      $scope.switchContext('/');
-      $location.path('/');
-    } else if (!$scope.isApply && $scope.isSearchContext) {
-      $scope.switchContext('/');
-    } else {
-      $location.path('/');
-    }
+    $scope.panelHidden = false;
+    $location.path('/');
   }
 
   $scope.resultsContext = function() {
@@ -198,7 +190,6 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
       $rootScope.selectedProgram = '';
       $rootScope.selectedForm = '';
     } else if (context === '/') {
-      $scope.panelHidden = false;
       $scope.isApply = false;
       $scope.isSearchContext = false;
       $scope.leftControlTitle = 'ExpressWay';
