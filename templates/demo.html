@@ -1,4 +1,4 @@
-<section class="demo-section animated fadeInUp" layout="vertical" flex layout-align="space-between">
+<section class="demo-section animated fadeIn" layout="vertical" flex layout-align="space-between">
   <div class="form-filling" layout="horizontal" flex>
     <div class="main" flex>
       <md-tabs selected="formTabIndex">
@@ -71,18 +71,17 @@
           </md-content>
         </md-tab>
         <md-tab label="More Details">
-          <md-toolbar class="md-tall md-whiteframe-z1" layout="vertical" layout-align="space-between">
-            <div layout="vertical" flex layout-align="center center">
-              <h1>More Details</h1>
-            </div>
-            <div class="form-nav" layout="horizontal" layout-align="space-between">
-              <md-button ng-click="previousPage()">Back</md-button>
-              <md-button ng-click="nextPage()">Next</md-button>
-            </div>
-          </md-toolbar>
-          <md-content layout="vertical" layout-align="space-between" flex>
-            <div layout="vertical" layout-align="space-between">
-
+          <md-content class="document-container md-whiteframe-z1" layout="horizontal" layout-align="center center" flex>
+            <div layout="vertical" flex="50">
+              <md-toolbar class="md-toolbar-whiter" layout="vertical" layout-align="space-between">
+                <div layout="horizontal" flex layout-align="space-between center">
+                  <md-button ng-click="previousPage()">Back</md-button>
+                  <h1>More Details</h1>
+                  <md-button ng-click="nextPage()">Next</md-button>
+                </div>
+              </md-toolbar>            
+              <md-divider></md-divider>
+              <div class="document">
               <label for="">Are you married?</label>
               <md-radio-group ng-model="personalResponses.maritalStatus" layout="horizontal">
                 <md-radio-button value="married">Married</md-radio-button>
@@ -136,20 +135,21 @@
               </div>
               <br>
             </div>
+            </div>
           </md-content>
         </md-tab>
          <md-tab label="Residence">
-          <md-toolbar class="md-tall md-whiteframe-z1" layout="vertical" layout-align="space-between">
-            <div layout="vertical" flex layout-align="center center">
-              <h1>Residence</h1>
-            </div>
-            <div class="form-nav" layout="horizontal" layout-align="space-between">
-              <md-button ng-click="previousPage()">Back</md-button>
-              <md-button ng-click="nextPage()">Next</md-button>
-            </div>
-          </md-toolbar>
-          <md-content layout="vertical" layout-align="space-between" flex>
-            <div layout="vertical" layout-align="space-between">
+          <md-content class="document-container md-whiteframe-z1" layout="horizontal" layout-align="center center" flex>
+            <div layout="vertical" flex="50">
+              <md-toolbar class="md-toolbar-whiter" layout="vertical" layout-align="space-between">
+                <div layout="horizontal" flex layout-align="space-between center">
+                  <md-button ng-click="previousPage()">Back</md-button>
+                  <h1>Residence</h1>
+                  <md-button ng-click="nextPage()">Next</md-button>
+                </div>
+              </md-toolbar>            
+              <md-divider></md-divider>
+              <div class="document">
               <label for="">Where do you currently live? and what is your status there?</label>
               <div layout="horizontal">
                 <md-text-float label="Country" ng-model="personalResponses.residenceCountry"></md-text-float>
@@ -179,20 +179,21 @@
               </div>
               <br>
             </div>
+            </div>
           </md-content>
         </md-tab>
         <md-tab label="Contact Information">
-          <md-toolbar class="md-tall md-whiteframe-z1" layout="vertical" layout-align="space-between">
-            <div layout="vertical" flex layout-align="center center">
-              <h1>Contact Information</h1>
-            </div>
-            <div class="form-nav" layout="horizontal" layout-align="space-between">
-              <md-button ng-click="previousPage()">Back</md-button>
-              <md-button ng-click="nextPage()">Next</md-button>
-            </div>
-          </md-toolbar>
-          <md-content layout="vertical" layout-align="space-between" flex>
-            <div layout="vertical" layout-align="space-between">
+          <md-content class="document-container md-whiteframe-z1" layout="horizontal" layout-align="center center" flex>
+            <div layout="vertical" flex="50">
+              <md-toolbar class="md-toolbar-whiter" layout="vertical" layout-align="space-between">
+                <div layout="horizontal" flex layout-align="space-between center">
+                  <md-button ng-click="previousPage()">Back</md-button>
+                  <h1>Contact Information</h1>
+                  <md-button ng-click="nextPage()">Next</md-button>
+                </div>
+              </md-toolbar>            
+              <md-divider></md-divider>
+              <div class="document">
               <label for="">What is your mailing address?</label>
               <div layout="horizontal">
                 <md-text-float label="Unit" ng-model="personalResponses.addressUnit"></md-text-float>
@@ -225,20 +226,21 @@
               </div>
               <br>
             </div>
+            </div>
           </md-content>
         </md-tab>
         <md-tab label="Documentations">
-          <md-toolbar class="md-tall md-whiteframe-z1" layout="vertical" layout-align="space-between">
-            <div layout="vertical" flex layout-align="center center">
-              <h1>Documentation</h1>
-            </div>
-            <div class="form-nav" layout="horizontal" layout-align="space-between">
-              <md-button ng-click="previousPage()">Back</md-button>
-              <md-button ng-click="nextPage()">Next</md-button>
-            </div>
-          </md-toolbar>
-          <md-content layout="vertical" layout-align="space-between" flex>
-            <div layout="vertical" layout-align="space-between">
+          <md-content class="document-container md-whiteframe-z1" layout="horizontal" layout-align="center center" flex>
+            <div layout="vertical" flex="50">
+              <md-toolbar class="md-toolbar-whiter" layout="vertical" layout-align="space-between">
+                <div layout="horizontal" flex layout-align="space-between center">
+                  <md-button ng-click="previousPage()">Back</md-button>
+                  <h1>Documentation</h1>
+                  <md-button ng-click="nextPage()">Next</md-button>
+                </div>
+              </md-toolbar>            
+              <md-divider></md-divider>
+              <div class="document">
               <label for="">Do you have a valid passport/travel document?</label>
               <md-radio-group ng-model="personalResponses.hasPassport" layout="horizontal">
                 <md-radio-button value="yes">Yes</md-radio-button>
@@ -262,6 +264,7 @@
                 <md-radio-button value="no">No</md-radio-button>
               </md-radio-group>
               <br>
+            </div>
             </div>
           </md-content>
         </md-tab>
