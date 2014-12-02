@@ -102,3 +102,18 @@ homepage-panel strong {
 .shrink-height {
   bottom: 3vw;
 }
+
+.email-input input {
+  border: none;
+  width: 30%;
+  height: 40px;
+  font-size: 20px;
+  padding: 0 5px;
+}
+
+.md-btn-green, .md-btn-green:hover, .md-btn-green:focus, .md-btn-green:active {
+  margin-left: 15px;
+  background-color: #53A93F !important;
+  fill: #53A93F;
+  color: #fff;
+}
