@@ -16,7 +16,6 @@ app.config(['$routeProvider',
 
 
 app.controller('MainController', function($scope, $location, $rootScope, $window, $mdDialog) {
-
   $scope.panelHidden = false;
   $scope.animatePeekRow = false;
 
