@@ -1,18 +1,18 @@
 <section id="homepage-megaman" layout="vertical" layout-align="center center" flex>
   <div layout="vertical" style="width:50%;" flex>
-    <md-card id="ibm-panel" layout="vertical" flex layout-align="center center">
+    <md-card ng-show="!showMegaman" id="ibm-panel" layout="vertical" flex layout-align="center center">
       <div class="ibm-logo-container" layout="vertical" layout-align="center center">
         <img src="../static/img/ibm-watson-2.png" alt="">
       </div>
       <div class="ibm-content" layout="vertical" style="text-align: center; color: #000;" layout-align="center center">
         <h1 style="margin-bottom: 0;">EXPRESSWAY is powered by IBM Watson.</h1>
-        <h2>We can match you with an appropriate immigration program. <br> Try asking me anything.</h2>
+        <h2>Ask questions and we will match you with an appropriate immigration program. </h2>
       </div>
       <div class="ibm-start-container" layout="vertical" layout-align="center center">
-        <md-button class="try-me-btn">Try Me</md-button>
+        <md-button ng-click="showMegaman = true;" class="try-me-btn">Try it</md-button>
       </div>
     </md-card>
-    
-    <watson-panel layout="vertical" flex class="md-whiteframe-z1"></watson-panel>
+
+    <watson-panel ng-show="showMegaman" layout="vertical" flex class="md-whiteframe-z1"></watson-panel>
   </div>
 </section>

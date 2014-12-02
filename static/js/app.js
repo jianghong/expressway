@@ -95,6 +95,7 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   $scope.imgHover = false;
   $scope.panelHidden = false;
   $scope.animatePeekRow = false;
+  $scope.showMegaman = false;
 
   $scope.results = AnswersModel.answers ? AnswersModel.answers.question.answers : [];
 
@@ -113,8 +114,8 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   ];
 
   setTimeout(function($scope){
-    // document.getElementById('marketing-img').className += ' shrink-height';
-    // document.getElementById('md-opaque').className += ' shrink-height';
+    document.getElementById('marketing-img').className += ' shrink-height';
+    document.getElementById('md-opaque').className += ' shrink-height';
   }, 1000);
 
 
