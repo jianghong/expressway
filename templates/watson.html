@@ -26,7 +26,6 @@
             <div class="back" ng-click="backToSuggestions()">
               <i class="fa fa-chevron-left"></i> Suggestions
             </div>
-            <md-button ng-href="http://www.cic.gc.ca/english/index.asp" target="_blank" style="font-size: 21px;"><i class="fa fa-external-link"></i></md-button>
           </div>
         </md-toolbar>
         <div class="answer-text animated fadeIn">
@@ -46,10 +45,9 @@
     </md-tabs>
   </div>
   <div class="ask-watson" layout="vertical" layout-align="end">
-    <div ng-click="routeMeRecommended()" class="recommendation-row" ng-show="showRecommendation" layout="horizontal" layout-align="center center">
-      <strong>
-        Apply to {{recommendedProgram}}
-      </strong>
+    <div ng-show="theAnswer && tabIndex === 1" class="recommendation-row" layout="horizontal" layout-align="space-between">
+      <md-button class="md-primary" ng-href="http://www.cic.gc.ca/english/index.asp" target="_blank">Open source page</md-button>
+      <md-button class="md-primary" ng-click="routeMeRecommended()" ng-show="showRecommendation">Apply to {{recommendedProgram}}</md-button>
     </div>
     <div class="watson-action md-whiteframe-z1" layout="horizontal">
       <div layout="vertical" layout-align="center" flex>

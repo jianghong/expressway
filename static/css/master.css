@@ -633,10 +633,9 @@ watson-panel .topbar .stuff {
 }
 
 watson-panel .recommendation-row {
-  background-color: #53A93F;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   padding: 15px;
-  cursor: pointer;
 }
 
 .document {
@@ -650,4 +649,8 @@ watson-panel .recommendation-row {
 
 .main {
   background-color: #C55C5E;
+}
+
+.side-watson .recommendation-row md-button{
+  font-size: 50%;
 }
