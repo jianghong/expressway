@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="static/css/master.css">
   </head>
   <body ng-controller="MainController" layout="horizontal">
-    <homepage-panel ng-show="!isApply"></homepage-panel>
+    <!-- <homepage-panel ng-show="!isApply"></homepage-panel> -->
     <div class="main-panel" layout="vertical" flex>
-      <md-toolbar style="background-color: #C55C5E">
+      <md-toolbar ng-class="{'md-toolbar-white': isApply, 'md-whiteframe-z1': isApply}" style="background-color: #C55C5E">
         <div class="md-toolbar-tools md-toolbar-top" layout="horizontal" layout-align="space-between">
           <span style="cursor: pointer; font-weight: 700;" ng-click="mainContext()">EXPRESSWAY</span>
           <div layout="horizontal" layout-align="space-between">
