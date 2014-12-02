@@ -16,7 +16,7 @@
     <div layout="horizontal" layout-align="space-between" flex>
       <h2>Application Package</h2>
       <div layout="vertical" layout-align="center center">
-        <md-button ng-disabled="!canSubmit" class="md-primary md-raised submit-btn">Complete</md-button>
+        <md-button ng-click="checkout($event)" ng-disabled="!canSubmit" class="md-primary md-raised submit-btn">Complete</md-button>
       </div>
     </div>
     <md-divider></md-divider>
@@ -24,7 +24,7 @@
     <section class="required-rows rows">
       <h3>Required Forms</h3>
       <div layout="horizontal" ng-repeat="formRow in requiredForms" class="path-row">
-        <md-card ng-click="routeMe('/apply/demo')" class="form-card" ng-repeat="form in formRow" layout="vertical" layout-align="space-between" flex="20">
+        <md-card class="form-card" ng-repeat="form in formRow" layout="vertical" layout-align="space-between" flex="20">
           <div class="form-icon" layout="horizontal" layout-align="center center">
             <i class="fa fa-file-text-o"></i>
           </div>
@@ -46,7 +46,7 @@
     <section class="optional-rows rows">
       <h3>Optional Forms</h3>
       <div layout="horizontal" ng-repeat="formRow in optionalForms" class="path-row">
-        <md-card ng-click="routeMe('/apply/demo')" class="form-card" ng-repeat="form in formRow" layout="vertical" layout-align="space-between" flex="20">
+        <md-card class="form-card" ng-repeat="form in formRow" layout="vertical" layout-align="space-between" flex="20">
           <div class="form-icon" layout="horizontal" layout-align="center center">
             <i class="fa fa-file-text-o"></i>
           </div>
@@ -68,7 +68,7 @@
     <section class="supplementary-rows rows">
       <h3>Supplementary</h3>
       <div layout="horizontal" ng-repeat="formRow in supplementary" class="path-row">
-        <md-card ng-click="routeMe('/apply/demo')" class="form-card" ng-repeat="form in formRow" layout="vertical" layout-align="space-between" flex="20">
+        <md-card class="form-card" ng-repeat="form in formRow" layout="vertical" layout-align="space-between" flex="20">
           <div class="form-icon" layout="horizontal" layout-align="center center">
             <i class="fa fa-file-text-o"></i>
           </div>

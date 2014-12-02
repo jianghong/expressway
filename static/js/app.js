@@ -77,7 +77,7 @@ app.controller('BodyController', function($scope) {
 
 });
 
-app.controller('MainController', function($scope, $location, $rootScope, AnswersModel, $window) {
+app.controller('MainController', function($scope, $location, $rootScope, AnswersModel, $window, $mdDialog) {
   var MAIN_THEME_CLASS = 'md-blue-theme';
   var hamburgerIconSrc = 'static/img/hamburger-icon.png';
   var backIconSrc = 'static/img/back-icon.png';
@@ -97,7 +97,7 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   $scope.animatePeekRow = false;
   $scope.showMegaman = false;
   $rootScope.formProgress = 0;
-  $rootScope.canSubmit = false;
+  $rootScope.canSubmit = true;
 
   $scope.results = AnswersModel.answers ? AnswersModel.answers.question.answers : [];
 
@@ -232,6 +232,14 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
       $rootScope.selectedProgram = '';
       $rootScope.selectedForm = '';      
     }
+  }
+
+  $scope.checkout = function(ev) {
+    console.log('summon check out');
+    $mdDialog.show({controller: DialogController,
+      templateUrl: 'templates/overviewdialog.html',
+      targetEvent: ev,
+    });    
   }
 
   $rootScope.switchContext = switchContext;
@@ -833,7 +841,7 @@ app.controller('DemoController', function($scope, $mdDialog, $rootScope) {
   }
 });
 
-function DialogController($scope, $mdDialog) {
+function DialogController($scope, $mdDialog, $location) {
   $scope.hide = function() {
     $mdDialog.hide();
   };
@@ -845,6 +853,11 @@ function DialogController($scope, $mdDialog) {
   $scope.answer = function(answer) {
     $mdDialog.hide(answer);
   };
+
+  $scope.finish = function() {
+    $mdDialog.hide();
+    $location.path('/');
+  }
 }
 
 app.controller('WatsonController', function($scope, AnswersModel, $rootScope, $mdToast, $location) {
