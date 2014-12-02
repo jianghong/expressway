@@ -198,6 +198,7 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
       $rootScope.selectedProgram = '';
       $rootScope.selectedForm = '';
     } else if (context === '/') {
+      $scope.panelHidden = false;
       $scope.isApply = false;
       $scope.isSearchContext = false;
       $scope.leftControlTitle = 'ExpressWay';
