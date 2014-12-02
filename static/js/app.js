@@ -114,8 +114,8 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   ];
 
   setTimeout(function($scope){
-    // document.getElementById('marketing-img').className += ' shrink-height';
-    // document.getElementById('md-opaque').className += ' shrink-height';
+    document.getElementById('marketing-img').className += ' shrink-height';
+    document.getElementById('md-opaque').className += ' shrink-height';
   }, 1000);
 
 
