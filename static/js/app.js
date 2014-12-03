@@ -100,7 +100,7 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   $scope.animatePeekRow = false;
   $scope.showMegaman = false;
   $rootScope.formProgress = 0;
-  $rootScope.canSubmit = true;;
+  $rootScope.canSubmit = false;
 
   $scope.results = AnswersModel.answers ? AnswersModel.answers.question.answers : [];
 
@@ -334,7 +334,7 @@ app.controller('InsideController', function($scope, $location, $rootScope) {
   ];
 });
 
-app.controller('OutsideController', function($scope, $location) {
+app.controller('OutsideController', function($scope, $location, $rootScope) {
   $scope.sectionTitle = 'Apply from outside Canada.';
   $scope.bannerColor = '#79C2AF';
   $scope.bannerIconSrc = STATIC_IMG_ROUTE + '/outsidecanada.png';
