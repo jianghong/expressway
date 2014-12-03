@@ -2,6 +2,8 @@ var SAMPLE_Q1 = 'Can I work in Canada after I graduate?';
 var SAMPLE_Q2 = 'What is PGWPP?';
 var SAMPLE_Q3 = 'What are the requirements for the Canadian Experience class?';
 var SAMPLE_Q4 = 'What is a sample scenario of someone who qualifies under CEC?';
+var SAMPLE_Q5 = 'What is CEC?';
+var SAMPLE_Q6 = 'What is the CEC?';
 var STATIC_IMG_ROUTE = 'static/img';
 
 var app = angular.module('ExpressWay', ['ngRoute', 'ngMaterial']);
@@ -1170,6 +1172,13 @@ app.service('AnswersModel', function($http, $q) {
             text: "Maria earned a two-year diploma in Hotel and Restaurant Management from Assiniboine Community College. She then obtained a Post-Graduation Work Permit and worked as a guest services agent (NOC C) at a hotel in Whistler. Within a year she was promoted to guest services manager (NOC 0) and has been in that position for 1 year.",
             source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
           });          
+        } else if (question.toLowerCase() === SAMPLE_Q5.toLowerCase() || question.toLowerCase() === SAMPLE_Q6.toLowerCase()) {
+          data.question.evidencelist.unshift({
+            confidence: 0.6011,
+            id: 0,
+            text: "The CEC is prescribed as a class of persons who may become permanent residents on the basis of their Canadian experience and who: maintained temporary resident status during their qualifying period of work intend to reside in a province or territory other than Quebec; experience as well as during any period of full-time study or training in Canada. Note: Work experience accumulated in Canada without valid temporary resident status does not qualify as Canadian work experience (i.e. foreign nationals such as refugee claimants in Canada and undocumented workers).",
+            source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
+          });           
         }
         resolve(data);
       }).
