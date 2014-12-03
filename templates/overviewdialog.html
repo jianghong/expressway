@@ -1,4 +1,4 @@
-<md-dialog>
+<md-dialog class="checkout-dialog">
   <md-content>
     <div style="text-align: center;" class="checkout-header" layout="vertical" layout-align="center center">
       <h1>Application Complete</h1>
@@ -6,9 +6,11 @@
       <h2>Thank you for using EXPRESSWAY.</h2>
     </div>
   </md-content>
-  <div class="md-actions" style="padding-top: 0" layout="horizontal">
-    <span flex></span>
-    <md-button ng-click="finish()">
+  <div class="md-actions" style="padding-top: 0;" layout="horizontal" layout-align="space-between">
+    <a class="md-primary" href="../static/Filled_form.pdf" download>
+      Download Package
+    </a>
+    <md-button class="md-primary" ng-click="finish()">
       Finish
     </md-button>
   </div>

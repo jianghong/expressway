@@ -1,7 +1,8 @@
-var SAMPLE_Q1 = 'Can I work in Canada after I graduate?'
-var SAMPLE_Q2 = 'What is PGWPP?'
-var SAMPLE_Q3 = 'What are the requirements for the Canadian Experience class?'
-var STATIC_IMG_ROUTE = 'static/img'
+var SAMPLE_Q1 = 'Can I work in Canada after I graduate?';
+var SAMPLE_Q2 = 'What is PGWPP?';
+var SAMPLE_Q3 = 'What are the requirements for the Canadian Experience class?';
+var SAMPLE_Q4 = 'What is a sample scenario of someone who qualifies under CEC?';
+var STATIC_IMG_ROUTE = 'static/img';
 
 var app = angular.module('ExpressWay', ['ngRoute', 'ngMaterial']);
 
@@ -97,7 +98,7 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
   $scope.animatePeekRow = false;
   $scope.showMegaman = false;
   $rootScope.formProgress = 0;
-  $rootScope.canSubmit = true;
+  $rootScope.canSubmit = true;;
 
   $scope.results = AnswersModel.answers ? AnswersModel.answers.question.answers : [];
 
@@ -125,7 +126,7 @@ app.controller('MainController', function($scope, $location, $rootScope, Answers
     $window.scrollTo(0, 0)
   }
 
-  $scope.mainContext = function() {
+  $rootScope.mainContext = function() {
     $scope.panelHidden = false;
     $location.path('/');
   }
@@ -239,7 +240,10 @@ app.controller('MarketingController', function($scope, AnswersModel, $rootScope)
     },
     {
       question: 'What do I need to study in Canada?'
-    }
+    },
+    {
+      question: 'What is a sample scenario of someone who qualifies under CEC?'
+    }  
   ]);
 });
 
@@ -857,7 +861,7 @@ app.controller('DemoController', function($scope, $mdDialog, $rootScope) {
   }
 });
 
-function DialogController($scope, $mdDialog, $location) {
+function DialogController($scope, $mdDialog, $location, $rootScope) {
   $scope.hide = function() {
     $mdDialog.hide();
   };
@@ -872,7 +876,7 @@ function DialogController($scope, $mdDialog, $location) {
 
   $scope.finish = function() {
     $mdDialog.hide();
-    $location.path('/');
+    $rootScope.mainContext();
   }
 }
 
@@ -1159,6 +1163,13 @@ app.service('AnswersModel', function($http, $q) {
             text: "Canadian Experience Class requirements The CEC is prescribed as a class of persons who may become permanent residents on the basis of their Canadian experience and who: maintained temporary resident status during their qualifying period of work intend to reside in a province or territory other than Quebec; experience as well as during any period of full-time study or training in Canada.",
             source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
           });
+        } else if (question.toLowerCase() === SAMPLE_Q4.toLowerCase()) {
+          data.question.evidencelist.unshift({
+            confidence: 0.6011,
+            id: 0,
+            text: "Maria earned a two-year diploma in Hotel and Restaurant Management from Assiniboine Community College. She then obtained a Post-Graduation Work Permit and worked as a guest services agent (NOC C) at a hotel in Whistler. Within a year she was promoted to guest services manager (NOC 0) and has been in that position for 1 year.",
+            source: 'http://www.cic.gc.ca/english/resources/publications/cec.asp#requirements'
+          });          
         }
         resolve(data);
       }).

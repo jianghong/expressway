@@ -654,3 +654,8 @@ watson-panel .recommendation-row {
 .side-watson .recommendation-row md-button{
   font-size: 50%;
 }
+
+.checkout-dialog a, .checkout-dialog a:hover, .checkout-dialog a:visited, .checkout-dialog a:focus {
+  color: #29B6F6;
+  text-transform: uppercase; 
+}
